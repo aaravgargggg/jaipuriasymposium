@@ -1,0 +1,59 @@
+:root {
+  /* ── Colors ── */
+  --deep-void: #060810;
+  --midnight-navy: #0B0F1E;
+  --chamber-gold: #C9A84C;
+  --molten-gold: #F0C060;
+  --gold-glow: rgba(201, 168, 76, 0.15);
+  --gold-glow-strong: rgba(201, 168, 76, 0.35);
+  --ivory-white: #F5F0E8;
+  --silver-mist: #9CA3AF;
+  --divider-line: rgba(201, 168, 76, 0.18);
+  --glass-surface: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --navy-card: #0E1525;
+
+  /* ── Typography ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ── Font Sizes ── */
+  --text-hero: clamp(56px, 9vw, 130px);
+  --text-display: clamp(38px, 5.5vw, 76px);
+  --text-title: clamp(28px, 3.5vw, 48px);
+  --text-subtitle: clamp(20px, 2.5vw, 32px);
+  --text-body: 17px;
+  --text-small: 14px;
+  --text-caption: 11px;
+
+  /* ── Spacing ── */
+  --section-padding: clamp(80px, 10vw, 140px);
+  --container-max: 1400px;
+  --container-padding: clamp(20px, 5vw, 80px);
+
+  /* ── Border Radius ── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ── Shadows ── */
+  --shadow-gold: 0 0 40px rgba(201, 168, 76, 0.2);
+  --shadow-gold-strong: 0 0 80px rgba(201, 168, 76, 0.35);
+  --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+  /* ── Transitions ── */
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --duration-fast: 200ms;
+  --duration-base: 350ms;
+  --duration-slow: 600ms;
+
+  /* ── Z-index ── */
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-cursor: 9999;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Jaipuria Symposium 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="src/css/tokens.css" />
+  <link rel="stylesheet" href="src/css/typography.css" />
+  <link rel="stylesheet" href="src/css/animations.css" />
+  <link rel="stylesheet" href="src/css/components.css" />
+  <link rel="stylesheet" href="src/css/dashboard.css" />
+
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
+</head>
+<body>
+
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+
+  <!-- ── Top Nav ── -->
+  <nav id="dash-nav">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-circle"><span>J</span></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-primary">Jaipuria</span>
+        <span class="nav-logo-secondary">Symposium 2026</span>
+      </div>
+    </a>
+    <div class="dash-nav-right">
+      <span class="dash-nav-school" id="nav-school-name">Loading…</span>
+      <button class="btn btn-outline dash-logout-btn" id="logout-btn" style="font-size:12px;padding:8px 20px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Log Out
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Loading state ── -->
+  <div id="dash-loading" class="dash-loading">
+    <div class="dash-loading-spinner"></div>
+    <p>Loading your dashboard…</p>
+  </div>
+
+  <!-- ── Main Dashboard (hidden until loaded) ── -->
+  <main id="dash-main" class="dash-main" style="display:none;">
+    <div class="dash-container">
+
+      <!-- Welcome -->
+      <div class="dash-welcome">
+        <div>
+          <p class="dash-welcome-label">School Dashboard</p>
+          <h1 class="dash-welcome-title" id="welcome-school-name">—</h1>
+          <p class="dash-welcome-city" id="welcome-city">—</p>
+        </div>
+        <div class="dash-event-badge">
+          <span class="mono">7–8 AUG 2026</span>
+          <span>Seth M. R. Jaipuria School, Lucknow</span>
+        </div>
+      </div>
+
+      <!-- ── School Code Card ── -->
+      <div class="dash-code-card" id="code-card">
+        <div class="dash-code-card-left">
+          <div class="dash-code-label">Your School Code</div>
+
+          <!-- PENDING state -->
+          <div id="code-pending" style="display:none;">
+            <div class="dash-code-pending">
+              <div class="pending-pulse"></div>
+              <span>Awaiting confirmation from our team</span>
+            </div>
+            <p class="dash-code-hint">Once our team reviews your registration, your school code will appear here and will also be sent to your email and WhatsApp.</p>
+          </div>
+
+          <!-- CONFIRMED state -->
+          <div id="code-confirmed" style="display:none;">
+            <div class="dash-code-value mono" id="code-display">—</div>
+            <div class="dash-code-confirmed-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Registration Confirmed
+            </div>
+            <p class="dash-code-hint" id="code-sent-at">—</p>
+          </div>
+        </div>
+
+        <div class="dash-code-card-right">
+          <div class="dash-status-badge" id="status-badge">
+            <div class="status-dot"></div>
+            <span id="status-text">Pending</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Grid: Teams + Info ── -->
+      <div class="dash-grid">
+
+        <!-- Teams -->
+        <div class="dash-section">
+          <div class="dash-section-header">
+            <h2 class="dash-section-title">Your Teams</h2>
+            <span class="dash-team-count mono" id="team-count-badge">0 teams</span>
+          </div>
+          <div id="teams-list" class="teams-list">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="dash-sidebar">
+
+          <!-- Registration Details -->
+          <div class="dash-info-card">
+            <div class="dash-info-card-label">Registration Details</div>
+            <div class="dash-info-rows">
+              <div class="dash-info-row">
+                <span class="dash-info-key">School</span>
+                <span class="dash-info-val" id="info-school">—</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">City</span>
+                <span class="dash-info-val" id="info-city">—</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">Teacher In Charge</span>
+                <span class="dash-info-val" id="info-tic">—</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">Contact</span>
+                <span class="dash-info-val" id="info-phone">—</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">Email</span>
+                <span class="dash-info-val" id="info-email">—</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">Escort Teacher</span>
+                <span class="dash-info-val" id="info-escort">—</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">Registered On</span>
+                <span class="dash-info-val mono" id="info-date">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Info -->
+          <div class="dash-info-card">
+            <div class="dash-info-card-label">Event Details</div>
+            <div class="dash-info-rows">
+              <div class="dash-info-row">
+                <span class="dash-info-key">Date</span>
+                <span class="dash-info-val mono">7–8 August 2026</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">Venue</span>
+                <span class="dash-info-val">Seth M. R. Jaipuria School, Lucknow</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">Reporting</span>
+                <span class="dash-info-val mono">09:00 AM, Aug 7</span>
+              </div>
+              <div class="dash-info-row">
+                <span class="dash-info-key">Contact</span>
+                <span class="dash-info-val"><a href="mailto:symposium@jaipuria.edu.in" style="color:var(--chamber-gold);">symposium@jaipuria.edu.in</a></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="src/js/cursor.js"></script>
+  <script type="module" src="src/js/dashboard.js"></script>
+
+</body>
+</html>

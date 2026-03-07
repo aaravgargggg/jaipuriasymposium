@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Jaipuria Symposium 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="src/css/tokens.css" />
+  <link rel="stylesheet" href="src/css/typography.css" />
+  <link rel="stylesheet" href="src/css/animations.css" />
+  <link rel="stylesheet" href="src/css/components.css" />
+  <link rel="stylesheet" href="src/css/auth.css" />
+
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
+</head>
+<body>
+
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+
+  <!-- Background orbs -->
+  <div class="auth-bg">
+    <div class="orb orb-gold" style="width:600px;height:600px;top:-100px;right:-100px;opacity:0.10;"></div>
+    <div class="orb orb-blue" style="width:400px;height:400px;bottom:-100px;left:-100px;opacity:0.08;"></div>
+  </div>
+
+  <!-- Navbar minimal -->
+  <nav id="navbar" class="navbar-auth">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-circle"><span>J</span></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-primary">Jaipuria</span>
+        <span class="nav-logo-secondary">Symposium 2026</span>
+      </div>
+    </a>
+    <a href="register.html" class="btn btn-outline" style="font-size:13px;padding:10px 24px;">Register</a>
+  </nav>
+
+  <!-- Auth Card -->
+  <main class="auth-main">
+    <div class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-card-header">
+        <div class="auth-logo-mark">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h1 class="auth-title">Welcome Back</h1>
+        <p class="auth-subtitle">Log in to your school dashboard</p>
+      </div>
+
+      <!-- Error / Success -->
+      <div class="auth-banner auth-banner-error" id="login-error" style="display:none;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        <span id="login-error-msg">Invalid email or password.</span>
+      </div>
+
+      <div class="auth-banner auth-banner-success" id="login-success" style="display:none;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Login successful. Redirecting…</span>
+      </div>
+
+      <!-- Form -->
+      <form id="login-form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input
+            class="form-input"
+            type="email"
+            id="login-email"
+            placeholder="teacher@school.edu.in"
+            autocomplete="email"
+          />
+          <span class="form-error" id="err-login-email"></span>
+        </div>
+
+        <div class="form-group" style="margin-top:16px;">
+          <label class="form-label" for="login-password">Password</label>
+          <div class="input-wrap">
+            <input
+              class="form-input"
+              type="password"
+              id="login-password"
+              placeholder="Your password"
+              autocomplete="current-password"
+            />
+            <button type="button" class="input-eye" id="toggle-login-pass" aria-label="Show/hide password">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="form-error" id="err-login-password"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-submit-btn" id="login-btn" style="margin-top:28px;">
+          <span id="login-label">Log In</span>
+          <svg id="login-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span id="login-spinner" class="spinner" style="display:none;"></span>
+        </button>
+
+      </form>
+
+      <!-- Footer links -->
+      <div class="auth-card-footer">
+        <p>Don't have an account? <a href="register.html">Register your school →</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module" src="src/js/cursor.js"></script>
+  <script type="module" src="src/js/login.js"></script>
+
+</body>
+</html>

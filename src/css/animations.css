@@ -1,0 +1,91 @@
+/* ════════════════════════════════════════
+   ANIMATIONS & EFFECTS
+════════════════════════════════════════ */
+
+/* ── Custom Cursor ── */
+#cur-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--chamber-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-bounce), height 0.3s var(--ease-bounce);
+}
+
+#cur-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--chamber-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: calc(var(--z-cursor) - 1);
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  transition: width 0.35s var(--ease-bounce),
+              height 0.35s var(--ease-bounce),
+              opacity 0.3s,
+              border-color 0.3s;
+}
+
+#cur-ring.big {
+  width: 64px;
+  height: 64px;
+  opacity: 0.9;
+  border-color: var(--molten-gold);
+}
+
+#cur-ring.clicking {
+  width: 28px;
+  height: 28px;
+}
+
+/* ── Marquee ── */
+.marquee-wrapper { overflow: hidden; }
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: marquee 32s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Scroll line pulse ── */
+@keyframes scrollPulse {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  49%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+/* ── Flip digit ── */
+@keyframes flipDown {
+  0%   { transform: rotateX(0deg); }
+  50%  { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+.flip-digit.flipping {
+  animation: flipDown 0.4s var(--ease-smooth);
+}
+
+/* ── Float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* ── General fadeInUp ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
