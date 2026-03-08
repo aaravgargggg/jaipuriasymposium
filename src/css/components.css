@@ -51,6 +51,18 @@
 
 /* ── Logo ──────────────────────────────────────────── */
 #navbar .nav-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 180px;
+  display: block;
+  object-fit: contain;
+}
   display: flex;
   align-items: center;
   gap: 10px;
@@ -741,10 +753,10 @@ body.fonts-ready .nav-logo-secondary { opacity: 1; }
    RESPONSIVE
 ════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  #navbar .nav-links    { display: none; }
-  #navbar .nav-cta-area { display: none; }
-  #hamburger            { display: flex; }
-  .footer-grid          { grid-template-columns: 1fr 1fr; gap: 40px; }
+  #navbar .nav-links                { display: none; }
+  #navbar .btn-nav-register         { display: none; }
+  #hamburger                        { display: flex; }
+  .footer-grid                      { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 
 @media (max-width: 768px) {
@@ -754,11 +766,4 @@ body.fonts-ready .nav-logo-secondary { opacity: 1; }
 @media (max-width: 640px) {
   .footer-grid   { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; text-align: center; }
-}
-
-.nav-logo-img {
-  height: 38px;
-  width: auto;
-  display: block;
-  object-fit: contain;
 }
