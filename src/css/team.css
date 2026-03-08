@@ -1,0 +1,804 @@
+/* ════════════════════════════════════════
+   TEAM.CSS — Team page
+   Jaipuria Symposium 2026
+════════════════════════════════════════ */
+
+/* ════════════════════════════════════
+   PAGE HERO
+════════════════════════════════════ */
+.team-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.team-hero-orb {
+  position: absolute;
+  width: 640px; height: 640px;
+  top: -120px; right: -80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 68%);
+  filter: blur(80px);
+  pointer-events: none; z-index: 0;
+}
+
+.team-bg-word {
+  position: absolute;
+  bottom: -18px; right: -6px;
+  font-family: var(--font-display);
+  font-size: clamp(120px,22vw,290px);
+  font-weight: 700; font-style: italic;
+  color: rgba(201,168,76,0.03);
+  line-height: 1; pointer-events: none;
+  user-select: none; white-space: nowrap;
+  letter-spacing: -0.03em; z-index: 0;
+}
+
+.breadcrumb {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
+}
+.breadcrumb a,
+.breadcrumb span {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.breadcrumb a        { color: var(--silver-mist); transition: color var(--duration-fast); }
+.breadcrumb a:hover  { color: var(--chamber-gold); }
+.breadcrumb .sep     { color: rgba(201,168,76,0.25); }
+.breadcrumb .current { color: var(--chamber-gold); }
+
+/* ════════════════════════════════════
+   SECTION PREAMBLE
+════════════════════════════════════ */
+.team-preamble {
+  padding: clamp(56px,7vw,96px) var(--container-padding) clamp(32px,4vw,56px);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.team-preamble h2 {
+  font-size: var(--text-display);
+  letter-spacing: -0.02em;
+  margin-top: 16px;
+}
+
+.team-preamble h2 em {
+  font-style: italic;
+  color: var(--chamber-gold);
+}
+
+.team-preamble p {
+  margin-top: 16px;
+  max-width: 500px;
+  font-size: var(--text-small);
+  color: var(--silver-mist);
+  line-height: 1.8;
+}
+
+/* ════════════════════════════════════
+   SPLIT STAGE — base (directors/deputies)
+════════════════════════════════════ */
+.split-stage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 560px;
+  max-height: 860px;
+  display: flex;
+  overflow: hidden;
+  background: #020408;
+}
+
+.split-stage.deputies {
+  height: 72vh;
+  max-height: 680px;
+  min-height: 420px;
+}
+
+/* ── Each half ── */
+.split-half {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.7s cubic-bezier(0.76,0,0.24,1);
+  outline: none;
+}
+
+/* When a sibling is active, shrink this one */
+.split-stage:has(.split-half.active) .split-half:not(.active) {
+  flex: 0.38;
+}
+
+.split-stage:has(.split-half.active) .split-half.active {
+  flex: 1.62;
+}
+
+/* ── Photo layer ── */
+.split-photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.split-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(20%) brightness(0.6);
+  transition:
+    filter 0.7s cubic-bezier(0.76,0,0.24,1),
+    transform 0.9s cubic-bezier(0.76,0,0.24,1);
+  will-change: transform, filter;
+}
+
+.split-half.active .split-photo img {
+  filter: grayscale(0%) brightness(0.78);
+  transform: scale(1.05);
+}
+
+/* Placeholder when no photo */
+.split-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(155deg, #0d1220 0%, #080c17 100%);
+}
+
+.split-initials {
+  font-family: var(--font-display);
+  font-size: clamp(80px,14vw,180px);
+  font-weight: 700; font-style: italic;
+  color: rgba(201,168,76,0.08);
+  line-height: 1; user-select: none;
+  transition: color 0.7s ease;
+}
+
+.split-half.active .split-initials {
+  color: rgba(201,168,76,0.16);
+}
+
+/* ── Gradient overlays ── */
+.split-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+/* Left half: dark on left side so text is legible */
+.split-half.left-half .split-overlay {
+  background:
+    linear-gradient(to right, rgba(2,4,8,0.88) 0%, rgba(2,4,8,0.45) 35%, rgba(2,4,8,0.05) 65%),
+    linear-gradient(to top,   rgba(2,4,8,0.6)  0%, transparent 50%);
+}
+
+/* Right half: dark on right side */
+.split-half.right-half .split-overlay {
+  background:
+    linear-gradient(to left,  rgba(2,4,8,0.88) 0%, rgba(2,4,8,0.45) 35%, rgba(2,4,8,0.05) 65%),
+    linear-gradient(to top,   rgba(2,4,8,0.6)  0%, transparent 50%);
+}
+
+/* On active: soften overlay so image shows */
+.split-half.active .split-overlay {
+  opacity: 0.72;
+}
+
+/* ── Centre seam ── */
+.split-seam {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 5%, rgba(201,168,76,0.35) 30%, rgba(201,168,76,0.35) 70%, transparent 95%);
+  z-index: 10;
+  pointer-events: none;
+  transition: left 0.7s cubic-bezier(0.76,0,0.24,1), opacity 0.4s;
+}
+
+.split-stage:has(.split-half.active) .split-seam {
+  opacity: 0.12;
+}
+
+/* ── Gold active border ── */
+.split-half::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  z-index: 5;
+  pointer-events: none;
+  transition: border-color 0.4s ease;
+}
+
+.split-half.active::after {
+  border-color: rgba(201,168,76,0.28);
+}
+
+/* Bottom gold line */
+.split-half.active .split-gold-line {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.split-gold-line {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--chamber-gold) 50%, transparent 100%);
+  z-index: 6;
+  opacity: 0;
+  transform: scaleX(0.3);
+  transition: opacity 0.5s 0.15s ease, transform 0.5s 0.15s var(--ease-smooth);
+  pointer-events: none;
+}
+
+/* ── Name block — LEFT person ── */
+.split-name {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.split-half.left-half .split-name {
+  left: clamp(28px, 4.5vw, 64px);
+  bottom: clamp(44px, 6vw, 80px);
+  text-align: left;
+}
+
+.split-half.right-half .split-name {
+  right: clamp(28px, 4.5vw, 64px);
+  bottom: clamp(44px, 6vw, 80px);
+  text-align: right;
+}
+
+/* Role tag — always visible, subtle */
+.split-role {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--chamber-gold);
+  opacity: 0.55;
+  margin-bottom: 8px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(6px);
+}
+
+.split-half.active .split-role,
+.split-half:hover .split-role {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Person's name — partially visible always, fully on active */
+.split-fullname {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.8vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: var(--ivory-white);
+  /* Always partially visible */
+  opacity: 0.45;
+  transform: translateY(4px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.split-half.active .split-fullname,
+.split-half:hover .split-fullname {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* School/subtitle — only on active */
+.split-school {
+  font-family: var(--font-ui);
+  font-size: var(--text-small);
+  color: rgba(245,240,232,0.55);
+  margin-top: 7px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s 0.08s ease, transform 0.35s 0.08s ease;
+}
+
+.split-half.active .split-school,
+.split-half:hover .split-school {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Click hint (idle state only) ── */
+.split-hint {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.split-half:hover .split-hint,
+.split-half.active .split-hint,
+.split-stage:has(.split-half.active) .split-hint {
+  opacity: 0;
+}
+
+.hint-circle {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.38);
+  display: flex; align-items: center; justify-content: center;
+  animation: float 3.2s ease-in-out infinite;
+}
+
+.hint-circle svg {
+  width: 17px; height: 17px;
+  stroke: var(--chamber-gold);
+  fill: none; stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+.hint-label {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.5);
+}
+
+/* ════════════════════════════════════
+   SECTION DIVIDER
+════════════════════════════════════ */
+.team-divider-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: clamp(48px,6vw,80px) var(--container-padding);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.tdivider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--divider-line);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.9s var(--ease-smooth);
+}
+
+.tdivider-line.right {
+  transform-origin: right;
+}
+
+.tdivider-line.visible {
+  transform: scaleX(1);
+}
+
+.tdivider-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--chamber-gold);
+  white-space: nowrap;
+  padding: 6px 16px;
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius-pill);
+  background: rgba(201,168,76,0.04);
+}
+
+/* ════════════════════════════════════
+   TECH TEAM — accordion panels
+════════════════════════════════════ */
+.tech-stage {
+  position: relative;
+  width: 100%;
+  height: 78vh;
+  min-height: 480px;
+  max-height: 720px;
+  display: flex;
+  overflow: hidden;
+  background: #020408;
+}
+
+.tech-panel {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.65s cubic-bezier(0.76,0,0.24,1);
+  outline: none;
+  min-width: 0;
+}
+
+/* shrink non-active panels */
+.tech-stage:has(.tech-panel.active) .tech-panel:not(.active) {
+  flex: 0.3;
+}
+
+.tech-stage:has(.tech-panel.active) .tech-panel.active {
+  flex: 2.8;
+}
+
+/* ── Photo ── */
+.tech-photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.tech-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  filter: grayscale(35%) brightness(0.55);
+  transition:
+    filter 0.65s cubic-bezier(0.76,0,0.24,1),
+    transform 0.85s cubic-bezier(0.76,0,0.24,1);
+  will-change: transform, filter;
+}
+
+.tech-panel.active .tech-photo img {
+  filter: grayscale(0%) brightness(0.75);
+  transform: scale(1.06);
+}
+
+.tech-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(155deg, #0a0e1a 0%, #060912 100%);
+}
+
+.tech-initials-bg {
+  font-family: var(--font-display);
+  font-size: clamp(40px,7vw,100px);
+  font-weight: 700; font-style: italic;
+  color: rgba(201,168,76,0.07);
+  line-height: 1; user-select: none;
+  transition: color 0.6s ease;
+  white-space: nowrap;
+}
+
+.tech-panel.active .tech-initials-bg { color: rgba(201,168,76,0.14); }
+
+/* ── Overlay ── */
+.tech-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(2,4,8,0.95) 0%, rgba(2,4,8,0.4) 40%, rgba(2,4,8,0.08) 100%),
+    linear-gradient(to right, rgba(2,4,8,0.5) 0%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.tech-panel.active .tech-overlay {
+  opacity: 0.75;
+}
+
+/* ── Vertical seam between panels ── */
+.tech-seam {
+  position: absolute;
+  top: 10%; bottom: 10%;
+  right: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.18), transparent);
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.tech-stage:has(.tech-panel.active) .tech-seam { opacity: 0.08; }
+
+/* ── Active border ── */
+.tech-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  z-index: 5;
+  pointer-events: none;
+  transition: border-color 0.4s ease;
+}
+
+.tech-panel.active::after { border-color: rgba(201,168,76,0.25); }
+
+/* Bottom gold line */
+.tech-gold-line {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--chamber-gold), transparent);
+  z-index: 6;
+  opacity: 0;
+  transform: scaleX(0.2);
+  transition: opacity 0.45s 0.12s, transform 0.45s 0.12s var(--ease-smooth);
+  pointer-events: none;
+}
+
+.tech-panel.active .tech-gold-line { opacity: 1; transform: scaleX(1); }
+
+/* ── Collapsed label: vertical text ── */
+.tech-label-collapsed {
+  position: absolute;
+  bottom: 32px; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.tech-label-collapsed span {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.45);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  transition: opacity 0.3s;
+}
+
+.tech-panel.active .tech-label-collapsed span,
+.tech-panel:hover .tech-label-collapsed span {
+  opacity: 0;
+}
+
+/* ── Expanded name info ── */
+.tech-name-block {
+  position: absolute;
+  bottom: clamp(28px,4vw,52px);
+  left: clamp(20px,3vw,40px);
+  z-index: 4;
+  pointer-events: none;
+  min-width: 200px;
+}
+
+.tech-role {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--chamber-gold);
+  margin-bottom: 7px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.tech-panel.active .tech-role,
+.tech-panel:hover .tech-role { opacity: 1; transform: translateY(0); }
+
+.tech-name {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ivory-white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s 0.04s ease, transform 0.35s 0.04s ease;
+}
+
+.tech-panel.active .tech-name,
+.tech-panel:hover .tech-name { opacity: 1; transform: translateY(0); }
+
+.tech-sub {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  color: rgba(245,240,232,0.48);
+  margin-top: 5px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s 0.08s ease, transform 0.35s 0.08s ease;
+}
+
+.tech-panel.active .tech-sub,
+.tech-panel:hover .tech-sub { opacity: 1; transform: translateY(0); }
+
+/* ── Index number top-right ── */
+.tech-index {
+  position: absolute;
+  top: 22px; right: 18px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: rgba(201,168,76,0.2);
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.tech-stage:has(.tech-panel.active) .tech-panel:not(.active) .tech-index { opacity: 0; }
+
+/* ════════════════════════════════════
+   FACULTY ADVISORS GRID
+════════════════════════════════════ */
+.advisors-wrap {
+  background: var(--midnight-navy);
+  border-top: 1px solid var(--divider-line);
+  border-bottom: 1px solid var(--divider-line);
+}
+
+.advisors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.advisor-card {
+  background: var(--navy-card);
+  border: 1px solid var(--divider-line);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  text-align: center;
+  cursor: default;
+  transition:
+    border-color var(--duration-base) var(--ease-smooth),
+    transform    var(--duration-base) var(--ease-smooth),
+    box-shadow   var(--duration-base) var(--ease-smooth);
+}
+
+.advisor-card:hover {
+  border-color: var(--chamber-gold);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(201,168,76,0.1);
+}
+
+.advisor-avatar {
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.22);
+  background: var(--glass-surface);
+  margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 700; font-style: italic;
+  color: var(--chamber-gold);
+  overflow: hidden;
+  transition: border-color var(--duration-base), box-shadow var(--duration-base);
+}
+
+.advisor-card:hover .advisor-avatar {
+  border-color: var(--chamber-gold);
+  box-shadow: 0 0 24px rgba(201,168,76,0.18);
+}
+
+.advisor-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.advisor-name {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700;
+  color: var(--ivory-white); margin-bottom: 6px;
+}
+
+.advisor-role {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--chamber-gold); margin-bottom: 10px;
+}
+
+.advisor-dept {
+  font-size: var(--text-small);
+  color: var(--silver-mist);
+}
+
+/* ════════════════════════════════════
+   CTA
+════════════════════════════════════ */
+.team-cta {
+  background: var(--deep-void);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-cta-orb {
+  position: absolute;
+  width: 800px; height: 400px;
+  bottom: -120px; left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 65%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.team-cta-inner {
+  position: relative; z-index: 1;
+  max-width: 640px; margin: 0 auto;
+}
+
+.team-cta-inner h2 {
+  font-size: var(--text-display);
+  letter-spacing: -0.02em;
+  margin: 20px 0;
+}
+
+.team-cta-inner h2 em { font-style: italic; color: var(--chamber-gold); }
+
+.team-cta-inner p {
+  margin-bottom: 44px;
+  font-size: var(--text-body);
+}
+
+.team-cta-inner p strong { color: var(--chamber-gold); font-weight: 500; }
+
+.cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+}
+
+/* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .advisors-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  /* Stack split stages vertically */
+  .split-stage,
+  .split-stage.deputies {
+    height: auto; max-height: none; flex-direction: column;
+  }
+
+  .split-half {
+    flex: none !important;
+    height: 58vw; min-height: 240px;
+  }
+
+  .split-half.left-half .split-overlay,
+  .split-half.right-half .split-overlay {
+    background:
+      linear-gradient(to top, rgba(2,4,8,0.9) 0%, rgba(2,4,8,0.3) 50%, transparent 100%);
+  }
+
+  .split-half.left-half .split-name,
+  .split-half.right-half .split-name {
+    left: 24px; right: auto;
+    text-align: left; bottom: 22px;
+  }
+
+  .split-role, .split-school { opacity: 1; transform: none; }
+  .split-fullname            { opacity: 1; transform: none; }
+  .split-hint                { display: none; }
+  .split-seam                { display: none; }
+
+  /* Stack tech stage */
+  .tech-stage { height: auto; max-height: none; flex-direction: column; }
+  .tech-panel { flex: none !important; height: 44vw; min-height: 200px; }
+  .tech-label-collapsed { display: none; }
+  .tech-role, .tech-name, .tech-sub { opacity: 1; transform: none; }
+
+  .advisors-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+  .team-cta      { text-align: left; }
+  .cta-row       { justify-content: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .split-fullname { font-size: clamp(22px,6vw,32px); }
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .cta-row .btn { justify-content: center; }
+}

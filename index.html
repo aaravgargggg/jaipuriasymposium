@@ -3,533 +3,429 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jaipuria Symposium 2026 — An international multi-format debate event. August 7–8, 2026. Seth M. R. Jaipuria School, Lucknow." />
-  <title>Jaipuria Symposium 2026</title>
-
-  <!-- Fast font loading -->
+  <title>Jaipuria Symposium 2026 — Reason. Reform. Rise.</title>
+  <meta name="description" content="Jaipuria Symposium 2026 — India's premier school Model UN & debate symposium. August 7-8, 2026 at Seth M. R. Jaipuria School, Lucknow." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-  <!-- CSS -->
   <link rel="stylesheet" href="src/css/tokens.css" />
   <link rel="stylesheet" href="src/css/typography.css" />
   <link rel="stylesheet" href="src/css/animations.css" />
   <link rel="stylesheet" href="src/css/components.css" />
   <link rel="stylesheet" href="src/css/home.css" />
-
   <script>
-    // Scroll to top before any render
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
     window.scrollTo(0, 0)
-    // Mark fonts ready for nav logo fade-in
     document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
   </script>
+
+  <style>#navbar .hide-on-home { display: none; } #mobile-menu .hide-on-home { display: none; }</style>
 </head>
 <body>
 
-  <!-- ── Custom Cursor ── -->
-  <div id="cur-dot"></div>
-  <div id="cur-ring"></div>
+  <div id="cur-dot"  aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+  <div class="page-transition-overlay" aria-hidden="true"></div>
 
-  <!-- ════════════════════════════════
-       NAVIGATION
-  ════════════════════════════════ -->
-  <nav id="navbar">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-circle"><span>J</span></div>
-      <div class="nav-logo-text">
-        <span class="nav-logo-primary">Jaipuria</span>
-        <span class="nav-logo-secondary">Symposium 2026</span>
-      </div>
+    <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
+    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li class="hide-on-home"><a href="index.html">Home</a></li>
+    <li><a href="about-school.html">About Our School</a></li>
+    <li><a href="about-symposium.html">About Symposium</a></li>
+    <li><a href="agendas.html">Councils</a></li>
+    <li><a href="guides.html">Documents</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="team.html">Meet Our Team</a></li>
+  </ul>
+
+  <div class="nav-cta-area">
+    <a href="register.html" class="btn-nav-register" id="nav-register-btn">
+      Register Now
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
+    <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="agenda.html">Agenda</a></li>
-      <li><a href="guides.html">BG's</a></li>
-      <li><a href="team.html">Team</a></li>
+  <!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
+  <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <ul class="mobile-nav-links" role="list">
+      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li><a href="about-school.html">About Our School</a></li>
+      <li><a href="about-symposium.html">About Symposium</a></li>
+      <li><a href="agendas.html">Councils</a></li>
+      <li><a href="guides.html">Documents</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-
-    <div class="nav-cta">
-      <a href="register.html" class="btn btn-primary">Register Now</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ── Mobile Menu ── -->
-  <div id="mobile-menu">
-    <ul class="mobile-nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="agenda.html">Agenda</a></li>
-      <li><a href="guides.html">Background Guides</a></li>
-      <li><a href="team.html">Our Team</a></li>
-      <li><a href="school.html">Our School</a></li>
-      <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="team.html">Meet Our Team</a></li>
     </ul>
     <div class="mobile-menu-footer">
-      <a href="register.html">Register →</a>
-      <a href="mailto:symposium@jaipuria.edu.in">Email Us</a>
+      <a href="login.html">Already Registered? Login</a>
+      <a href="register.html">Register Now</a>
     </div>
   </div>
+  </div>
 
-  <!-- ════════════════════════════════
-       HERO
-  ════════════════════════════════ -->
+<!-- HERO -->
   <section id="hero">
     <canvas id="particle-canvas"></canvas>
-    <div class="orb orb-gold" style="width:600px;height:600px;top:-100px;right:-100px;opacity:0.18;"></div>
-    <div class="orb orb-blue" style="width:400px;height:400px;bottom:100px;left:-150px;opacity:0.12;"></div>
     <div id="globe-container"><canvas id="globe-canvas"></canvas></div>
-
+    <div class="orb orb-gold" style="width:700px;height:700px;top:-200px;left:-200px;opacity:0.07;"></div>
+    <div class="orb orb-blue" style="width:500px;height:500px;bottom:-100px;right:20%;opacity:0.05;"></div>
     <div class="hero-content container">
       <div class="hero-text">
-        <span class="label hero-label">International Debate Event · Lucknow, India</span>
+        <span class="hero-label label">Seth M. R. Jaipuria School, Lucknow &nbsp;&middot;&nbsp; 7-8 August 2026</span>
         <h1 class="hero-heading">
           <span class="hero-line-1">Jaipuria</span>
           <span class="hero-line-2">Symposium</span>
         </h1>
-        <p class="hero-tagline"><em>Where Ideas Shape Tomorrow's World</em></p>
-        <span class="hero-date mono">7 – 8 AUGUST 2026</span>
+        <p class="hero-tagline">&ldquo;Reason. Reform. Rise.&rdquo;</p>
+        <span class="hero-date">JS 2026 &nbsp;&middot;&nbsp; LUCKNOW, INDIA</span>
         <div class="hero-actions">
-          <a href="register.html" class="btn btn-primary magnetic">
-            Register Now
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="agenda.html" class="btn btn-outline magnetic">Explore Agenda</a>
+          <a href="register.html" class="btn btn-primary magnetic">Register Your School <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="about-symposium.html" class="btn btn-outline">Explore Symposium</a>
         </div>
       </div>
     </div>
-
     <div class="scroll-indicator">
       <span>Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       STATS MARQUEE
-  ════════════════════════════════ -->
+  <!-- MARQUEE -->
   <div class="stats-strip">
     <div class="marquee-wrapper">
       <div class="marquee-track">
-        <div class="marquee-item"><span class="mono">7–8 AUGUST 2026</span></div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item">Seth M. R. Jaipuria School, Lucknow</div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item"><span class="mono">800+</span> Delegates</div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item"><span class="mono">14</span> Committees</div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item">International Event</div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item">Multi-Format Debate</div>
-        <div class="marquee-sep">✦</div>
-        <!-- Duplicate for seamless loop -->
-        <div class="marquee-item"><span class="mono">7–8 AUGUST 2026</span></div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item">Seth M. R. Jaipuria School, Lucknow</div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item"><span class="mono">800+</span> Delegates</div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item"><span class="mono">14</span> Committees</div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item">International Event</div>
-        <div class="marquee-sep">✦</div>
-        <div class="marquee-item">Multi-Format Debate</div>
-        <div class="marquee-sep">✦</div>
+        <span class="marquee-item"><span class="mono">200+</span> Participants</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item"><span class="mono">4</span> Councils</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item"><span class="mono">Aug 7-8, 2026</span></span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item">Lucknow, India</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item">Classes <span class="mono">9-12</span></span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item">ERT &nbsp;&middot;&nbsp; SHC &nbsp;&middot;&nbsp; TIF &nbsp;&middot;&nbsp; PCC</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item">Reason. Reform. Rise.</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item"><span class="mono">200+</span> Participants</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item"><span class="mono">4</span> Councils</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item"><span class="mono">Aug 7-8, 2026</span></span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item">Lucknow, India</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item">Classes <span class="mono">9-12</span></span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item">ERT &nbsp;&middot;&nbsp; SHC &nbsp;&middot;&nbsp; TIF &nbsp;&middot;&nbsp; PCC</span><span class="marquee-sep">&loz;</span>
+        <span class="marquee-item">Reason. Reform. Rise.</span><span class="marquee-sep">&loz;</span>
       </div>
     </div>
   </div>
 
-  <!-- ════════════════════════════════
-       ABOUT INTRO
-  ════════════════════════════════ -->
+  <!-- ABOUT INTRO -->
   <section class="section about-intro">
     <div class="container">
       <div class="about-intro-grid">
-        <div class="about-intro-left">
-          <span class="label reveal">What We Are</span>
-          <div class="gold-line reveal d1"></div>
-          <blockquote class="about-quote reveal d2">
-            "A crucible of minds.<br>A stage for the world."
-          </blockquote>
+        <div class="about-intro-left reveal">
+          <p class="label">About the Symposium</p>
+          <div class="gold-line" style="margin:20px 0;"></div>
+          <h2 class="about-quote">Where young minds learn to <em>shape the world.</em></h2>
         </div>
         <div class="about-intro-right reveal d2">
-          <p>
-            Jaipuria Symposium is one of India's most prestigious student-run international debate events, bringing together the brightest young minds from across the globe for two days of intense intellectual discourse, diplomatic roleplay, and world-class debate.
-          </p>
-          <p style="margin-top:20px;">
-            Spanning multiple formats — from parliamentary debates to press corps and crisis committees — the Symposium challenges delegates to think critically, communicate powerfully, and lead with conviction. Held at Seth M. R. Jaipuria School, Lucknow, each edition raises the bar for what student-run events can achieve.
-          </p>
-          <a href="about.html" class="btn btn-outline" style="margin-top:36px;">
-            Learn More
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <p style="margin-bottom:24px;">Jaipuria Symposium 2026 is an inter-school Model UN and academic debate event hosted by Seth M. R. Jaipuria School, Lucknow. Designed for students of Classes 9 through 12, the Symposium brings together the sharpest minds from across India to debate, deliberate, and drive change.</p>
+          <p style="margin-bottom:40px;">Over two days, Participants will navigate real-world crises, draft landmark resolutions, and forge connections that last beyond the chambers. This is not just a competition &mdash; it is a crucible.</p>
+          <a href="about-symposium.html" class="btn btn-outline">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       COUNTDOWN
-  ════════════════════════════════ -->
+  <!-- COUNTDOWN -->
   <section class="section countdown-section">
-    <div class="orb orb-gold" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.08;"></div>
+    <div class="orb orb-gold" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.05;pointer-events:none;"></div>
     <div class="container">
-      <span class="label" style="display:block;text-align:center;margin-bottom:8px;">Time Remaining</span>
+      <p class="label text-center reveal">Countdown to Symposium</p>
       <div class="countdown-grid">
-        <div class="countdown-item">
-          <div class="countdown-number flip-digit" id="cd-days">00</div>
-          <div class="countdown-label">Days</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-item">
-          <div class="countdown-number flip-digit" id="cd-hours">00</div>
-          <div class="countdown-label">Hours</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-item">
-          <div class="countdown-number flip-digit" id="cd-minutes">00</div>
-          <div class="countdown-label">Minutes</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-item">
-          <div class="countdown-number flip-digit" id="cd-seconds">00</div>
-          <div class="countdown-label">Seconds</div>
-        </div>
+        <div class="countdown-item reveal d1"><span class="countdown-number" id="cd-days">000</span><span class="countdown-label">Days</span></div>
+        <span class="countdown-sep reveal">:</span>
+        <div class="countdown-item reveal d2"><span class="countdown-number" id="cd-hours">00</span><span class="countdown-label">Hours</span></div>
+        <span class="countdown-sep reveal d2">:</span>
+        <div class="countdown-item reveal d3"><span class="countdown-number" id="cd-mins">00</span><span class="countdown-label">Minutes</span></div>
+        <span class="countdown-sep reveal d3">:</span>
+        <div class="countdown-item reveal d4"><span class="countdown-number" id="cd-secs">00</span><span class="countdown-label">Seconds</span></div>
       </div>
-      <p class="countdown-subtitle">Until Symposium Begins · 7th August 2026, Lucknow</p>
+      <p class="countdown-subtitle reveal d5 mono">7 AUGUST 2026 &nbsp;&middot;&nbsp; REPORTING 7:30 AM &nbsp;&middot;&nbsp; SETH M. R. JAIPURIA SCHOOL, LUCKNOW</p>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       BY THE NUMBERS
-  ════════════════════════════════ -->
+  <!-- STATS -->
   <section class="section stats-section">
     <div class="container">
-      <span class="label reveal" style="display:block;text-align:center;">By The Numbers</span>
-      <h2 class="reveal d1">The Scale of<br><em class="text-gold">Discourse</em></h2>
+      <p class="label text-center reveal">By The Numbers</p>
+      <h2 class="text-center reveal d1" style="margin:16px 0 72px;">The Scale of JS 2026</h2>
       <div class="stats-grid">
-        <div class="stat-card tilt-card reveal"><div class="card-shine"></div><div class="stat-number" data-target="800">0</div><div class="stat-plus">+</div><div class="stat-label">Delegates</div></div>
-        <div class="stat-card tilt-card reveal d1"><div class="card-shine"></div><div class="stat-number" data-target="14">0</div><div class="stat-plus"></div><div class="stat-label">Committees</div></div>
-        <div class="stat-card tilt-card reveal d2"><div class="card-shine"></div><div class="stat-number" data-target="6">0</div><div class="stat-plus">+</div><div class="stat-label">Countries</div></div>
-        <div class="stat-card tilt-card reveal d3"><div class="card-shine"></div><div class="stat-number" data-target="2">0</div><div class="stat-plus"></div><div class="stat-label">Days</div></div>
-        <div class="stat-card tilt-card reveal d4"><div class="card-shine"></div><div class="stat-number" data-target="3">0</div><div class="stat-plus"></div><div class="stat-label">Formats</div></div>
+        <div class="stat-card tilt-card reveal d1"><div class="card-shine"></div><div><span class="stat-number" data-target="40">0</span><span class="stat-plus">+</span></div><div class="stat-label">Schools</div></div>
+        <div class="stat-card tilt-card reveal d2"><div class="card-shine"></div><div><span class="stat-number" data-target="4">0</span></div><div class="stat-label">Councils</div></div>
+        <div class="stat-card tilt-card reveal d3"><div class="card-shine"></div><div><span class="stat-number" data-target="2">0</span></div><div class="stat-label">Days of Debate</div></div>
+        <div class="stat-card tilt-card reveal d4"><div class="card-shine"></div><div><span class="stat-number" data-target="4">0</span></div><div class="stat-label">Classes Eligible</div></div>
+        <div class="stat-card tilt-card reveal d5"><div class="card-shine"></div><div><span class="stat-number" data-target="3">0</span></div><div class="stat-label">Participants per Team</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       COMMITTEES PREVIEW
-  ════════════════════════════════ -->
-  <section class="section committees-section">
+  <!-- Councils -->
+  <section class="section Councils-section">
     <div class="container">
-      <span class="label reveal">Committees</span>
-      <h2 class="reveal d1">Choose Your<br><em class="text-gold">Arena</em></h2>
-      <p class="reveal d2" style="max-width:480px;margin-top:16px;">From crisis simulations to general assemblies, each committee offers a unique lens on the world's most pressing challenges.</p>
+      <p class="label reveal">Our Councils</p>
+      <h2 class="reveal d1">Four Chambers of Change</h2>
+      <p class="reveal d2" style="margin-top:14px;max-width:520px;">Each committee tackles a distinct domain of global affairs. Choose your arena, master your brief, and lead the debate.</p>
     </div>
-
-    <div class="committees-carousel" id="committees-carousel">
-      <div class="committees-track">
+    <div class="Councils-carousel" id="Councils-carousel">
+      <div class="Councils-track">
 
         <div class="committee-card tilt-card">
           <div class="card-shine"></div>
-          <div class="committee-abbr">UNSC</div>
-          <div class="committee-name">United Nations Security Council</div>
-          <div class="committee-type">General Assembly</div>
-          <div class="committee-topics"><div class="topic-tag">Global Security</div><div class="topic-tag">Peacekeeping</div></div>
-          <div class="committee-difficulty diff-advanced">Advanced</div>
-          <a href="guides.html" class="committee-cta">View Guide →</a>
+          <div class="committee-abbr">ERT</div>
+          <div class="committee-name">Economic Round Table</div>
+          <div class="committee-type">International Economics &amp; Trade</div>
+          <div class="committee-topics"><span class="topic-tag">Trade Policy</span><span class="topic-tag">Debt Crisis</span><span class="topic-tag">Climate Finance</span></div>
+          <a href="agendas.html" class="committee-cta">View Theme <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
         <div class="committee-card tilt-card">
           <div class="card-shine"></div>
-          <div class="committee-abbr">WHO</div>
-          <div class="committee-name">World Health Organization</div>
-          <div class="committee-type">Specialised Agency</div>
-          <div class="committee-topics"><div class="topic-tag">Global Health</div><div class="topic-tag">Pandemic Policy</div></div>
-          <div class="committee-difficulty diff-intermediate">Intermediate</div>
-          <a href="guides.html" class="committee-cta">View Guide →</a>
+          <div class="committee-abbr">SHC</div>
+          <div class="committee-name">Social &amp; Humanitarian Council</div>
+          <div class="committee-type">Human Rights &amp; Humanitarian Affairs</div>
+          <div class="committee-topics"><span class="topic-tag">Refugee Crisis</span><span class="topic-tag">Gender Equality</span><span class="topic-tag">Child Rights</span></div>
+          <a href="agendas.html" class="committee-cta">View Theme <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
         <div class="committee-card tilt-card">
           <div class="card-shine"></div>
-          <div class="committee-abbr">UNGA</div>
-          <div class="committee-name">UN General Assembly</div>
-          <div class="committee-type">General Assembly</div>
-          <div class="committee-topics"><div class="topic-tag">Climate Policy</div><div class="topic-tag">Development</div></div>
-          <div class="committee-difficulty diff-beginner">Beginner</div>
-          <a href="guides.html" class="committee-cta">View Guide →</a>
+          <div class="committee-abbr">TIF</div>
+          <div class="committee-name">Tech &amp; Innovation Forum</div>
+          <div class="committee-type">Technology, AI &amp; Digital Governance</div>
+          <div class="committee-topics"><span class="topic-tag">AI Regulation</span><span class="topic-tag">Cybersecurity</span><span class="topic-tag">Digital Rights</span></div>
+          <a href="agendas.html" class="committee-cta">View Theme <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
         <div class="committee-card tilt-card">
           <div class="card-shine"></div>
-          <div class="committee-abbr">CRISIS</div>
-          <div class="committee-name">International Crisis Committee</div>
-          <div class="committee-type">Crisis Committee</div>
-          <div class="committee-topics"><div class="topic-tag">Live Crisis</div><div class="topic-tag">Rapid Response</div></div>
-          <div class="committee-difficulty diff-advanced">Advanced</div>
-          <a href="guides.html" class="committee-cta">View Guide →</a>
-        </div>
-
-        <div class="committee-card tilt-card">
-          <div class="card-shine"></div>
-          <div class="committee-abbr">PRESS</div>
-          <div class="committee-name">International Press Corps</div>
-          <div class="committee-type">Press Corps</div>
-          <div class="committee-topics"><div class="topic-tag">Journalism</div><div class="topic-tag">Media Ethics</div></div>
-          <div class="committee-difficulty diff-intermediate">Intermediate</div>
-          <a href="guides.html" class="committee-cta">View Guide →</a>
-        </div>
-
-        <div class="committee-card tilt-card">
-          <div class="card-shine"></div>
-          <div class="committee-abbr">UNHRC</div>
-          <div class="committee-name">UN Human Rights Council</div>
-          <div class="committee-type">Specialised Council</div>
-          <div class="committee-topics"><div class="topic-tag">Human Rights</div><div class="topic-tag">Accountability</div></div>
-          <div class="committee-difficulty diff-intermediate">Intermediate</div>
-          <a href="guides.html" class="committee-cta">View Guide →</a>
+          <div class="committee-abbr">PCC</div>
+          <div class="committee-name">Political &amp; Cultural Council</div>
+          <div class="committee-type">Geopolitics &amp; Cultural Diplomacy</div>
+          <div class="committee-topics"><span class="topic-tag">Geopolitics</span><span class="topic-tag">Cultural Heritage</span><span class="topic-tag">Soft Power</span></div>
+          <a href="agendas.html" class="committee-cta">View Theme <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
       </div>
     </div>
-
-    <div class="container" style="margin-top:48px;text-align:center;">
-      <a href="agenda.html" class="btn btn-outline reveal">View All Committees <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="container" style="margin-top:36px;">
+      <a href="Councils.html" class="btn btn-outline reveal">All Councils <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       SCHEDULE PREVIEW
-  ════════════════════════════════ -->
+  <!-- SCHEDULE -->
   <section class="section schedule-section">
     <div class="container">
-      <span class="label reveal" style="display:block;text-align:center;">Event Schedule</span>
-      <h2 class="reveal d1">Two Days of<br><em class="text-gold">Intellectual Fire</em></h2>
+      <p class="label text-center reveal">Event Schedule</p>
+      <h2 class="text-center reveal d1">Two Days, One Mission</h2>
+      <div class="schedule-grid" style="margin-top:64px;">
 
-      <div class="schedule-grid reveal d2">
-        <div class="schedule-day">
-          <div class="schedule-day-header">
-            <span class="label">Day One</span>
-            <h3>AUG 07</h3>
-          </div>
+        <div>
+          <div class="schedule-day-header reveal"><span class="label">Day One</span><h3>Aug 07</h3></div>
           <div class="schedule-events">
-            <div class="schedule-event"><span class="event-time">09:00</span><div class="event-details"><div class="event-name">Opening Ceremony</div><div class="event-venue">Main Auditorium</div></div><span class="event-type type-opening">Opening</span></div>
-            <div class="schedule-event"><span class="event-time">11:00</span><div class="event-details"><div class="event-name">Committee Session I</div><div class="event-venue">All Venues</div></div><span class="event-type type-session">Session</span></div>
-            <div class="schedule-event"><span class="event-time">14:00</span><div class="event-details"><div class="event-name">Committee Session II</div><div class="event-venue">All Venues</div></div><span class="event-type type-session">Session</span></div>
-            <div class="schedule-event"><span class="event-time">19:00</span><div class="event-details"><div class="event-name">Delegate Social</div><div class="event-venue">Campus Grounds</div></div><span class="event-type type-social">Social</span></div>
+            <div class="schedule-event reveal"><span class="event-time">09:00</span><div><div class="event-name">Registration &amp; Reporting</div><div class="event-venue">Main Lobby</div></div><span class="event-type type-opening">Opening</span></div>
+            <div class="schedule-event reveal d1"><span class="event-time">10:00</span><div><div class="event-name">Inaugural Ceremony</div><div class="event-venue">Auditorium</div></div><span class="event-type type-opening">Ceremony</span></div>
+            <div class="schedule-event reveal d2"><span class="event-time">11:30</span><div><div class="event-name">Committee Session I</div><div class="event-venue">Respective Chambers</div></div><span class="event-type type-session">Session</span></div>
+            <div class="schedule-event reveal d3"><span class="event-time">13:30</span><div><div class="event-name">Lunch Break</div><div class="event-venue">Dining Hall</div></div><span class="event-type type-social">Break</span></div>
+            <div class="schedule-event reveal d4"><span class="event-time">14:30</span><div><div class="event-name">Committee Session II</div><div class="event-venue">Respective Chambers</div></div><span class="event-type type-session">Session</span></div>
+            <div class="schedule-event reveal d5"><span class="event-time">17:00</span><div><div class="event-name">Crisis Update &amp; Evening Unmod</div><div class="event-venue">Respective Chambers</div></div><span class="event-type type-crisis">Crisis</span></div>
           </div>
         </div>
 
-        <div class="schedule-center-divider">
-          <div class="schedule-center-divider-line"></div>
-        </div>
+        <div class="schedule-center-divider"><div class="schedule-center-divider-line"></div></div>
 
-        <div class="schedule-day">
-          <div class="schedule-day-header">
-            <span class="label">Day Two</span>
-            <h3>AUG 08</h3>
-          </div>
+        <div>
+          <div class="schedule-day-header reveal"><span class="label">Day Two</span><h3>Aug 08</h3></div>
           <div class="schedule-events">
-            <div class="schedule-event"><span class="event-time">09:00</span><div class="event-details"><div class="event-name">Committee Session III</div><div class="event-venue">All Venues</div></div><span class="event-type type-session">Session</span></div>
-            <div class="schedule-event"><span class="event-time">13:00</span><div class="event-details"><div class="event-name">Crisis Simulation</div><div class="event-venue">Crisis Room</div></div><span class="event-type type-crisis">Crisis</span></div>
-            <div class="schedule-event"><span class="event-time">15:00</span><div class="event-details"><div class="event-name">Final Voting & Resolutions</div><div class="event-venue">All Committees</div></div><span class="event-type type-session">Session</span></div>
-            <div class="schedule-event"><span class="event-time">17:30</span><div class="event-details"><div class="event-name">Closing Ceremony & Awards</div><div class="event-venue">Main Auditorium</div></div><span class="event-type type-closing">Closing</span></div>
+            <div class="schedule-event reveal"><span class="event-time">09:00</span><div><div class="event-name">Committee Session III</div><div class="event-venue">Respective Chambers</div></div><span class="event-type type-session">Session</span></div>
+            <div class="schedule-event reveal d1"><span class="event-time">11:00</span><div><div class="event-name">Consensus Paper Finalisation</div><div class="event-venue">Respective Chambers</div></div><span class="event-type type-session">Session</span></div>
+            <div class="schedule-event reveal d2"><span class="event-time">13:30</span><div><div class="event-name">Lunch Break</div><div class="event-venue">Dining Hall</div></div><span class="event-type type-social">Break</span></div>
+            <div class="schedule-event reveal d3"><span class="event-time">14:30</span><div><div class="event-name">Voting Procedure</div><div class="event-venue">Respective Chambers</div></div><span class="event-type type-session">Session</span></div>
+            <div class="schedule-event reveal d4"><span class="event-time">16:00</span><div><div class="event-name">Valedictory Ceremony</div><div class="event-venue">Auditorium</div></div><span class="event-type type-closing">Closing</span></div>
+            <div class="schedule-event reveal d5"><span class="event-time">17:30</span><div><div class="event-name">Awards &amp; Photographs</div><div class="event-venue">Auditorium Foyer</div></div><span class="event-type type-social">Awards</span></div>
           </div>
         </div>
+
       </div>
-
-      <div style="text-align:center;margin-top:48px;">
-        <a href="agenda.html" class="btn btn-outline reveal">Full Agenda →</a>
+      <div style="text-align:center;margin-top:56px;">
+        <a href="agendas.html" class="btn btn-outline reveal">Full Themes &amp; Guides <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       FORMATS
-  ════════════════════════════════ -->
+  <!-- FORMATS -->
   <section class="section formats-section">
     <div class="container">
-      <span class="label reveal" style="display:block;text-align:center;">Event Formats</span>
-      <h2 class="reveal d1">Three Ways to<br><em class="text-gold">Compete</em></h2>
+      <p class="label text-center reveal">What to Expect</p>
+      <h2 class="text-center reveal d1">The Symposium Experience</h2>
+      <div class="formats-grid" style="margin-top:64px;">
 
-      <div class="formats-grid">
-        <div class="format-card tilt-card reveal">
+        <div class="format-card format-featured tilt-card reveal">
           <div class="card-shine"></div>
-          <div class="format-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>General Assembly</h4>
-          <p>Traditional committee-style debate with structured speaking time, resolution writing, and formal diplomatic procedure.</p>
-          <div class="format-tag">Most Committees</div>
+          <span class="format-badge">Highlight</span>
+          <div class="format-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h4>Committee Debate</h4>
+          <p>Three full sessions of structured debate &mdash; formal speeches, moderated caucuses, unmoderated caucuses, and crisis updates. Master parliamentary procedure and the art of persuasion in real time.</p>
+          <span class="format-tag">MUN Format</span>
         </div>
 
-        <div class="format-card tilt-card format-featured reveal d1">
+        <div class="format-card tilt-card reveal d1">
           <div class="card-shine"></div>
-          <div class="format-badge">Flagship</div>
-          <div class="format-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h4>Crisis Committee</h4>
-          <p>Live, evolving scenarios that demand real-time decisions, rapid response, and unparalleled adaptability under pressure.</p>
-          <div class="format-tag">High Intensity</div>
+          <div class="format-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <h4>Consensus Papers</h4>
+          <p>Collaborate across blocs to draft, debate, and pass binding resolutions. Every clause matters, every vote counts.</p>
+          <span class="format-tag">Collaborative</span>
         </div>
 
         <div class="format-card tilt-card reveal d2">
           <div class="card-shine"></div>
-          <div class="format-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <h4>Press Corps</h4>
-          <p>Delegates become international journalists — reporting, interviewing, and publishing coverage of the unfolding proceedings.</p>
-          <div class="format-tag">Creative Track</div>
+          <div class="format-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h4>Live Crisis Updates</h4>
+          <p>Councils face unexpected real-world developments mid-session. Adapt, respond under pressure, and lead your bloc through the storm.</p>
+          <span class="format-tag">High Stakes</span>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       SPONSORS STRIP
-  ════════════════════════════════ -->
-  <section class="section sponsors-preview">
-    <div class="container">
-      <span class="label reveal" style="display:block;text-align:center;">Our Partners</span>
-      <p class="reveal d1" style="text-align:center;margin-top:8px;font-size:13px;">Supported by leading organisations who believe in the power of youth discourse.</p>
-    </div>
-    <div style="margin-top:48px;overflow:hidden;">
-      <div class="marquee-wrapper">
-        <div class="marquee-track sponsors-track">
-          <div class="sponsor-logo-item">Sponsor One</div>
-          <div class="sponsor-logo-item">Sponsor Two</div>
-          <div class="sponsor-logo-item">Sponsor Three</div>
-          <div class="sponsor-logo-item">Sponsor Four</div>
-          <div class="sponsor-logo-item">Sponsor Five</div>
-          <div class="sponsor-logo-item">Sponsor Six</div>
-          <div class="sponsor-logo-item">Sponsor One</div>
-          <div class="sponsor-logo-item">Sponsor Two</div>
-          <div class="sponsor-logo-item">Sponsor Three</div>
-          <div class="sponsor-logo-item">Sponsor Four</div>
-          <div class="sponsor-logo-item">Sponsor Five</div>
-          <div class="sponsor-logo-item">Sponsor Six</div>
-        </div>
+  <!-- SPONSORS -->
+  <section class="section sponsors-preview" style="padding:60px 0;">
+    <div class="container" style="margin-bottom:32px;"><p class="label text-center reveal">Supported By</p></div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track sponsors-track">
+        <span class="sponsor-logo-item">Partner School</span><span class="sponsor-logo-item">Media Partner</span>
+        <span class="sponsor-logo-item">Knowledge Partner</span><span class="sponsor-logo-item">Title Sponsor</span>
+        <span class="sponsor-logo-item">Hospitality Partner</span><span class="sponsor-logo-item">Tech Partner</span>
+        <span class="sponsor-logo-item">Partner School</span><span class="sponsor-logo-item">Media Partner</span>
+        <span class="sponsor-logo-item">Knowledge Partner</span><span class="sponsor-logo-item">Title Sponsor</span>
+        <span class="sponsor-logo-item">Hospitality Partner</span><span class="sponsor-logo-item">Tech Partner</span>
       </div>
-    </div>
-    <div class="container" style="text-align:center;margin-top:40px;">
-      <a href="sponsors.html" class="btn btn-outline reveal">View All Sponsors →</a>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       CTA
-  ════════════════════════════════ -->
+  <!-- CTA -->
   <section class="section cta-section">
-    <div class="orb orb-gold" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.1;"></div>
+    <div class="orb orb-gold" style="width:800px;height:800px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.06;pointer-events:none;"></div>
     <div class="container">
-      <span class="label reveal" style="display:block;text-align:center;">Join Us</span>
-      <h2 class="reveal d1">Your Seat at the<br><em class="shimmer">Table Awaits</em></h2>
-      <p class="reveal d2">Applications are open. Secure your committee placement and join hundreds of delegates from around the world.</p>
-      <div class="cta-actions reveal d3">
-        <a href="register.html" class="btn btn-primary magnetic">
-          Register Now
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="contact.html" class="btn btn-outline magnetic">Get in Touch</a>
+      <p class="label text-center reveal">Limited Seats Available</p>
+      <h2 class="reveal d1">Ready to Rise?</h2>
+      <p class="reveal d2">Secure your school's place at Jaipuria Symposium 2026. Registration is open for teams of 3 Participants per committee, open to Classes 8&ndash;12.</p>
+      <div class="cta-actions">
+        <a href="register.html" class="btn btn-primary magnetic reveal d3" style="padding:18px 44px;font-size:13px;">Register Your School <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="guides.html" class="btn btn-outline reveal d4" style="padding:18px 44px;font-size:13px;">Participant Guide</a>
       </div>
-      <p class="cta-deadline reveal d4">DEADLINE: 31 JULY 2026</p>
+      <p class="cta-deadline reveal d5">REGISTRATION CLOSES &nbsp;&middot;&nbsp; 15 JULY 2026</p>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       FOOTER
-  ════════════════════════════════ -->
-  <footer id="footer">
+    <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
+
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo">
+          <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
             <div class="nav-logo-circle"><span>J</span></div>
             <div class="nav-logo-text">
               <span class="nav-logo-primary">Jaipuria</span>
               <span class="nav-logo-secondary">Symposium 2026</span>
             </div>
           </a>
-          <p>An international multi-format debate event hosted by Seth M. R. Jaipuria School, Lucknow. August 7–8, 2026.</p>
-          <div class="footer-socials" style="margin-top:24px;">
-            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" aria-label="X / Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l16 16M4 20L20 4"/></svg></a>
-            <a href="mailto:symposium@jaipuria.edu.in" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
+          <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
+          <div class="footer-socials" style="margin-top:20px;">
+            <a href="#" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="X / Twitter">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l16 16M4 20L20 4"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h5>Event</h5>
+          <h5>Symposium</h5>
           <ul>
-            <li><a href="about.html">About Symposium</a></li>
-            <li><a href="agenda.html">Agenda & Committees</a></li>
-            <li><a href="guides.html">Background Guides</a></li>
-            <li><a href="register.html">Registration</a></li>
+            <li><a href="about-symposium.html">About Symposium</a></li>
+            <li><a href="agendas.html">Councils</a></li>
+            <li><a href="guides.html">Documents &amp; Guides</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>Organisation</h5>
+          <h5>Information</h5>
           <ul>
-            <li><a href="school.html">About Our School</a></li>
-            <li><a href="team.html">Our Team</a></li>
-            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="about-school.html">About the School</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>Contact</h5>
+          <h5>Participate</h5>
           <ul>
-            <li><a href="mailto:symposium@jaipuria.edu.in">symposium@jaipuria.edu.in</a></li>
-            <li><a href="school.html">Seth M. R. Jaipuria School</a></li>
-            <li><a href="#">Lucknow, Uttar Pradesh, India</a></li>
+            <li><a href="register.html">Register Now</a></li>
+            <li><a href="login.html">School Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
           </ul>
+          <div style="margin-top:24px;">
+            <p style="font-size:12px;color:var(--silver-mist);margin-bottom:6px;">For enquiries:</p>
+            <a href="mailto:contact@jaipuriasymposium.com" style="font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">contact@jaipuriasymposium.com</a>
+          </div>
         </div>
-      </div>
+
+      </div><!-- /footer-grid -->
 
       <div class="footer-bottom">
-        <p>© 2026 Jaipuria Symposium. All rights reserved.</p>
-        <p style="font-size:10px;letter-spacing:0.1em;">SETH M. R. JAIPURIA SCHOOL · LUCKNOW</p>
+        <p>&copy; 2026 Seth M. R. Jaipuria School, Lucknow. All rights reserved.</p>
+        <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;">REASON &middot; REFORM &middot; RISE</p>
       </div>
     </div>
   </footer>
 
-  <!-- ════════════════════════════════
-       SCRIPTS
-  ════════════════════════════════ -->
-  <script type="module" src="src/js/main.js"></script>
-  <script type="module" src="src/js/globe.js"></script>
   <script type="module" src="src/js/cursor.js"></script>
+  <script type="module" src="src/js/globe.js"></script>
   <script type="module" src="src/js/tilt.js"></script>
+  <script type="module" src="src/js/main.js"></script>
 
-  <!-- Countdown — plain script, no module needed -->
   <script>
     (function () {
-      // Aug 7 2026 09:00 IST = Aug 7 2026 03:30 UTC
-      var TARGET = Date.UTC(2026, 7, 7, 3, 30, 0)
-
-      function pad(n) { return String(n).padStart(2, '0') }
-
+      var TARGET = new Date('2026-08-07T09:00:00+05:30').getTime()
+      function pad(n, len) { return String(Math.max(0, n)).padStart(len || 2, '0') }
       function tick() {
-        var diff = TARGET - Date.now()
-        if (diff < 0) diff = 0
-        document.getElementById('cd-days').textContent    = pad(Math.floor(diff / 86400000))
-        document.getElementById('cd-hours').textContent   = pad(Math.floor((diff % 86400000) / 3600000))
-        document.getElementById('cd-minutes').textContent = pad(Math.floor((diff % 3600000)  / 60000))
-        document.getElementById('cd-seconds').textContent = pad(Math.floor((diff % 60000)    / 1000))
+        var diff  = Math.max(0, TARGET - Date.now())
+        var days  = Math.floor(diff / 86400000)
+        var hours = Math.floor((diff % 86400000) / 3600000)
+        var mins  = Math.floor((diff % 3600000)  / 60000)
+        var secs  = Math.floor((diff % 60000)    / 1000)
+        var dEl = document.getElementById('cd-days')
+        var hEl = document.getElementById('cd-hours')
+        var mEl = document.getElementById('cd-mins')
+        var sEl = document.getElementById('cd-secs')
+        if (dEl) dEl.textContent = pad(days, 3)
+        if (hEl) hEl.textContent = pad(hours)
+        if (mEl) mEl.textContent = pad(mins)
+        if (sEl) sEl.textContent = pad(secs)
       }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { tick(); setInterval(tick, 1000) })
-      } else {
-        tick(); setInterval(tick, 1000)
-      }
+      tick()
+      setInterval(tick, 1000)
     })()
   </script>
 

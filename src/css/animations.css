@@ -1,8 +1,12 @@
 /* ════════════════════════════════════════
-   ANIMATIONS & EFFECTS
+   ANIMATIONS.CSS — Keyframes, cursor,
+   marquee, scroll FX, transitions
+   Jaipuria Symposium 2026
 ════════════════════════════════════════ */
 
-/* ── Custom Cursor ── */
+/* ════════════════════════════════════════
+   CUSTOM CURSOR
+════════════════════════════════════════ */
 #cur-dot {
   position: fixed;
   width: 8px;
@@ -12,7 +16,10 @@
   pointer-events: none;
   z-index: var(--z-cursor);
   transform: translate(-50%, -50%);
-  transition: width 0.3s var(--ease-bounce), height 0.3s var(--ease-bounce);
+  transition: width  0.25s var(--ease-bounce),
+              height 0.25s var(--ease-bounce),
+              opacity 0.2s ease;
+  will-change: left, top;
 }
 
 #cur-ring {
@@ -25,32 +32,38 @@
   z-index: calc(var(--z-cursor) - 1);
   transform: translate(-50%, -50%);
   opacity: 0.5;
-  transition: width 0.35s var(--ease-bounce),
-              height 0.35s var(--ease-bounce),
-              opacity 0.3s,
-              border-color 0.3s;
+  transition: width  0.32s var(--ease-bounce),
+              height 0.32s var(--ease-bounce),
+              opacity 0.25s ease,
+              border-color 0.25s ease;
+  will-change: left, top;
 }
 
+/* Hover targets → ring expands */
 #cur-ring.big {
   width: 64px;
   height: 64px;
-  opacity: 0.9;
+  opacity: 0.85;
   border-color: var(--molten-gold);
 }
 
+/* Click → ring contracts */
 #cur-ring.clicking {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
+  opacity: 1;
 }
 
-/* ── Marquee ── */
+/* ════════════════════════════════════════
+   MARQUEE
+════════════════════════════════════════ */
 .marquee-wrapper { overflow: hidden; }
 
 .marquee-track {
   display: flex;
   width: max-content;
   align-items: center;
-  animation: marquee 32s linear infinite;
+  animation: marquee 36s linear infinite;
 }
 .marquee-track:hover { animation-play-state: paused; }
 
@@ -59,33 +72,119 @@
   to   { transform: translateX(-50%); }
 }
 
-/* ── Scroll line pulse ── */
+/* Slow version for sponsors */
+.sponsors-track { animation-duration: 50s; }
+
+/* ════════════════════════════════════════
+   KEYFRAMES
+════════════════════════════════════════ */
+
+/* Scroll line pulse (hero) */
 @keyframes scrollPulse {
-  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
-  49%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
-  50%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
-  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  0%   { transform: scaleY(0);   transform-origin: top;    opacity: 1; }
+  49%  { transform: scaleY(1);   transform-origin: top;    opacity: 1; }
+  50%  { transform: scaleY(1);   transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0);   transform-origin: bottom; opacity: 0; }
 }
 
-/* ── Flip digit ── */
+/* Flip digit (countdown) */
 @keyframes flipDown {
-  0%   { transform: rotateX(0deg); }
+  0%   { transform: rotateX(  0deg); }
   50%  { transform: rotateX(-90deg); }
-  100% { transform: rotateX(0deg); }
+  100% { transform: rotateX(  0deg); }
 }
-
 .flip-digit.flipping {
-  animation: flipDown 0.4s var(--ease-smooth);
+  animation: flipDown 0.38s var(--ease-smooth);
 }
 
-/* ── Float ── */
+/* Float (misc elements) */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-12px); }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
 }
 
-/* ── General fadeInUp ── */
+/* Fade in up (generic entrance) */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in (opacity only) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Pulse dot (status indicators) */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.72); }
+}
+
+/* Modal entrance */
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Shimmer (text gradient) */
+@keyframes shimmerAnim {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+/* ════════════════════════════════════════
+   SCROLL INDICATOR (hero)
+════════════════════════════════════════ */
+.scroll-indicator {
+  position: absolute;
+  bottom: 120px; /* sits above hero countdown bar */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.scroll-indicator span {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--chamber-gold);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(to bottom, var(--chamber-gold), transparent);
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════
+   TILT CARD (3D hover)
+════════════════════════════════════════ */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ════════════════════════════════════════
+   GLOBAL TRANSITIONS
+════════════════════════════════════════ */
+
+/* All interactive links get smooth colour transition */
+a, button {
+  transition: color var(--duration-fast) ease,
+              opacity var(--duration-fast) ease;
 }

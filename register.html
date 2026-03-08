@@ -24,52 +24,60 @@
 </head>
 <body>
 
-  <div id="cur-dot"></div>
-  <div id="cur-ring"></div>
+  <div id="cur-dot"  aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+  <div class="page-transition-overlay" aria-hidden="true"></div>
 
-  <nav id="navbar">
-    <a href="index.html" class="nav-logo">
+    <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
       <div class="nav-logo-circle"><span>J</span></div>
       <div class="nav-logo-text">
         <span class="nav-logo-primary">Jaipuria</span>
         <span class="nav-logo-secondary">Symposium 2026</span>
       </div>
     </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about-symposium.html">About</a></li>
-      <li><a href="agendas.html">Agendas</a></li>
-      <li><a href="guides.html">Guides</a></li>
-      <li><a href="team.html">Team</a></li>
+
+    <ul class="nav-links" role="list">
+      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li><a href="about-school.html">About Our School</a></li>
+      <li><a href="about-symposium.html">About Symposium</a></li>
+      <li><a href="agendas.html">Committees</a></li>
+      <li><a href="guides.html">Documents</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="team.html">Meet Our Team</a></li>
     </ul>
-    <div class="nav-cta">
-      <a href="register.html" class="btn btn-primary">Register Now</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+
+    <div class="nav-cta-area">
+      <a href="register.html" class="btn-nav-register" id="nav-register-btn">
+        Register Now
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <div id="mobile-menu">
-    <ul class="mobile-nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about-school.html">About School</a></li>
+  <!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
+  <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <ul class="mobile-nav-links" role="list">
+      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li><a href="about-school.html">About Our School</a></li>
       <li><a href="about-symposium.html">About Symposium</a></li>
-      <li><a href="agendas.html">Agendas</a></li>
-      <li><a href="guides.html">Guides &amp; Docs</a></li>
-      <li><a href="team.html">Our Team</a></li>
+      <li><a href="agendas.html">Committees</a></li>
+      <li><a href="guides.html">Documents</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="team.html">Meet Our Team</a></li>
     </ul>
     <div class="mobile-menu-footer">
-      <a href="login.html">Log In</a>
-      <a href="mailto:symposium@jaipuria.edu.in">Email Us</a>
+      <a href="login.html">Already Registered? Login</a>
+      <a href="register.html">Register Now</a>
     </div>
   </div>
+  </div>
 
-  <!-- Hero -->
+<!-- Hero -->
   <section class="reg-hero">
     <div class="orb orb-gold" style="width:500px;height:500px;top:-80px;right:-80px;opacity:0.12;"></div>
     <div class="orb orb-blue" style="width:300px;height:300px;bottom:0;left:5%;opacity:0.08;"></div>
@@ -299,38 +307,72 @@
   </section>
 
   <!-- Footer -->
-  <footer id="footer">
+    <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
+
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo">
+          <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
             <div class="nav-logo-circle"><span>J</span></div>
             <div class="nav-logo-text">
               <span class="nav-logo-primary">Jaipuria</span>
               <span class="nav-logo-secondary">Symposium 2026</span>
             </div>
           </a>
-          <p>An international multi-format debate event hosted by Seth M. R. Jaipuria School, Lucknow. August 7–8, 2026.</p>
-          <div class="footer-socials" style="margin-top:24px;">
-            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="mailto:symposium@jaipuria.edu.in" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
+          <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
+          <div class="footer-socials" style="margin-top:20px;">
+            <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="X / Twitter"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l16 16M4 20L20 4"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
           </div>
         </div>
-        <div class="footer-col"><h5>Event</h5><ul><li><a href="about-symposium.html">About Symposium</a></li><li><a href="agendas.html">Agendas</a></li><li><a href="guides.html">Guides &amp; Docs</a></li><li><a href="register.html">Register</a></li></ul></div>
-        <div class="footer-col"><h5>Organisation</h5><ul><li><a href="about-school.html">About Our School</a></li><li><a href="team.html">Our Team</a></li><li><a href="sponsors.html">Sponsors</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-        <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:symposium@jaipuria.edu.in">symposium@jaipuria.edu.in</a></li><li><a href="#">Seth M. R. Jaipuria School</a></li><li><a href="#">Lucknow, Uttar Pradesh, India</a></li></ul></div>
+
+        <div class="footer-col">
+          <h5>Symposium</h5>
+          <ul>
+            <li><a href="about-symposium.html">About Symposium</a></li>
+            <li><a href="agendas.html">Committees</a></li>
+            <li><a href="guides.html">Documents &amp; Guides</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Information</h5>
+          <ul>
+            <li><a href="about-school.html">About the School</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Participate</h5>
+          <ul>
+            <li><a href="register.html">Register Now</a></li>
+            <li><a href="login.html">School Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+          <div style="margin-top:24px;">
+            <p style="font-size:12px;color:var(--silver-mist);margin-bottom:6px;">For enquiries:</p>
+            <a href="mailto:contact@jaipuriasymposium.com" style="font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">contact@jaipuriasymposium.com</a>
+          </div>
+        </div>
+
       </div>
+
       <div class="footer-bottom">
-        <p>© 2026 Jaipuria Symposium. All rights reserved.</p>
-        <p style="font-size:10px;letter-spacing:0.1em;">SETH M. R. JAIPURIA SCHOOL · LUCKNOW</p>
+        <p>&copy; 2026 Seth M. R. Jaipuria School, Lucknow. All rights reserved.</p>
+        <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;">REASON &middot; REFORM &middot; RISE</p>
       </div>
     </div>
   </footer>
 
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/cursor.js"></script>
+  <script type="module" src="src/js/navbar.js"></script>
   <script type="module" src="src/js/register.js"></script>
-
 </body>
 </html>
