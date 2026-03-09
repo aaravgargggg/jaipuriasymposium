@@ -963,3 +963,164 @@
   opacity: 0.6;
   pointer-events: none;
 }
+
+/* ─────────────────────────────────────
+   NOTIFICATION BELL
+───────────────────────────────────── */
+.admin-notif-bell {
+  position: relative;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--silver-mist);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.admin-notif-bell:hover { color: var(--ivory-white); border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.06); }
+.admin-notif-bell.has-unread { color: var(--chamber-gold); border-color: rgba(201,168,76,0.4); }
+.admin-notif-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ef4444;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 1px solid var(--deep-void);
+}
+
+/* ─────────────────────────────────────
+   NOTIFICATIONS PANEL
+───────────────────────────────────── */
+.notif-panel {
+  position: fixed;
+  top: 62px;
+  right: clamp(16px, 4vw, 56px);
+  width: 420px;
+  max-width: calc(100vw - 32px);
+  max-height: 520px;
+  background: #0e1222;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  z-index: 8000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: notif-drop 0.22s cubic-bezier(0.16,1,0.3,1);
+}
+@keyframes notif-drop {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.notif-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+.notif-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ivory-white);
+  margin: 0;
+}
+.notif-panel-close {
+  background: none;
+  border: none;
+  color: var(--silver-mist);
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 5px;
+  transition: color 0.2s;
+}
+.notif-panel-close:hover { color: var(--ivory-white); }
+.notif-panel-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 10px;
+}
+.notif-empty {
+  text-align: center;
+  padding: 32px 20px;
+  color: var(--silver-mist);
+  font-family: var(--font-ui);
+  font-size: 13px;
+}
+.notif-item {
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.notif-item:last-child { margin-bottom: 0; }
+.notif-item:hover { background: rgba(201,168,76,0.05); border-color: rgba(201,168,76,0.2); }
+.notif-item.unread { border-color: rgba(201,168,76,0.25); background: rgba(201,168,76,0.04); }
+.notif-item-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.notif-item-school {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ivory-white);
+}
+.notif-item-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--silver-mist);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.notif-item-meta {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--silver-mist);
+  margin-bottom: 8px;
+}
+.notif-changes {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.notif-change-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+}
+.notif-change-field { color: var(--silver-mist); min-width: 80px; }
+.notif-change-old   { color: #f87171; text-decoration: line-through; }
+.notif-change-arrow { color: var(--silver-mist); opacity: 0.5; }
+.notif-change-new   { color: #4ade80; }
+.notif-unread-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--chamber-gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}

@@ -41,6 +41,10 @@
     <div class="admin-nav-right">
       <span class="admin-nav-user" id="admin-nav-user">—</span>
       <span class="admin-nav-role" id="admin-nav-role">—</span>
+      <button class="admin-notif-bell" id="notif-bell-btn" title="Team edit notifications" aria-label="Notifications">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="admin-notif-badge" id="notif-badge" style="display:none;">0</span>
+      </button>
       <button class="btn btn-outline admin-logout" id="logout-btn" style="font-size:12px;padding:8px 20px;">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
         Log Out
@@ -232,6 +236,18 @@
       </div>
 
     </div>
+      <!-- Notifications Panel -->
+      <div class="notif-panel" id="notif-panel" style="display:none;">
+        <div class="notif-panel-header">
+          <h3 class="notif-panel-title">Team Edit Notifications</h3>
+          <button class="notif-panel-close" id="notif-panel-close">&#215;</button>
+        </div>
+        <div class="notif-panel-body" id="notif-panel-body">
+          <div class="notif-empty">No notifications yet.</div>
+        </div>
+      </div>
+
+
   </main>
 
   <!-- ── School Detail Modal ── -->

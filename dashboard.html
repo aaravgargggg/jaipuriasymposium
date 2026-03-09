@@ -29,30 +29,35 @@
 
     <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
-    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
-  </a>
-
-  <ul class="nav-links" role="list">
-    <li class="hide-on-home"><a href="index.html">Home</a></li>
-    <li><a href="about-school.html">About Our School</a></li>
-    <li><a href="about-symposium.html">About Symposium</a></li>
-    <li><a href="agendas.html">Councils</a></li>
-    <li><a href="guides.html">Documents</a></li>
-    <li><a href="sponsors.html">Sponsors</a></li>
-    <li><a href="team.html">Meet Our Team</a></li>
-  </ul>
-
-  <div class="nav-cta-area">
-    <a href="register.html" class="btn-nav-register" id="nav-register-btn">
-      Register Now
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
+      <div class="nav-logo-circle"><span>J</span></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-primary">Jaipuria</span>
+        <span class="nav-logo-secondary">Symposium 2026</span>
+      </div>
     </a>
-    <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+
+    <ul class="nav-links" role="list">
+      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li><a href="about-school.html">About Our School</a></li>
+      <li><a href="about-symposium.html">About Symposium</a></li>
+      <li><a href="agendas.html">Committees</a></li>
+      <li><a href="guides.html">Documents</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="team.html">Meet Our Team</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-cta-area">
+      <a href="register.html" class="btn-nav-register" id="nav-register-btn">
+        Register Now
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
   <!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
   <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
@@ -60,13 +65,13 @@
       <li class="hide-on-home"><a href="index.html">Home</a></li>
       <li><a href="about-school.html">About Our School</a></li>
       <li><a href="about-symposium.html">About Symposium</a></li>
-      <li><a href="agendas.html">Councils</a></li>
+      <li><a href="agendas.html">Committees</a></li>
       <li><a href="guides.html">Documents</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <div class="mobile-menu-footer">
-      <a href="login.html">Already Registered? Login</a>
       <a href="register.html">Register Now</a>
     </div>
   </div>
@@ -224,7 +229,7 @@
         </div>
 
       </div>
-    </div
+    </div>
   <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
   <footer id="footer" role="contentinfo">
     <div class="container">
@@ -275,7 +280,7 @@
           </ul>
           <div style="margin-top:24px;">
             <p style="font-size:12px;color:var(--silver-mist);margin-bottom:6px;">For enquiries:</p>
-            <a href="mailto:contact@jaipuriasymposium.com" style="font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">contact@jaipuriasymposium.com</a>
+            <a href="/cdn-cgi/l/email-protection#b6d5d9d8c2d7d5c2f6dcd7dfc6c3c4dfd7c5cfdbc6d9c5dfc3db98d5d9db" style="font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);"><span class="__cf_email__" data-cfemail="583b37362c393b2c18323931282d2a31392b213528372b312d35763b3735">[email&#160;protected]</span></a>
           </div>
         </div>
 
@@ -286,14 +291,112 @@
         <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;">REASON &middot; REFORM &middot; RISE</p>
       </div>
     </div>
-  </footer>
-</body>
-</html>
-    </div>
-    </div>
-  </main>
+  <!-- ── Team Edit Modal ── -->
+  <div id="edit-modal-overlay" class="edit-modal-overlay">
+    <div class="edit-modal-card">
 
+      <div class="edit-modal-header">
+        <div>
+          <p class="edit-modal-label">Edit Participants</p>
+          <div class="edit-modal-title-row">
+            <h3 id="edit-modal-team-num" class="edit-modal-title">Team —</h3>
+            <span id="edit-modal-committee" class="edit-modal-committee-tag">—</span>
+          </div>
+        </div>
+        <button id="edit-modal-close" class="edit-modal-close" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="edit-participants-grid">
+
+        <!-- Participant 1 -->
+        <div class="edit-participant-block">
+          <div class="edit-participant-label">Participant 1</div>
+          <div class="edit-field-group">
+            <label class="edit-label">Full Name</label>
+            <input id="edit-p1-name" class="edit-input" type="text" placeholder="Full name" autocomplete="off" />
+            <span id="edit-p1-name-err" class="edit-field-error"></span>
+          </div>
+          <div class="edit-field-group">
+            <label class="edit-label">Class</label>
+            <select id="edit-p1-class" class="edit-input edit-select">
+              <option value="">Select class</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+              <option value="11">Class 11</option>
+              <option value="12">Class 12</option>
+            </select>
+            <span id="edit-p1-class-err" class="edit-field-error"></span>
+          </div>
+        </div>
+
+        <!-- Participant 2 -->
+        <div class="edit-participant-block">
+          <div class="edit-participant-label">Participant 2</div>
+          <div class="edit-field-group">
+            <label class="edit-label">Full Name</label>
+            <input id="edit-p2-name" class="edit-input" type="text" placeholder="Full name" autocomplete="off" />
+            <span id="edit-p2-name-err" class="edit-field-error"></span>
+          </div>
+          <div class="edit-field-group">
+            <label class="edit-label">Class</label>
+            <select id="edit-p2-class" class="edit-input edit-select">
+              <option value="">Select class</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+              <option value="11">Class 11</option>
+              <option value="12">Class 12</option>
+            </select>
+            <span id="edit-p2-class-err" class="edit-field-error"></span>
+          </div>
+        </div>
+
+        <!-- Participant 3 -->
+        <div class="edit-participant-block">
+          <div class="edit-participant-label">Participant 3</div>
+          <div class="edit-field-group">
+            <label class="edit-label">Full Name</label>
+            <input id="edit-p3-name" class="edit-input" type="text" placeholder="Full name" autocomplete="off" />
+            <span id="edit-p3-name-err" class="edit-field-error"></span>
+          </div>
+          <div class="edit-field-group">
+            <label class="edit-label">Class</label>
+            <select id="edit-p3-class" class="edit-input edit-select">
+              <option value="">Select class</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+              <option value="11">Class 11</option>
+              <option value="12">Class 12</option>
+            </select>
+            <span id="edit-p3-class-err" class="edit-field-error"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="edit-modal-footer">
+        <span id="edit-save-status" class="edit-save-status"></span>
+        <div class="edit-modal-actions">
+          <button id="edit-modal-cancel" class="edit-btn-cancel">Cancel</button>
+          <button id="edit-modal-save" class="edit-btn-save">
+            <span id="edit-save-label">Save Changes</span>
+            <span id="edit-save-spinner" class="spinner" style="display:none;"></span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  </footer>
+  <script>
+    // Trigger navbar scroll state on inner pages
+    window.addEventListener('load', () => window.dispatchEvent(new Event('scroll')))
+  </script>
   <script type="module" src="src/js/cursor.js"></script>
+  <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/dashboard.js"></script>
 
 </body>

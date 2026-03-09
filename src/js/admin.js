@@ -11,6 +11,8 @@ const SUPABASE_URL      = 'https://tkvrukemedlxjxrlzvhe.supabase.co'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRrdnJ1a2VtZWRseGp4cmx6dmhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3OTA5MDIsImV4cCI6MjA4ODM2NjkwMn0.OjbL8UM8UsKjcPihNcLBEu-Ka9KLSVGD36Vh7OsZ80s'
 // ─────────────────────────────────────────
 
+// ─────────────────────────────────────────
+
 let supabase      = null
 let allSchools    = []      // full dataset
 let allTeams      = {}      // { schoolId: [teams] }
@@ -48,16 +50,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     return
   }
 
-  // ── Must be an admin ──
+  // ── Must be an admin — check admins table ──
   const { data: adminRow, error: adminErr } = await supabase
     .from('admins')
     .select('name, role, email')
     .eq('user_id', session.user.id)
     .maybeSingle()
 
-  console.log("Admin query result:", adminRow, "Error:", adminErr)
   if (!adminRow) {
-    // Not an admin — redirect to school dashboard
     window.location.replace('dashboard.html')
     return
   }
@@ -104,8 +104,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('admin-loading').style.display = 'none'
   document.getElementById('admin-main').style.display    = 'block'
 
-  // ── Realtime: listen for any school update ──
+  // ── Realtime: schools/teams changes ──
   setupRealtime()
+
+  // ── Notifications: unread count + live updates ──
+  await pollUnreadCount()
+  setupNotifRealtime()
+  setInterval(pollUnreadCount, 30000)
 })
 
 // ════════════════════════════════════════
@@ -520,11 +525,37 @@ function setupRealtime() {
       'postgres_changes',
       { event: 'INSERT', schema: 'public', table: 'teams' },
       (payload) => {
-        // New team added
         const t = payload.new
         if (!allTeams[t.school_id]) allTeams[t.school_id] = []
         allTeams[t.school_id].push(t)
         updateStats()
+        renderSchoolsList()
+      }
+    )
+    .on(
+      'postgres_changes',
+      { event: 'UPDATE', schema: 'public', table: 'teams' },
+      async (payload) => {
+        const teamId = payload.new.id
+        // Re-fetch this specific team fresh from DB (payload may be missing fields)
+        const { data: freshTeam } = await supabase
+          .from('teams')
+          .select('*')
+          .eq('id', teamId)
+          .maybeSingle()
+        if (!freshTeam) return
+        const sid = freshTeam.school_id
+        if (!allTeams[sid]) allTeams[sid] = []
+        const idx = allTeams[sid].findIndex(x => x.id === teamId)
+        if (idx !== -1) {
+          allTeams[sid][idx] = freshTeam
+        } else {
+          allTeams[sid].push(freshTeam)
+        }
+        // If this school's modal is open, re-render teams immediately
+        if (modalSchoolId === sid) {
+          renderModalTeams(allTeams[sid])
+        }
         renderSchoolsList()
       }
     )
@@ -811,4 +842,170 @@ function today() {
   return String(d.getDate()).padStart(2,'0') + '-' +
          String(d.getMonth()+1).padStart(2,'0') + '-' +
          d.getFullYear()
+}
+
+// NOTIFICATIONS
+
+let allNotifications = []
+let notifPanelOpen   = false
+
+// ── Wire bell + panel ───────────────────────────────────
+document.getElementById('notif-bell-btn').addEventListener('click', () => {
+  notifPanelOpen = !notifPanelOpen
+  const panel = document.getElementById('notif-panel')
+  panel.style.display = notifPanelOpen ? 'flex' : 'none'
+  if (notifPanelOpen) {
+    loadNotifications().then(() => markAllRead())
+  }
+})
+
+document.getElementById('notif-panel-close').addEventListener('click', () => {
+  notifPanelOpen = false
+  document.getElementById('notif-panel').style.display = 'none'
+})
+
+// Close panel when clicking outside
+document.addEventListener('click', e => {
+  if (!notifPanelOpen) return
+  const panel = document.getElementById('notif-panel')
+  const bell  = document.getElementById('notif-bell-btn')
+  if (!panel.contains(e.target) && !bell.contains(e.target)) {
+    notifPanelOpen = false
+    panel.style.display = 'none'
+  }
+})
+
+// ── Load notifications from DB ──────────────────────────
+async function loadNotifications() {
+  const body = document.getElementById('notif-panel-body')
+  body.innerHTML = '<div class="notif-empty" style="color:var(--silver-mist)">Loading…</div>'
+
+  const { data, error } = await supabase
+    .from('team_edit_notifications')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(50)
+
+  if (error) {
+    body.innerHTML = `<div class="notif-empty" style="color:#f87171">Failed to load: ${esc(error.message)}</div>`
+    return
+  }
+
+  allNotifications = data || []
+  renderNotifications()
+}
+
+function renderNotifications() {
+  const body = document.getElementById('notif-panel-body')
+  if (!allNotifications.length) {
+    body.innerHTML = '<div class="notif-empty">No team edits yet.</div>'
+    return
+  }
+
+  const fieldLabels = {
+    participant_1_name: 'P1 Name', participant_1_class: 'P1 Class',
+    participant_2_name: 'P2 Name', participant_2_class: 'P2 Class',
+    participant_3_name: 'P3 Name', participant_3_class: 'P3 Class',
+  }
+
+  body.innerHTML = allNotifications.map(n => {
+    const changes   = n.changes || {}
+    const changeRows = Object.entries(changes).map(([field, { old: o, new: nv }]) => `
+      <div class="notif-change-row">
+        <span class="notif-change-field">${fieldLabels[field] || field}</span>
+        <span class="notif-change-old">${esc(o) || '—'}</span>
+        <span class="notif-change-arrow">→</span>
+        <span class="notif-change-new">${esc(nv) || '—'}</span>
+      </div>`).join('')
+
+    const timeAgo = formatTimeAgo(n.created_at)
+
+    return `
+      <div class="notif-item ${n.is_read ? '' : 'unread'}" data-notif-id="${n.id}">
+        <div class="notif-item-top">
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            ${!n.is_read ? '<div class="notif-unread-dot"></div>' : '<div style="width:7px;flex-shrink:0;"></div>'}
+            <span class="notif-item-school">${esc(n.school_name)}</span>
+          </div>
+          <span class="notif-item-time">${timeAgo}</span>
+        </div>
+        <div class="notif-item-meta">
+          ${n.school_code ? `<span style="color:var(--chamber-gold);font-family:var(--font-mono);">${esc(n.school_code)}</span> · ` : ''}
+          Team ${n.team_number} · ${esc(n.committee)} · by ${esc(n.changed_by)}
+        </div>
+        <div class="notif-changes">${changeRows}</div>
+      </div>`
+  }).join('')
+}
+
+async function markAllRead() {
+  const unreadIds = allNotifications.filter(n => !n.is_read).map(n => n.id)
+  if (!unreadIds.length) return
+
+  await supabase
+    .from('team_edit_notifications')
+    .update({ is_read: true })
+    .in('id', unreadIds)
+
+  // Mark read locally — remove dots but keep history visible
+  allNotifications.forEach(n => { n.is_read = true })
+  setBadge(0)
+  // Re-render panel to remove unread dots (panel stays open)
+  if (notifPanelOpen) renderNotifications()
+}
+
+// ── Poll for unread count (every 30s) ──────────────────
+async function pollUnreadCount() {
+  const { count, error } = await supabase
+    .from('team_edit_notifications')
+    .select('*', { count: 'exact', head: true })
+    .eq('is_read', false)
+  if (error) {
+    console.warn('pollUnreadCount error (check RLS on team_edit_notifications):', error.message)
+  } else {
+    setBadge(count || 0)
+  }
+}
+
+function setBadge(count) {
+  const badge = document.getElementById('notif-badge')
+  const bell  = document.getElementById('notif-bell-btn')
+  if (count > 0) {
+    badge.textContent  = count > 99 ? '99+' : count
+    badge.style.display = 'flex'
+    bell.classList.add('has-unread')
+  } else {
+    badge.style.display = 'none'
+    bell.classList.remove('has-unread')
+  }
+}
+
+// ── Realtime: new notifications ─────────────────────────
+function setupNotifRealtime() {
+  const ch = supabase
+    .channel('admin-notif-watch')
+    .on('postgres_changes', {
+      event: 'INSERT', schema: 'public', table: 'team_edit_notifications'
+    }, (payload) => {
+      allNotifications.unshift(payload.new)
+      if (notifPanelOpen) {
+        renderNotifications()
+        markAllRead()
+      } else {
+        pollUnreadCount()   // re-count from DB instead of guessing +1
+      }
+    })
+    .subscribe((status, err) => {
+      if (err) console.warn('Notif realtime error:', err.message)
+    })
+}
+
+function formatTimeAgo(iso) {
+  const diff = Date.now() - new Date(iso).getTime()
+  const m = Math.floor(diff / 60000)
+  if (m < 1)  return 'just now'
+  if (m < 60) return `${m}m ago`
+  const h = Math.floor(m / 60)
+  if (h < 24) return `${h}h ago`
+  return new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })
 }
