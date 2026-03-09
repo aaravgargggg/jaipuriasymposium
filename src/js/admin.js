@@ -49,13 +49,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // ── Must be an admin ──
-  const { data: adminRow } = await supabase
+  const { data: adminRow, error: adminErr } = await supabase
     .from('admins')
     .select('name, role, email')
     .eq('user_id', session.user.id)
-    .eq('is_active', true)
     .maybeSingle()
 
+  console.log("Admin query result:", adminRow, "Error:", adminErr)
   if (!adminRow) {
     // Not an admin — redirect to school dashboard
     window.location.replace('dashboard.html')
@@ -617,4 +617,198 @@ function esc(str) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
+}
+
+// EXPORT TO EXCEL
+
+const COUNCIL_LABELS = {
+  ERT: 'Economic Round Table',
+  SHC: 'Social & Humanitarian Council',
+  TIF: 'Tech & Innovation Forum',
+  PCC: 'Political & Cultural Council',
+}
+
+// Open / close modal
+document.getElementById('export-excel-btn').addEventListener('click', () => {
+  document.getElementById('export-modal').classList.add('open')
+})
+document.getElementById('export-modal-close').addEventListener('click', () => {
+  document.getElementById('export-modal').classList.remove('open')
+})
+document.getElementById('export-modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.remove('open')
+})
+
+// Wire each export option button
+document.querySelectorAll('.export-option-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const type    = btn.dataset.export
+    const labelEl = btn.querySelector('.export-option-label')
+    const orig    = labelEl.textContent
+    btn.classList.add('exporting')
+    labelEl.textContent = 'Generating...'
+    try {
+      runExport(type)
+    } catch(e) {
+      console.error('Export error:', e)
+      alert('Export failed. Check the console for details.')
+    } finally {
+      btn.classList.remove('exporting')
+      labelEl.textContent = orig
+      document.getElementById('export-modal').classList.remove('open')
+    }
+  })
+})
+
+function runExport(type) {
+  if (COUNCIL_LABELS[type]) exportByCouncil(type)
+  else                       exportSchools(type)
+}
+
+// ALL / LUCKNOW / OUTSTATION
+// Multi-team schools: school info columns are merged across team rows
+function exportSchools(filter) {
+  let schools   = allSchools
+  let sheetName = 'All Schools'
+  let fileName  = 'JS2026_All_Schools'
+
+  if (filter === 'local') {
+    schools   = allSchools.filter(s => s.location_type === 'local')
+    sheetName = 'Lucknow Schools'
+    fileName  = 'JS2026_Lucknow_Schools'
+  } else if (filter === 'outstation') {
+    schools   = allSchools.filter(s => s.location_type === 'outstation')
+    sheetName = 'Outstation Schools'
+    fileName  = 'JS2026_Outstation_Schools'
+  }
+
+  if (!schools.length) { alert('No data to export.'); return }
+
+  const SCHOOL_COLS = [
+    'S.No', 'School Name', 'Teacher-in-Charge', 'TIC Phone',
+    'Escort Teacher', 'Escort Phone', 'Email', 'City',
+    'Type', 'School Code', 'Status', 'Registered On',
+  ]
+  const TEAM_COLS = [
+    'Council', 'Team #',
+    'Participant 1', 'Class',
+    'Participant 2', 'Class ',
+    'Participant 3', 'Class  ',
+  ]
+  const ALL_COLS = [...SCHOOL_COLS, ...TEAM_COLS]
+
+  const aoa    = [ALL_COLS]
+  const merges = []
+  let sNo      = 1
+  let rowIdx   = 1   // row 0 = header
+
+  schools.forEach(school => {
+    const teams    = allTeams[school.id] || []
+    const teamRows = teams.length > 0 ? teams : [null]
+    const startRow = rowIdx
+
+    teamRows.forEach((team, ti) => {
+      const schoolPart = ti === 0 ? [
+        sNo,
+        school.school_name             || '',
+        school.teacher_in_charge_name  || '',
+        school.teacher_in_charge_phone || '',
+        school.escort_teacher_name     || '',
+        school.escort_teacher_phone    || '',
+        school.email                   || '',
+        school.city                    || '',
+        school.location_type === 'local' ? 'Lucknow' : 'Outstation',
+        school.school_code             || '',
+        school.status                  || '',
+        school.created_at
+          ? new Date(school.created_at).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })
+          : '',
+      ] : new Array(SCHOOL_COLS.length).fill('')
+
+      const teamPart = team ? [
+        team.committee           || '',
+        team.team_number         || (ti + 1),
+        team.participant_1_name  || '',
+        team.participant_1_class || '',
+        team.participant_2_name  || '',
+        team.participant_2_class || '',
+        team.participant_3_name  || '',
+        team.participant_3_class || '',
+      ] : new Array(TEAM_COLS.length).fill('')
+
+      aoa.push([...schoolPart, ...teamPart])
+      rowIdx++
+    })
+
+    // Merge school info columns across team rows
+    if (teamRows.length > 1) {
+      for (let c = 0; c < SCHOOL_COLS.length; c++) {
+        merges.push({ s: { r: startRow, c }, e: { r: rowIdx - 1, c } })
+      }
+    }
+    sNo++
+  })
+
+  const wb = XLSX.utils.book_new()
+  const ws = XLSX.utils.aoa_to_sheet(aoa)
+  ws['!merges'] = merges
+  ws['!cols']   = autoColWidths(aoa)
+  ws['!freeze'] = { xSplit: 0, ySplit: 1 }
+  XLSX.utils.book_append_sheet(wb, ws, sheetName.substring(0, 31))
+  XLSX.writeFile(wb, fileName + '_' + today() + '.xlsx')
+}
+
+// COUNCIL EXPORT — school code + team details only
+function exportByCouncil(council) {
+  const COLS = [
+    'S.No', 'School Code', 'Council', 'Team #',
+    'Participant 1', 'Class',
+    'Participant 2', 'Class ',
+    'Participant 3', 'Class  ',
+  ]
+
+  const aoa = [COLS]
+  let sNo   = 1
+
+  allSchools.forEach(school => {
+    const teams = (allTeams[school.id] || []).filter(t => t.committee === council)
+    teams.forEach(team => {
+      aoa.push([
+        sNo++,
+        school.school_code       || '',
+        team.committee           || '',
+        team.team_number         || '',
+        team.participant_1_name  || '',
+        team.participant_1_class || '',
+        team.participant_2_name  || '',
+        team.participant_2_class || '',
+        team.participant_3_name  || '',
+        team.participant_3_class || '',
+      ])
+    })
+  })
+
+  if (aoa.length <= 1) { alert('No teams registered for ' + council + ' yet.'); return }
+
+  const wb = XLSX.utils.book_new()
+  const ws = XLSX.utils.aoa_to_sheet(aoa)
+  ws['!cols']   = autoColWidths(aoa)
+  ws['!freeze'] = { xSplit: 0, ySplit: 1 }
+  XLSX.utils.book_append_sheet(wb, ws, council)
+  XLSX.writeFile(wb, 'JS2026_Council_' + council + '_' + today() + '.xlsx')
+}
+
+// Auto column widths from data
+function autoColWidths(aoa) {
+  if (!aoa.length) return []
+  return Array.from({ length: aoa[0].length }, (_, c) => ({
+    wch: Math.min(40, Math.max(8, ...aoa.map(r => String(r[c] == null ? '' : r[c]).length)) + 2)
+  }))
+}
+
+function today() {
+  const d = new Date()
+  return String(d.getDate()).padStart(2,'0') + '-' +
+         String(d.getMonth()+1).padStart(2,'0') + '-' +
+         d.getFullYear()
 }

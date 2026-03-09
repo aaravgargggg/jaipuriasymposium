@@ -62,7 +62,6 @@
   max-width: 180px;
   display: block;
   object-fit: contain;
-}
   display: flex;
   align-items: center;
   gap: 10px;
@@ -753,17 +752,36 @@ body.fonts-ready .nav-logo-secondary { opacity: 1; }
    RESPONSIVE
 ════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  #navbar .nav-links                { display: none; }
-  #navbar .btn-nav-register         { display: none; }
-  #hamburger                        { display: flex; }
-  .footer-grid                      { grid-template-columns: 1fr 1fr; gap: 40px; }
+  #navbar .nav-links        { display: none; }
+  #navbar .btn-nav-register { display: none; }
+  #navbar .nav-cta-area     { margin-left: auto; }
+  #hamburger                { display: flex; }
+  .footer-grid              { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 
 @media (max-width: 768px) {
-  #navbar.scrolled { left: 3%; right: 3%; padding: 0 18px; }
+  /* Navbar */
+  #navbar               { padding: 0 20px; }
+  #navbar.scrolled      { left: 3%; right: 3%; padding: 0 18px; }
+
+  /* Mobile menu — bigger touch targets, better spacing */
+  .mobile-nav-links li a  { padding: 12px 24px; font-size: clamp(1.4rem, 6vw, 2rem); }
+  .mobile-menu-footer     { flex-direction: column; gap: 12px; width: 100%; padding: 0 32px; }
+  .mobile-menu-footer a   { text-align: center; width: 100%; padding: 14px 24px; font-size: 14px; }
+
+  /* Footer */
+  .footer-grid            { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom          { flex-direction: column; text-align: center; gap: 8px; }
+
+  /* Shared section padding */
+  .section                { padding-top: 64px; padding-bottom: 64px; }
 }
 
-@media (max-width: 640px) {
-  .footer-grid   { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
+@media (max-width: 480px) {
+  /* Navbar pill on small screens */
+  #navbar.scrolled        { left: 2%; right: 2%; padding: 0 14px; }
+
+  /* Footer single col */
+  .footer-grid            { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom          { flex-direction: column; text-align: center; }
 }

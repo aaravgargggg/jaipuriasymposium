@@ -308,7 +308,7 @@
   margin-top: 14px;
 }
 
-/* ── Councils ── */
+/* ── committees ── */
 .Councils-section {
   background: var(--midnight-navy);
 }
@@ -802,7 +802,7 @@
   line-height: 1.5;
 }
 
-/* ── Committee card extras ── */
+/* ── committee card extras ── */
 .committee-card-featured {
   background: linear-gradient(145deg, rgba(201,168,76,0.07), var(--navy-card));
   border-color: rgba(201,168,76,0.35);
@@ -1197,7 +1197,7 @@
   color: var(--silver-mist);
 }
 
-/* ── Committee description ── */
+/* ── committee description ── */
 .committee-desc {
   font-family: var(--font-ui);
   font-size: 13px;
@@ -1206,7 +1206,7 @@
   margin-bottom: 18px;
 }
 
-/* ── Committee featured card ── */
+/* ── committee featured card ── */
 .committee-featured {
   background: linear-gradient(145deg, rgba(201,168,76,0.06), var(--navy-card));
   border-color: rgba(201,168,76,0.3);
@@ -1321,4 +1321,44 @@
   .hqs-divider { margin: 0 16px 0 0; }
   .hero-tagline-row { gap: 10px; }
   .tagline-word { font-size: clamp(18px, 5vw, 24px); }
+}
+
+/* ════════════════════════════════════════
+   MOBILE FIXES — home page
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Countdown — all 4 in one row, smaller font */
+  .countdown-grid       { gap: 8px; flex-wrap: nowrap; justify-content: center; }
+  .countdown-item       { min-width: 0; flex: 1; }
+  .countdown-number     { font-size: clamp(32px, 9vw, 60px); }
+  .countdown-sep        { font-size: clamp(24px, 6vw, 40px); padding-bottom: 18px; display: block; }
+  .countdown-label      { font-size: 9px; letter-spacing: 0.12em; }
+
+  /* Stats — 2 cols, last one centered */
+  .stats-grid           { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-card:last-child { grid-column: 1 / -1; max-width: 50%; margin: 0 auto; width: 100%; }
+
+  /* Schedule */
+  .schedule-section h2  { margin-bottom: 40px; }
+
+  /* committees track */
+  .Councils-track     { flex-direction: column; align-items: center; }
+  .committee-card       { width: 100%; max-width: 400px; }
+
+  /* About intro */
+  .about-intro-grid     { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  /* Countdown stays single row, even smaller */
+  .countdown-number     { font-size: clamp(26px, 7vw, 44px); }
+  .countdown-sep        { font-size: clamp(18px, 5vw, 28px); }
+
+  /* Stats — keep 2 col, last centered */
+  .stats-grid           { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-card:last-child { max-width: 60%; }
+
+  /* Hero */
+  .hero-tagline         { font-size: 16px; }
+  .hero-date            { font-size: 11px; }
 }

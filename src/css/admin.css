@@ -799,3 +799,167 @@
   .admin-toolbar { flex-direction: column; align-items: stretch; }
   .admin-search-wrap { min-width: unset; }
 }
+
+/* ─────────────────────────────────────
+   EXPORT EXCEL BUTTON
+───────────────────────────────────── */
+.btn-export-excel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(201,168,76,0.35);
+  background: rgba(201,168,76,0.08);
+  color: var(--chamber-gold);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.btn-export-excel:hover {
+  background: rgba(201,168,76,0.16);
+  border-color: rgba(201,168,76,0.6);
+  transform: translateY(-1px);
+}
+.btn-export-excel svg { flex-shrink: 0; }
+
+/* ─────────────────────────────────────
+   EXPORT MODAL
+───────────────────────────────────── */
+.export-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(6,8,16,0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.export-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.export-modal-card {
+  background: #0e1222;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  transform: translateY(12px);
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.export-modal-overlay.open .export-modal-card {
+  transform: translateY(0);
+}
+.export-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.export-modal-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ivory-white);
+  margin: 0;
+}
+.export-modal-close {
+  background: none;
+  border: none;
+  color: var(--silver-mist);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.export-modal-close:hover { color: var(--ivory-white); background: rgba(255,255,255,0.07); }
+.export-modal-sub {
+  font-size: 0.82rem;
+  color: var(--silver-mist);
+  margin: 0 0 20px;
+}
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.export-divider {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(156,163,175,0.45);
+  padding: 8px 0 4px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 4px;
+}
+.export-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
+  color: var(--ivory-white);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  width: 100%;
+}
+.export-option-btn:hover {
+  background: rgba(201,168,76,0.08);
+  border-color: rgba(201,168,76,0.3);
+  transform: translateX(3px);
+}
+.export-option-btn:active { transform: translateX(3px) scale(0.99); }
+.export-option-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--chamber-gold);
+}
+.export-option-icon--committee {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--chamber-gold);
+}
+.export-option-label {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ivory-white);
+  margin-bottom: 2px;
+}
+.export-option-sub {
+  font-size: 0.75rem;
+  color: var(--silver-mist);
+}
+.export-option-btn.exporting {
+  opacity: 0.6;
+  pointer-events: none;
+}

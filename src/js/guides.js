@@ -61,7 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 
-  // ── 4. Magnetic buttons
+  // ── 5. Map — click to activate (prevents scroll hijack)
+  const mapWrap = document.querySelector('.map-embed-wrap')
+  if (mapWrap) {
+    mapWrap.addEventListener('click', () => mapWrap.classList.add('active'), { once: true })
+  }
+
+  // ── 6. Magnetic buttons
   document.querySelectorAll('.magnetic').forEach(el => {
     el.addEventListener('mousemove', e => {
       const r = el.getBoundingClientRect()

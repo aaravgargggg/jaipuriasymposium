@@ -115,6 +115,87 @@
           <button class="filter-tab" data-filter="pending">Pending</button>
           <button class="filter-tab" data-filter="confirmed">Confirmed</button>
         </div>
+        <button class="btn-export-excel" id="export-excel-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+          Export Excel
+        </button>
+      </div>
+
+      <!-- Export Modal -->
+      <div class="export-modal-overlay" id="export-modal" role="dialog" aria-modal="true" aria-label="Export options">
+        <div class="export-modal-card">
+          <div class="export-modal-header">
+            <h3>Export Schools Data</h3>
+            <button class="export-modal-close" id="export-modal-close" aria-label="Close">&#215;</button>
+          </div>
+          <p class="export-modal-sub">Choose what to export as an Excel file.</p>
+
+          <div class="export-options">
+            <button class="export-option-btn" data-export="all">
+              <div class="export-option-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              </div>
+              <div>
+                <div class="export-option-label">All Schools</div>
+                <div class="export-option-sub">Every registered school</div>
+              </div>
+            </button>
+
+            <button class="export-option-btn" data-export="local">
+              <div class="export-option-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="export-option-label">Lucknow Schools</div>
+                <div class="export-option-sub">Local schools only</div>
+              </div>
+            </button>
+
+            <button class="export-option-btn" data-export="outstation">
+              <div class="export-option-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div>
+                <div class="export-option-label">Outstation Schools</div>
+                <div class="export-option-sub">Schools outside Lucknow</div>
+              </div>
+            </button>
+
+            <div class="export-divider">By Council</div>
+
+            <button class="export-option-btn" data-export="ERT">
+              <div class="export-option-icon export-option-icon--committee">ERT</div>
+              <div>
+                <div class="export-option-label">Economic Round Table</div>
+                <div class="export-option-sub">Teams registered for ERT council</div>
+              </div>
+            </button>
+
+            <button class="export-option-btn" data-export="SHC">
+              <div class="export-option-icon export-option-icon--committee">SHC</div>
+              <div>
+                <div class="export-option-label">Social &amp; Humanitarian Council</div>
+                <div class="export-option-sub">Teams registered for SHC council</div>
+              </div>
+            </button>
+
+            <button class="export-option-btn" data-export="TIF">
+              <div class="export-option-icon export-option-icon--committee">TIF</div>
+              <div>
+                <div class="export-option-label">Tech &amp; Innovation Forum</div>
+                <div class="export-option-sub">Teams registered for TIF council</div>
+              </div>
+            </button>
+
+            <button class="export-option-btn" data-export="PCC">
+              <div class="export-option-icon export-option-icon--committee">PCC</div>
+              <div>
+                <div class="export-option-label">Political &amp; Cultural Council</div>
+                <div class="export-option-sub">Teams registered for PCC council</div>
+              </div>
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Schools Grid: LOCAL | OUTSTATION -->
@@ -249,6 +330,7 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script type="module" src="src/js/cursor.js"></script>
   <script type="module" src="src/js/admin.js"></script>
 

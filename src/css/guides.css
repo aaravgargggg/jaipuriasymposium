@@ -540,9 +540,33 @@
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  aspect-ratio: 16 / 10;
-  min-height: 300px;
+  height: 380px;
   position: relative;
+}
+
+/* Overlay blocks scroll-hijack — click once to enable interaction */
+.map-embed-wrap::after {
+  content: 'Click to interact with map';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.5);
+  pointer-events: all;
+}
+
+.map-embed-wrap.active::after {
+  display: none;
+  pointer-events: none;
 }
 
 .map-embed-wrap iframe {
@@ -550,6 +574,10 @@
   border: none;
   display: block;
   filter: invert(0.88) hue-rotate(180deg) saturate(0.6) brightness(0.95);
+}
+
+@media (max-width: 768px) {
+  .map-embed-wrap { height: 260px; }
 }
 
 /* ─────────────────────────────────────
@@ -616,4 +644,25 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.4s;
+}
+
+/* ════════════════════════════════════════
+   MOBILE FIXES — guides page
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .guides-hero          { padding: 120px 20px 60px; min-height: auto; }
+  .guides-hero h1       { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .bg-guides-grid       { grid-template-columns: 1fr; }
+  .docs-grid            { grid-template-columns: 1fr 1fr; }
+  .map-layout           { grid-template-columns: 1fr; }
+  .guides-cta           { padding: 40px 24px; }
+  .guides-cta h2        { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .guides-cta-btns      { flex-direction: column; align-items: center; }
+  .guides-cta-btns .btn { width: 100%; max-width: 320px; justify-content: center; }
+  .notice-banner        { flex-wrap: wrap; }
+  .notice-banner-action { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .docs-grid { grid-template-columns: 1fr; }
 }
