@@ -230,7 +230,6 @@
 }
 
 /* ── Column header ── */
-.schools-column {}
 
 .column-header {
   display: flex;
@@ -661,8 +660,6 @@
 }
 
 /* Teams in modal */
-.modal-teams-section {}
-
 .modal-teams-header {
   display: flex;
   align-items: center;
