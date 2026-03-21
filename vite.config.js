@@ -19,17 +19,11 @@ export default defineConfig({
         admin: resolve(__dirname, "admin.html"),
         aboutsymposium: resolve(__dirname, "about-symposium.html"),
         sponsors: resolve(__dirname, "sponsors.html"),
+        appraisal: resolve(__dirname, "src/assets/documents/JS2026_Sponsorship_Appraisal.pdf"),
         documents: resolve(__dirname, "guides.html")
       }
     }
   },
-  plugins: [
-    viteStaticCopy({
-      targets: [
-        { src: 'src/assets/documents/*', dest: 'assets' },
-      ]
-    })
-  ],
   server: {
     port: 3000,
     open: true
