@@ -18,6 +18,7 @@ export default defineConfig({
         admin: resolve(__dirname, "admin.html"),
         aboutsymposium: resolve(__dirname, "about-symposium.html"),
         sponsors: resolve(__dirname, "sponsors.html"),
+        documents: resolve(__dirname, "src/assets"),
         documents: resolve(__dirname, "guides.html")
       }
     }
