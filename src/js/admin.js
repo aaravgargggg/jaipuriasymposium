@@ -159,14 +159,14 @@ function updateStats() {
   const outstation = allSchools.filter(s => s.location_type === 'outstation').length
   const confirmed  = allSchools.filter(s => s.status === 'confirmed').length
   const pending    = allSchools.filter(s => s.status === 'pending').length
-  const delegates  = Object.values(allTeams).flat().length * 3
+  const participants  = Object.values(allTeams).flat().length * 3
 
   setText('stat-total',      total)
   setText('stat-local',      local)
   setText('stat-outstation', outstation)
   setText('stat-confirmed',  confirmed)
   setText('stat-pending',    pending)
-  setText('stat-delegates',  delegates)
+  setText('stat-participants',  participants)
 }
 
 // ════════════════════════════════════════
@@ -225,7 +225,7 @@ function renderColumn(containerId, schools) {
 
   container.innerHTML = schools.map(school => {
     const teams     = allTeams[school.id] || []
-    const delegates = teams.length * 3
+    const participants = teams.length * 3
     const isConfirmed = school.status === 'confirmed'
 
     return `
@@ -249,7 +249,7 @@ function renderColumn(containerId, schools) {
             </span>
             <span class="school-card-meta-item">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-              ${delegates} delegate${delegates !== 1 ? 's' : ''}
+              ${participants} participant${participants !== 1 ? 's' : ''}
             </span>
             <span class="school-card-meta-item">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
@@ -342,9 +342,9 @@ function renderModalCodeSection(school) {
 function renderModalTeams(teams) {
   const countEl   = document.getElementById('modal-teams-count')
   const listEl    = document.getElementById('modal-teams-list')
-  const delegates = teams.length * 3
+  const participants = teams.length * 3
 
-  countEl.textContent = `${teams.length} team${teams.length !== 1 ? 's' : ''} · ${delegates} delegate${delegates !== 1 ? 's' : ''}`
+  countEl.textContent = `${teams.length} team${teams.length !== 1 ? 's' : ''} · ${participants} participant${participants !== 1 ? 's' : ''}`
 
   const committeeLabels = {
     ERT: 'Economic Round Table',
@@ -388,8 +388,16 @@ function closeModal() {
 // ════════════════════════════════════════
 // SEND CODE
 // ════════════════════════════════════════
+
+
 async function handleSendCode() {
   clearCodeError()
+
+  const school = allSchools.find(s => s.id === modalSchoolId)
+if (!school) {
+  showModalToast('School not found.', 'error')
+  return
+}
 
   const codeInput = document.getElementById('code-input')
   const code      = codeInput.value.trim().toUpperCase()
@@ -421,23 +429,43 @@ async function handleSendCode() {
   setSendLoading(true)
   hideModalToast()
 
+  const logoUrl = 'https://www.jaipuriasymposium.org/assets/images/logo.png'
+
   try {
     // ── Call the send_school_code DB function ──
-    const { data: result, error: fnErr } = await supabase
-      .rpc('send_school_code', {
-        p_school_id:   modalSchoolId,
-        p_school_code: code,
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/school-code-send`, {
+        method: 'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          school_name : school.school_name,
+          school_code : code,
+          teacher_in_charge_name : school.teacher_in_charge_name,
+          email: school.email,
+          logoUrl,
+        }),
       })
 
-    if (fnErr) throw new Error(fnErr.message)
-    if (!result?.success) throw new Error(result?.error || 'Unknown error from database.')
+    const data = await res.json().catch(() => null)
 
-    // ── Send WhatsApp (placeholder — log for now) ──
-    console.log('WhatsApp placeholder → send to:', result.teacher_in_charge_phone, {
-      schoolName: result.school_name,
-      schoolCode: result.school_code,
-      city:       result.city,
+    if (!res.ok) {
+      throw new Error(data?.error || data?.message || 'Server error')
+    }
+
+    // Update Supabase
+    const { error: updateErr } = await supabase
+    .from('schools')
+    .update({
+      school_code: code,
+      code_sent: true,
+      code_sent_at: new Date().toISOString(),
+      status: 'confirmed',
     })
+    .eq('id', modalSchoolId)
+
+  if (updateErr) throw updateErr 
 
     // ── Update local state immediately ──
     const idx = allSchools.findIndex(s => s.id === modalSchoolId)
@@ -456,7 +484,7 @@ async function handleSendCode() {
     updateStats()
     renderSchoolsList()
 
-    showModalToast(`✓ Code ${code} sent to ${result.school_name}`, 'success')
+    showModalToast(`✓ Code ${code} sent to ${school.school_name}`, 'success')
 
   } catch (err) {
     console.error('Send code error:', err)

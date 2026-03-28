@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Block sensitive / useless pages
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /login
+
+# Allow important assets
+Allow: /assets/
+Allow: /assets/images/
+
+# Sitemap location
+Sitemap: https://jaipuriasymposium.org/sitemap.xml

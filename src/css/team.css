@@ -639,8 +639,8 @@
 }
 
 .advisors-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -651,6 +651,7 @@
   padding: 36px 28px;
   text-align: center;
   cursor: default;
+  width: calc(33.33% - 16px);  /* same width as 3-col grid */
   transition:
     border-color var(--duration-base) var(--ease-smooth),
     transform    var(--duration-base) var(--ease-smooth),
@@ -664,7 +665,7 @@
 }
 
 .advisor-avatar {
-  width: 84px; height: 84px;
+  width: 168px; height: 168px;
   border-radius: 50%;
   border: 1px solid rgba(201,168,76,0.22);
   background: var(--glass-surface);

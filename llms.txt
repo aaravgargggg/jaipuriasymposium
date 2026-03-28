@@ -1,0 +1,32 @@
+# Jaipuria Symposium 2026 - AI Access Guidelines
+
+User-agent: *
+Allow: /
+
+# Priority Pages for AI Understanding
+Priority: /register
+Priority: /agendas
+Priority: /guides
+Priority: /contact
+
+# Key Content Areas
+Content: /about-symposium
+Content: /team
+Content: /sponsors
+
+# Assets
+Assets: /assets/images/
+
+# Restricted Pages
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /login
+
+# Preferred Base URL
+Canonical: https://jaipuriasymposium.org/
+
+# Description
+Description: Jaipuria Symposium 2026 is a premier inter-school debate symposium being hosted at Seth M. R. Jaipuria School, Lucknow on 7th and 8th August 2026.
+
+# Contact
+Contact: https://jaipuriasymposium.org/contact

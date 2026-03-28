@@ -2,14 +2,9 @@
 // REGISTER.JS — Jaipuria Symposium 2026
 // ════════════════════════════════════════════════════════════
 
-// ─────────────────────────────────────────
-// !! REPLACE THESE WITH YOUR REAL VALUES !!
-// ─────────────────────────────────────────
 const SUPABASE_URL      = 'https://tkvrukemedlxjxrlzvhe.supabase.co'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRrdnJ1a2VtZWRseGp4cmx6dmhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3OTA5MDIsImV4cCI6MjA4ODM2NjkwMn0.OjbL8UM8UsKjcPihNcLBEu-Ka9KLSVGD36Vh7OsZ80s'
-// ─────────────────────────────────────────
 
-// ── Load Supabase from CDN ──
 let supabase = null
 async function initSupabase() {
   try {
@@ -20,7 +15,6 @@ async function initSupabase() {
   }
 }
 
-// ── Constants ──
 const COMMITTEES = [
   { value: 'ERT', label: 'Economic Round Table' },
   { value: 'SHC', label: 'Social & Humanitarian Council' },
@@ -29,17 +23,14 @@ const COMMITTEES = [
 ]
 const CLASSES = ['8', '9', '10', '11', '12']
 
-// ── Team state ──
-let teamIdCounter = 0  // always increments, never resets
+let teamIdCounter = 0
 
 // ════════════════════════════════════════
-// BOOT — runs when DOM is ready
+// BOOT
 // ════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', async () => {
-
   await initSupabase()
 
-  // If already logged in → go to dashboard
   if (supabase) {
     try {
       const { data: { session } } = await supabase.auth.getSession()
@@ -47,19 +38,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (_) {}
   }
 
-  // ── Render first team block immediately ──
   addTeamBlock()
 
-  // ── Wire Add Team button ──
   document.getElementById('add-team-btn').addEventListener('click', () => {
     addTeamBlock()
     clearErr('err-teams')
   })
 
-  // ── Wire form submit ──
   document.getElementById('reg-form').addEventListener('submit', handleSubmit)
-
-  // ── Wire city live tag ──
   document.getElementById('city').addEventListener('input', onCityInput)
 })
 
@@ -67,8 +53,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 // CITY TAG
 // ════════════════════════════════════════
 function onCityInput(e) {
-  const city  = e.target.value.trim()
-  const tag   = document.getElementById('city-tag')
+  const city = e.target.value.trim()
+  const tag  = document.getElementById('city-tag')
   if (city.length < 2) { tag.style.display = 'none'; return }
   const local       = city.toLowerCase() === 'lucknow'
   tag.style.display = 'inline-flex'
@@ -81,8 +67,8 @@ function onCityInput(e) {
 // ════════════════════════════════════════
 function addTeamBlock() {
   teamIdCounter++
-  const id        = teamIdCounter
-  const isFirst   = document.querySelectorAll('.team-block').length === 0
+  const id      = teamIdCounter
+  const isFirst = document.querySelectorAll('.team-block').length === 0
 
   const container = document.getElementById('teams-container')
   const block     = document.createElement('div')
@@ -91,7 +77,6 @@ function addTeamBlock() {
   block.innerHTML = buildTeamHTML(id, isFirst)
   container.appendChild(block)
 
-  // Animate in
   block.style.opacity   = '0'
   block.style.transform = 'translateY(14px)'
   requestAnimationFrame(() => {
@@ -100,11 +85,8 @@ function addTeamBlock() {
     block.style.transform  = 'translateY(0)'
   })
 
-  // Wire remove button (only present on non-first teams)
   const removeBtn = block.querySelector('.btn-remove-team')
-  if (removeBtn) {
-    removeBtn.addEventListener('click', () => removeTeamBlock(id))
-  }
+  if (removeBtn) removeBtn.addEventListener('click', () => removeTeamBlock(id))
 
   refreshTeamNumbers()
 }
@@ -141,13 +123,7 @@ function buildTeamHTML(id, isFirst) {
       <div class="participant-fields">
         <div class="form-group">
           <label class="form-label" for="p${p}-name-${id}">Full Name <span class="req">*</span></label>
-          <input
-            class="form-input"
-            type="text"
-            id="p${p}-name-${id}"
-            placeholder="Full name"
-            autocomplete="off"
-          />
+          <input class="form-input" type="text" id="p${p}-name-${id}" placeholder="Full name" autocomplete="off" />
           <span class="form-error" id="err-p${p}-name-${id}"></span>
         </div>
         <div class="form-group class-group">
@@ -199,8 +175,6 @@ function buildTeamHTML(id, isFirst) {
 // PASSWORD GENERATOR
 // ════════════════════════════════════════
 function generatePassword() {
-  // Format: JS + 4 uppercase letters + 4 digits
-  // Excludes ambiguous chars (I, O, 0, 1) for readability
   const L = 'ABCDEFGHJKLMNPQRSTUVWXYZ'
   const D = '23456789'
   let p = 'JS'
@@ -217,9 +191,7 @@ function setErr(errId, msg) {
   if (!el) return
   el.textContent = msg
   el.classList.add('visible')
-  // Mark related input red
-  const inputId = errId.replace(/^err-/, '')
-  const inp     = document.getElementById(inputId)
+  const inp = document.getElementById(errId.replace(/^err-/, ''))
   if (inp) { inp.classList.add('error'); inp.classList.remove('valid') }
 }
 
@@ -228,8 +200,7 @@ function clearErr(errId) {
   if (!el) return
   el.textContent = ''
   el.classList.remove('visible')
-  const inputId = errId.replace(/^err-/, '')
-  const inp     = document.getElementById(inputId)
+  const inp = document.getElementById(errId.replace(/^err-/, ''))
   if (inp) inp.classList.remove('error')
 }
 
@@ -244,12 +215,12 @@ function clearAllErrors() {
 }
 
 // ════════════════════════════════════════
-// VALIDATION — returns true if all good
+// VALIDATION
 // ════════════════════════════════════════
 function validateForm() {
   clearAllErrors()
-  let valid         = true
-  let firstErrorEl  = null
+  let valid        = true
+  let firstErrorEl = null
 
   function markError(errId, msg) {
     setErr(errId, msg)
@@ -258,99 +229,59 @@ function validateForm() {
   }
 
   function checkText(inputId, errId, label) {
-    const el  = document.getElementById(inputId)
-    const val = el ? el.value.trim() : ''
-    if (!val) {
-      markError(errId, `${label} is required.`)
-    } else {
-      el.classList.add('valid')
-    }
+    const el = document.getElementById(inputId)
+    if (!el || !el.value.trim()) markError(errId, `${label} is required.`)
+    else el.classList.add('valid')
   }
 
   function checkEmail(inputId, errId) {
     const el  = document.getElementById(inputId)
     const val = el ? el.value.trim() : ''
-    if (!val) {
-      markError(errId, 'Email address is required.')
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-      markError(errId, 'Please enter a valid email address (e.g. name@school.com).')
-    } else {
-      el.classList.add('valid')
-    }
+    if (!val) markError(errId, 'Email address is required.')
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) markError(errId, 'Please enter a valid email address.')
+    else el.classList.add('valid')
   }
 
   function checkPhone(inputId, errId) {
-    const el    = document.getElementById(inputId)
-    const raw   = el ? el.value.trim() : ''
-    // Strip spaces, dashes, +91 prefix for digit count check
+    const el     = document.getElementById(inputId)
+    const raw    = el ? el.value.trim() : ''
     const digits = raw.replace(/[\s\-\+]/g, '').replace(/^91/, '')
-    if (!raw) {
-      markError(errId, 'Contact number is required.')
-    } else if (!/^\d+$/.test(digits)) {
-      markError(errId, 'Please enter digits only (no letters or special chars).')
-    } else if (digits.length !== 10) {
-      markError(errId, `Must be exactly 10 digits (you entered ${digits.length}).`)
-    } else {
-      el.classList.add('valid')
-    }
+    if (!raw) markError(errId, 'Contact number is required.')
+    else if (!/^\d+$/.test(digits)) markError(errId, 'Please enter digits only.')
+    else if (digits.length !== 10) markError(errId, `Must be exactly 10 digits (you entered ${digits.length}).`)
+    else el.classList.add('valid')
   }
 
-  // ── Section 1: School ──
   checkText('school-name', 'err-school-name', 'School name')
   checkText('addr-1',      'err-addr-1',      'Address Line 1')
   checkText('city',        'err-city',        'City')
+  checkText('tic-name',    'err-tic-name',    'Teacher name')
+  checkEmail('tic-email',  'err-tic-email')
+  checkPhone('tic-phone',  'err-tic-phone')
+  checkText('et-name',     'err-et-name',     'Escort teacher name')
+  checkPhone('et-phone',   'err-et-phone')
 
-  // ── Section 2: Teacher In Charge ──
-  checkText('tic-name',  'err-tic-name',  'Teacher name')
-  checkEmail('tic-email', 'err-tic-email')
-  checkPhone('tic-phone', 'err-tic-phone')
-
-  // ── Section 3: Escort Teacher ──
-  checkText('et-name',  'err-et-name',  'Escort teacher name')
-  checkPhone('et-phone', 'err-et-phone')
-
-  // ── Section 4: Teams ──
   const teamBlocks = document.querySelectorAll('.team-block')
-
-  if (teamBlocks.length === 0) {
-    markError('err-teams', 'Please add at least one team.')
-  }
+  if (teamBlocks.length === 0) markError('err-teams', 'Please add at least one team.')
 
   teamBlocks.forEach(block => {
-    const id = block.id.replace('team-block-', '')
-
-    // Committee
+    const id  = block.id.replace('team-block-', '')
     const cEl = document.getElementById(`committee-${id}`)
-    if (!cEl || !cEl.value) {
-      markError(`err-committee-${id}`, 'Please select a committee.')
-    } else {
-      cEl.classList.add('valid')
-    }
+    if (!cEl || !cEl.value) markError(`err-committee-${id}`, 'Please select a committee.')
+    else cEl.classList.add('valid')
 
-    // Participants
     ;[1, 2, 3].forEach(p => {
       const nEl = document.getElementById(`p${p}-name-${id}`)
-      const cEl = document.getElementById(`p${p}-class-${id}`)
-
-      if (!nEl || !nEl.value.trim()) {
-        markError(`err-p${p}-name-${id}`, 'Name is required.')
-      } else {
-        nEl.classList.add('valid')
-      }
-
-      if (!cEl || !cEl.value) {
-        markError(`err-p${p}-class-${id}`, 'Class is required.')
-      } else {
-        cEl.classList.add('valid')
-      }
+      const kEl = document.getElementById(`p${p}-class-${id}`)
+      if (!nEl || !nEl.value.trim()) markError(`err-p${p}-name-${id}`, 'Name is required.')
+      else nEl.classList.add('valid')
+      if (!kEl || !kEl.value) markError(`err-p${p}-class-${id}`, 'Class is required.')
+      else kEl.classList.add('valid')
     })
   })
 
-  // Scroll to first error
   if (firstErrorEl) {
-    setTimeout(() => {
-      firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }, 50)
+    setTimeout(() => firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50)
   }
 
   return valid
@@ -361,7 +292,6 @@ function validateForm() {
 // ════════════════════════════════════════
 async function handleSubmit(e) {
   e.preventDefault()
-
   if (!validateForm()) return
 
   setLoading(true)
@@ -371,10 +301,9 @@ async function handleSubmit(e) {
   const password = generatePassword()
 
   try {
-
     if (!supabase) throw new Error('Database connection not configured. Please contact the organiser.')
 
-    // ── 1. Create auth user ──
+    // 1. Create auth user
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email,
       password,
@@ -391,11 +320,11 @@ async function handleSubmit(e) {
     const userId = authData?.user?.id
     if (!userId) throw new Error('Could not create account. Please try again.')
 
-    // ── 2. Sign in immediately so auth.uid() is active for RLS ──
+    // 2. Sign in so RLS auth.uid() is active
     const { error: signInErr } = await supabase.auth.signInWithPassword({ email, password })
     if (signInErr) throw new Error(`Session error: ${signInErr.message}`)
 
-    // ── 3. Insert school record ──
+    // 3. Insert school record
     const { data: schoolData, error: schoolErr } = await supabase
       .from('schools')
       .insert({
@@ -408,9 +337,9 @@ async function handleSubmit(e) {
         teacher_in_charge_phone: document.getElementById('tic-phone').value.trim(),
         escort_teacher_name:     document.getElementById('et-name').value.trim(),
         escort_teacher_phone:    document.getElementById('et-phone').value.trim(),
-        email:                   email,
-        status:                  'pending',
-        code_sent:               false,
+        email,
+        status:    'pending',
+        code_sent: false,
       })
       .select('id')
       .single()
@@ -419,7 +348,7 @@ async function handleSubmit(e) {
 
     const schoolId = schoolData.id
 
-    // ── 4. Insert teams ──
+    // 4. Insert teams
     const teamBlocks    = document.querySelectorAll('.team-block')
     const teamsToInsert = []
 
@@ -441,27 +370,38 @@ async function handleSubmit(e) {
     const { error: teamsErr } = await supabase.from('teams').insert(teamsToInsert)
     if (teamsErr) throw new Error(`Could not save team details: ${teamsErr.message}`)
 
-    // ── 5. Send welcome email (non-fatal if fails) ──
+    // 5. Send welcome email via register-msg edge function (non-fatal)
     try {
-      await supabase.functions.invoke('send-welcome-email', {
-        body: {
-          to:          email,
-          teacherName: document.getElementById('tic-name').value.trim(),
-          schoolName:  document.getElementById('school-name').value.trim(),
+      const { data: { session } } = await supabase.auth.getSession()
+
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/bright-endpoint`, {
+        method: 'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          email,
           password,
-          loginUrl:    `${window.location.origin}/login.html`,
-        }
+          schoolName: document.getElementById('school-name').value.trim(),
+          ticName:    document.getElementById('tic-name').value.trim(),
+          teamCount:  teamBlocks.length,
+          loginUrl:   `jaipuriasymposium.org/login.html`,
+        }),
       })
+
+      if (!res.ok) console.warn('Welcome email response:', await res.text())
+
     } catch (emailErr) {
       console.warn('Welcome email failed (non-fatal):', emailErr.message)
     }
 
-    // ── 6. Done ──
+    // 6. Success
     showSuccess()
     setTimeout(() => window.location.replace('dashboard.html'), 2500)
 
   } catch (err) {
-    console.error('Registration error:', err)
+    console.error('[registration] Error:', err.message, err)
     showErrorBanner(err.message || 'Something went wrong. Please try again.')
     setLoading(false)
   }

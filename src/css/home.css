@@ -3,6 +3,16 @@
 ════════════════════════════════════════ */
 
 /* ── Hero ── */
+
+html, body{
+  background: var(--deep-void)
+}
+
+#page {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
 #hero {
   position: relative;
   min-height: 100vh;
@@ -1361,4 +1371,31 @@
   /* Hero */
   .hero-tagline         { font-size: 16px; }
   .hero-date            { font-size: 11px; }
+}
+
+.schedule-tentative-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 40px;
+  padding: 16px 20px;
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 10px;
+  color: var(--silver-mist);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+.schedule-tentative-note svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--chamber-gold);
+}
+
+.schedule-tentative-note strong {
+  color: var(--chamber-gold);
+  font-weight: 600;
 }

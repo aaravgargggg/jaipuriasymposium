@@ -21,6 +21,51 @@
     window.scrollTo(0, 0)
     document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jaipuriasymposium.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "name": "Register | Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/register"
+    }
+  ]
+}
+</script>
+
+  <!-- Android / Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Apple -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#0b0b0b">
 </head>
 <body>
 
@@ -31,12 +76,8 @@
     <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
-      <div class="nav-logo-circle"><span>J</span></div>
-      <div class="nav-logo-text">
-        <span class="nav-logo-primary">Jaipuria</span>
-        <span class="nav-logo-secondary">Symposium 2026</span>
-      </div>
-    </a>
+    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+  </a>
 
     <ul class="nav-links" role="list">
       <li class="hide-on-home"><a href="index.html">Home</a></li>
@@ -46,6 +87,7 @@
       <li><a href="guides.html">Documents</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
 
     <div class="nav-cta-area">
@@ -69,6 +111,7 @@
       <li><a href="guides.html">Documents</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <div class="mobile-menu-footer">
       <a href="login.html">Already Registered? Login</a>
@@ -259,8 +302,7 @@
               </div>
               <div class="sidebar-row">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <div><div class="sidebar-row-title">Expected Delegates</div><div class="sidebar-row-value mono">200+</div></div>
-              </div>
+                </div>
             </div>
           </div>
 
@@ -311,34 +353,36 @@
   <footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
-
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
-            <div class="nav-logo-circle"><span>J</span></div>
-            <div class="nav-logo-text">
-              <span class="nav-logo-primary">Jaipuria</span>
-              <span class="nav-logo-secondary">Symposium 2026</span>
-            </div>
-          </a>
-          <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
-          <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
-          <div class="footer-socials" style="margin-top:20px;">
-            <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-            <a href="#" aria-label="X / Twitter"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l16 16M4 20L20 4"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          </div>
-        </div>
-
+  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
+    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+  </a>
+  <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
+  <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
+  <div class="footer-socials" style="margin-top:20px;">
+    <a href="https://www.instagram.com/jaipuriamunanddebate/" aria-label="Instagram">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="http://www.youtube.com/@jaipuriaschool" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="2" y="4" width="20" height="16" rx="3"/>
+      <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+ <a href="https://www.linkedin.com/company/seth-m-r-jaipuria-school-gomtinagar-lucknow/" aria-label="LinkedIn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+  </div>
+</div>
         <div class="footer-col">
           <h5>Symposium</h5>
           <ul>
             <li><a href="about-symposium.html">About Symposium</a></li>
-            <li><a href="agendas.html">Committees</a></li>
+            <li><a href="agendas.html">Councils</a></li>
             <li><a href="guides.html">Documents &amp; Guides</a></li>
             <li><a href="sponsors.html">Sponsors</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h5>Information</h5>
           <ul>
@@ -347,7 +391,6 @@
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h5>Participate</h5>
           <ul>
@@ -357,12 +400,10 @@
           </ul>
           <div style="margin-top:24px;">
             <p style="font-size:12px;color:var(--silver-mist);margin-bottom:6px;">For enquiries:</p>
-            <a href="mailto:contact@jaipuriasymposium.com" style="font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">contact@jaipuriasymposium.com</a>
+            <a href="mailto:contact@jaipuriasymposium.">contact&#64;jaipuriasymposium&#46;org</a>
           </div>
         </div>
-
       </div>
-
       <div class="footer-bottom">
         <p>&copy; 2026 Seth M. R. Jaipuria School, Lucknow. All rights reserved.</p>
         <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;">REASON &middot; REFORM &middot; RISE</p>
@@ -370,8 +411,17 @@
     </div>
   </footer>
 
-  <script type="module" src="src/js/main.js"></script>
+
+  <script>
+    window.addEventListener('load', () => window.dispatchEvent(new Event('scroll')))
+    // Marquee logos — add error class if image fails to load
+    document.querySelectorAll('.marquee-item img').forEach(img => {
+      img.addEventListener('error', () => img.parentNode.classList.add('img-error'))
+    })
+  </script>
   <script type="module" src="src/js/cursor.js"></script>
+  <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/register.js"></script>
+
 </body>
 </html>

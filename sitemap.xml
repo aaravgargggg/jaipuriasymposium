@@ -1,0 +1,83 @@
+<?xml version="1.0.1" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://jaipuriasymposium.org/</loc>
+    <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>https://jaipuriasymposium.org/assets/images/logo.png</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jaipuriasymposium.org/assets/images/campus-main.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jaipuriasymposium.org/assets/images/auditorium.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jaipuriasymposium.org/assets/images/library.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jaipuriasymposium.org/assets/images/research-lab.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jaipuriasymposium.org/assets/images/biology-lab.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jaipuriasymposium.org/assets/images/sports-field.jpg</image:loc>
+    </image:image>
+
+  </url>
+
+  <!-- MAIN PAGES -->
+  <url>
+    <loc>https://jaipuriasymposium.org/register</loc>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://jaipuriasymposium.org/agendas</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://jaipuriasymposium.org/guides</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://jaipuriasymposium.org/contact</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SECONDARY -->
+  <url>
+    <loc>https://jaipuriasymposium.org/about-symposium</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://jaipuriasymposium.org/team</loc>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://jaipuriasymposium.org/sponsors</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jaipuriasymposium.org/about-school</loc>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

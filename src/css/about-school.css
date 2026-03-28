@@ -113,33 +113,6 @@
   color: var(--silver-mist);
 }
 
-.school-hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 2;
-}
-
-.school-hero-scroll span {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--silver-mist);
-}
-
-.school-hero-scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
 /* ── School Identity strip ── */
 .identity-strip {
   background: var(--midnight-navy);
@@ -599,7 +572,7 @@
 /* ── Campus section ── */
 .campus-section {
   padding: var(--section-padding) 0;
-  background: var(--deep-void);
+  background: var(--midnight-navy);
 }
 
 .campus-header {
@@ -631,7 +604,6 @@
 .campus-photos-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 260px 260px;
   gap: 4px;
 }
 
@@ -699,7 +671,7 @@
 /* ── CTA ── */
 .school-cta {
   padding: var(--section-padding) 0;
-  background: var(--midnight-navy);
+  background: var(--deep-void);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -755,7 +727,7 @@
   .achievements-header { grid-template-columns: 1fr; gap: 24px; }
   .achievements-grid   { grid-template-columns: 1fr 1fr; }
   .vm-grid         { grid-template-columns: 1fr; gap: 2px; }
-  .campus-photos-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .campus-photos-grid { grid-template-columns: 1fr 1fr; }
   .campus-photo:first-child { grid-row: auto; }
   .identity-strip-inner { grid-template-columns: 1fr 1fr; }
   .identity-item:nth-child(2) { border-right: none; }
