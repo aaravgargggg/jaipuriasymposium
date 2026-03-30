@@ -355,7 +355,7 @@
   gap: 16px;
 }
 
-.team-committee-row {
+.team-council-row {
   margin-bottom: 8px;
 }
 
@@ -567,14 +567,14 @@
   font-family: var(--font-mono);
 }
 
-/* Committee rows */
-.sidebar-committees {
+/* council rows */
+.sidebar-councils {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-.sidebar-committee-row {
+.sidebar-council-row {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -584,7 +584,7 @@
   color: var(--silver-mist);
 }
 
-.sidebar-committee-row:last-child {
+.sidebar-council-row:last-child {
   border-bottom: none;
 }
 

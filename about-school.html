@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Seth M.R. Jaipuria School, Lucknow — history, vision, mission, principal's message, and campus. Host of Jaipuria Symposium 2026." />
-  <title>About Our School — Jaipuria Symposium 2026</title>
+  <meta name="description" content="Discover Seth M. R. Jaipuria School, Lucknow — a leading institution known for academic excellence, leadership development, and holistic education. Learn about its legacy, vision, and commitment to shaping future leaders.">
+  <title>About Our School | Jaipuria Symposium 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -14,58 +14,98 @@
   <link rel="stylesheet" href="src/css/components.css" />
   <link rel="stylesheet" href="src/css/about-school.css" />
 
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Jaipuria Symposium 2026",
-    "url": "https://jaipuriasymposium.org/",
-    "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jaipuriasymposium.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "name": "About Our School | Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/about-school"
+    }
+  ]
+}
 </script>
 
   <!-- Android / Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-512x512.png">
   
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="https://www.jaipuriasymposium.org/favicon.ico">
 
   <!-- Apple -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.jaipuriasymposium.org/assets/images/apple-touch-icon.png">
 
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="https://www.jaipuriasymposium.org/site.webmanifest">
 
   <!-- Theme -->
   <meta name="theme-color" content="#0b0b0b">
+
+  <style>#navbar .hide-on-home { display: none; } #mobile-menu .hide-on-home { display: none; }</style>
+
+<style>
+  html.loading, body.loading {
+    overflow: hidden;
+    height: 100%;
+  }
+</style>
+
 </head>
 <body>
+<div id="loader">
+  <div class="logo-wrap">
+    <img src="src/assets/images/logo.png" class="loader-logo">
+  </div>
+</div>
 
-  <div id="cur-dot"  aria-hidden="true"></div>
-  <div id="cur-ring" aria-hidden="true"></div>
-  <div class="page-transition-overlay" aria-hidden="true"></div>
+<div id="page">
+<div id="cur-dot"  aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
+<div class="page-transition-overlay" aria-hidden="true"></div>
 
-  <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
-    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+<!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
+    <img src="https://www.jaipuriasymposium.org/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
   </a>
-
+  
   <ul class="nav-links" role="list">
-    <li class="hide-on-home"><a href="index.html">Home</a></li>
-    <li><a href="about-school.html" class="nav-active">About Our School</a></li>
-    <li><a href="about-symposium.html">About Symposium</a></li>
-    <li><a href="agendas.html">Councils</a></li>
-    <li><a href="guides.html">Documents</a></li>
-    <li><a href="sponsors.html">Sponsors</a></li>
-    <li><a href="team.html">Meet Our Team</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
+    <li class="hide-on-home"><a href="/">Home</a></li>
+    <li><a href="/about-school.html" class="nav-active">About Our School</a></li>
+    <li><a href="/about-symposium.html">About Symposium</a></li>
+    <li><a href="/councils.html">Councils</a></li>
+    <li><a href="/resources.html">Resources</a></li>
+    <li><a href="/sponsors.html">Sponsors</a></li>
+    <li><a href="/team.html">Meet Our Team</a></li>
+    <li><a href="/contact.html">Contact Us</a></li>
   </ul>
-
+  
   <div class="nav-cta-area">
-    <a href="register.html" class="btn-nav-register" id="nav-register-btn">
+    <a href="/register.html" class="btn-nav-register" id="nav-register-btn">
       Register Now
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
@@ -75,78 +115,78 @@
   </div>
 </nav>
 
-  <!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
-  <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
-    <ul class="mobile-nav-links" role="list">
-      <li class="hide-on-home"><a href="index.html">Home</a></li>
-      <li><a href="about-school.html">About Our School</a></li>
-      <li><a href="about-symposium.html">About Symposium</a></li>
-      <li><a href="agendas.html">Committees</a></li>
-      <li><a href="guides.html">Documents</a></li>
-      <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="team.html">Meet Our Team</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-    <div class="mobile-menu-footer">
-      <a href="login.html">Already Registered? Login</a>
-      <a href="register.html">Register Now</a>
-    </div>
+<!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
+<div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <ul class="mobile-nav-links" role="list">
+    <li class="hide-on-home"><a href="/">Home</a></li>
+    <li><a href="about-school.html" class="nav-active">About Our School</a></li>
+    <li><a href="about-symposium.html">About Symposium</a></li>
+    <li><a href="councils.html">Councils</a></li>
+    <li><a href="resouces.html">Resources</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="team.html">Meet Our Team</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="mobile-menu-footer">
+    <a href="login.html">Already Registered? Login</a>
+    <a href="register.html">Register Now</a>
   </div>
+</div>
 
-  <!-- ══ HERO ════════════════════════════════════════════════ -->
-  <section class="school-hero" aria-label="About Our School hero">
-    <div class="school-hero-bg"  aria-hidden="true"></div>
-    <div class="school-hero-grid" aria-hidden="true"></div>
-
-    <div class="container">
-      <div class="school-hero-content">
-
-        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:32px;display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.10em;color:var(--silver-mist);">
-          <a href="index.html" style="color:var(--silver-mist);transition:color 0.2s;" onmouseover="this.style.color='var(--chamber-gold)'" onmouseout="this.style.color='var(--silver-mist)'">Home</a>
-          <span aria-hidden="true" style="opacity:0.4;">›</span>
-          <span style="color:var(--chamber-gold);">About Our School</span>
-        </nav>
-
-        <p class="school-hero-eyebrow">Lucknow, Uttar Pradesh · Est. 1992</p>
-
-        <h1 class="reveal">
-          Where Excellence<br>
-          <em>Finds Its Voice.</em>
-        </h1>
-
-        <p class="school-hero-sub reveal d1">
-          Seth M. R. Jaipuria School, Lucknow — a legacy institution rooted in the belief that
-          education is the most powerful instrument of change. Nurturing thinkers,
-          leaders, and citizens of tomorrow.
-        </p>
-
-        <div class="school-hero-stats reveal d2">
-          <div class="hero-stat">
-            <span class="hero-stat-num">34+</span>
-            <span class="hero-stat-label">Years of Legacy</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num">4000+</span>
-            <span class="hero-stat-label">Students</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num">250+</span>
-            <span class="hero-stat-label">Faculty Members</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num">10</span>
-            <span class="hero-stat-label">Acres Campus</span>
+<!-- ══ HERO ════════════════════════════════════════════════ -->
+<section class="school-hero" aria-label="About Our School hero">
+  <div class="school-hero-bg"  aria-hidden="true"></div>
+  <div class="school-hero-grid" aria-hidden="true"></div>
+  
+  <div class="container">
+    <div class="school-hero-content">
+      
+      <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:32px;display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.10em;color:var(--silver-mist);">
+        <a href="/" style="color:var(--silver-mist);transition:color 0.2s;" onmouseover="this.style.color='var(--chamber-gold)'" onmouseout="this.style.color='var(--silver-mist)'">Home</a>
+        <span aria-hidden="true" style="opacity:0.4;">›</span>
+        <span style="color:var(--chamber-gold);">About Our School</span>
+      </nav>
+      
+      <p class="school-hero-eyebrow">Lucknow, Uttar Pradesh · Est. 1992</p>
+      
+      <h1 class="reveal">
+        Where Excellence<br>
+        <em>Finds Its Voice.</em>
+      </h1>
+      
+      <p class="school-hero-sub reveal d1">
+        Seth M. R. Jaipuria School, Lucknow — a legacy institution rooted in the belief that
+        education is the most powerful instrument of change. Nurturing thinkers,
+        leaders, and citizens of tomorrow.
+      </p>
+      
+      <div class="school-hero-stats reveal d2">
+        <div class="hero-stat">
+          <span class="hero-stat-num">34+</span>
+          <span class="hero-stat-label">Years of Legacy</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">4000+</span>
+          <span class="hero-stat-label">Students</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">250+</span>
+          <span class="hero-stat-label">Faculty Members</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">10</span>
+          <span class="hero-stat-label">Acres Campus</span>
           </div>
         </div>
-
+        
       </div>
     </div>
   </section>
-
+  
   <!-- ══ IDENTITY STRIP ══════════════════════════════════════ -->
   <div class="identity-strip" aria-label="School quick facts">
     <div class="identity-strip-inner">
-
+      
       <div class="identity-item reveal">
         <div class="identity-icon">
           <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -154,7 +194,7 @@
         <div class="identity-label">Address</div>
         <div class="identity-value">Vineet Khand, Gomti Nagar, Lucknow</div>
       </div>
-
+      
       <div class="identity-item reveal d1">
         <div class="identity-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -162,7 +202,7 @@
         <div class="identity-label">Established</div>
         <div class="identity-value">1992 · Lucknow</div>
       </div>
-
+      
       <div class="identity-item reveal d2">
         <div class="identity-icon">
           <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
@@ -170,7 +210,7 @@
         <div class="identity-label">Board Affiliation</div>
         <div class="identity-value">CISCE</div>
       </div>
-
+      
       <div class="identity-item reveal d3">
         <div class="identity-icon">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -178,27 +218,27 @@
         <div class="identity-label">Grades</div>
         <div class="identity-value">Nursery — Class XII</div>
       </div>
-
+      
     </div>
   </div>
 
   <main>
-
+    
     <!-- ══ ABOUT THE SCHOOL ═════════════════════════════════ -->
     <section class="about-section" id="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="about-grid">
-
+          
           <div class="about-left reveal">
             <p class="label">Our Story</p>
             <div class="gold-line"></div>
             <h2 id="about-heading">A Legacy of<br><em>Learning.</em></h2>
-
+            
             <div class="pull-quote">
               <p>"Education is not the filling of a pail, but the lighting of a fire."</p>
             </div>
           </div>
-
+          
           <div class="about-body reveal d1">
             <p>
               At SMRJ, the foundation of who we are lies in a simple yet enduring belief — that education must inspire, not merely instruct, and evolve with time rather than remain unchanged.
@@ -219,15 +259,15 @@
               And as the world continues to evolve, so do we — adapting with intention, growing with purpose, and strengthening the values that define us.
             </p>
           </div>
-
+          
         </div>
       </div>
     </section>
-
+    
     <!-- ══ VISION & MISSION ═════════════════════════════════ -->
     <section class="vm-section" id="vision-mission" aria-labelledby="vm-heading">
       <div class="container">
-
+        
         <div class="reveal" style="max-width:540px;">
           <p class="label">Our Foundation</p>
           <div class="gold-line"></div>
@@ -235,9 +275,9 @@
             The Principles That<br><em style="font-style:italic;color:var(--chamber-gold);">Guide Us.</em>
           </h2>
         </div>
-
+        
         <div class="vm-grid" style="margin-top:56px;">
-
+          
           <div class="vm-card reveal">
             <div class="vm-bg-char">V</div>
             <div class="vm-card-icon">
@@ -247,10 +287,10 @@
             <h3>To Nurture<br><em>Conscious Human Beings.</em></h3>
             <p>
               Guided by this journey, our vision looks firmly towards the future — one rooted in universal fraternity, “वसुधैव कुटुम्बकम्,” where the world is seen as one family. As a School of Conscious Transformation, we believe education must shape both intellect and character, nurturing individuals who think critically, act ethically, and lead with empathy. We aim to create a generation that not only adapts to change but contributes meaningfully to it, guided by clarity, strong values, and a deep sense of responsibility toward society.
-
+              
             </p>
           </div>
-
+          
           <div class="vm-card reveal d2">
             <div class="vm-bg-char">M</div>
             <div class="vm-card-icon">
@@ -262,16 +302,16 @@
               This vision is realised through a mission that is both purposeful and enduring. At SMRJ, we are committed to expanding horizons of knowledge and wisdom while cultivating self-discipline, resilience, and strength of character. Guided by the ideal “सा विद्या या विमुक्तये”—that true education liberates—we strive to nurture curiosity, critical thinking, empathy, and leadership, while fostering respect for culture, nation, and the environment. Through a balanced approach to academic excellence and holistic development, we aim to shape individuals who are principled, courageous, and compassionate, contributing meaningfully to both personal growth and the progress of society.
             </p>
           </div>
-
+          
         </div>
       </div>
     </section>
-
+    
     <!-- ══ PRINCIPAL'S MESSAGE ══════════════════════════════ -->
     <section class="principal-section" id="principal" aria-labelledby="principal-heading">
       <div class="container">
         <div class="principal-grid">
-
+          
           <!-- Photo column -->
           <div class="principal-photo-wrap reveal">
             <div class="principal-photo">
@@ -289,13 +329,13 @@
               <div class="principal-badge-role">Principal · Seth M. R. Jaipuria School, Lucknow</div>
             </div>
           </div>
-
+          
           <!-- Message column -->
           <div class="principal-message reveal d1">
             <p class="label">A Word From Leadership</p>
             <div class="gold-line"></div>
             <h2 id="principal-heading">Principal's<br><em>Message.</em></h2>
-
+            
             <p>
               [Replace with the principal's actual message. Opening paragraph — welcome, acknowledgement
               of the school's journey, and pride in students.] It gives me immense pleasure to
@@ -303,14 +343,14 @@
               the years, become synonymous with academic rigour, holistic development, and the
               unwavering belief in the potential of every child.
             </p>
-
+            
             <p>
               [Second paragraph — on the school's educational philosophy, the balance between
               academics and co-curricular activities, character development.] At Jaipuria, we
               believe that true education goes beyond textbooks. We cultivate curiosity, encourage
               inquiry, and instil values that will serve our students throughout their lives.
             </p>
-
+            
             <p>
               [Third paragraph — specific mention of Jaipuria Symposium and what it represents.]
               Events like the Jaipuria Symposium represent this philosophy in action. When students
@@ -318,28 +358,28 @@
               to listen, to empathise, to reason, and to lead. It is this kind of experience that
               transforms students into statesmen.
             </p>
-
+            
             <p>
               [Closing paragraph — forward-looking, inspiring.] I invite you to explore our school,
               engage with our community, and join us at Jaipuria Symposium 2026. The future belongs
               to those who prepare for it — and we are committed to ensuring our students are
               ready for whatever the world demands.
             </p>
-
+            
             <div class="principal-signature">
               <div class="principal-sig-line"></div>
               <div class="principal-sig-text">Mrs. Promini Chopra</div>
             </div>
           </div>
-
+          
         </div>
       </div>
     </section>
-
+    
     <!-- ══ CAMPUS ════════════════════════════════════════════ -->
     <section class="campus-section" id="campus" aria-labelledby="campus-heading">
       <div class="container">
-
+        
         <div class="campus-header reveal">
           <p class="label">Our Campus</p>
           <div class="gold-line"></div>
@@ -351,43 +391,43 @@
             [Replace with real campus details.]
           </p>
         </div>
-
+        
         <div class="campus-photos-grid">
-
+          
           <div class="campus-photo reveal">
             <!--
               Replace with: <img src="src/assets/images/campus-main.jpg" alt="School main building" />
-            -->
-            <div class="campus-photo">
-              <img src="src/assets/images/campus-main.jpg" alt="School main building" />
+              -->
+              <div class="campus-photo">
+                <img src="src/assets/images/campus-main.jpg" alt="School main building" />
+              </div>
+              <div class="campus-photo-label">Campus Building</div>
             </div>
-            <div class="campus-photo-label">Campus Building</div>
-          </div>
-
-          <div class="campus-photo reveal d1">
+            
+            <div class="campus-photo reveal d1">
               <img src="src/assets/images/research-lab.jpg" alt="Research lab" />
-            <div class="campus-photo-label">Research Lab</div>
+              <div class="campus-photo-label">Research Lab</div>
+            </div>
+            
+            <div class="campus-photo reveal d2">
+              <img src="src/assets/images/library.jpg" alt="Library" />
+              <div class="campus-photo-label">Library</div>
+            </div>
+            
+            <div class="campus-photo reveal d1">
+              <img src="src/assets/images/sports-field.jpg" alt="Sports Field" />
+              <div class="campus-photo-label">Sports &amp; Athletics</div>
           </div>
-
-          <div class="campus-photo reveal d2">
-            <img src="src/assets/images/library.jpg" alt="Library" />
-            <div class="campus-photo-label">Library</div>
-          </div>
-
-          <div class="campus-photo reveal d1">
-            <img src="src/assets/images/sports-field.jpg" alt="Sports Field" />
-            <div class="campus-photo-label">Sports &amp; Athletics</div>
-          </div>
-
+          
           <div class="campus-photo reveal d2">
             <img src="src/assets/images/biology-lab.jpg" alt="Biology Lab" />
             <div class="campus-photo-label">Science Labs</div>
           </div>
-
+          
         </div>
       </div>
     </section>
-
+    
     <!-- ══ CTA ══════════════════════════════════════════════ -->
     <section class="school-cta" aria-label="Register call to action">
       <div class="school-cta-orb" aria-hidden="true"></div>
@@ -400,7 +440,7 @@
         </h2>
         <p class="reveal d1">
           August 7–8, 2026 · Seth M. R. Jaipuria School, Lucknow<br>
-          4 committees · 5 rounds of debate
+          4 councils · 5 rounds of debate
         </p>
         <div class="school-cta-btns reveal d2">
           <a href="register.html" class="btn btn-primary magnetic">Register Your School</a>
@@ -408,69 +448,70 @@
         </div>
       </div>
     </section>
-
+    
   </main>
-
+  
   <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
   <footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
-    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
-  </a>
-  <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
-  <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
-  <div class="footer-socials" style="margin-top:20px;">
-    <a href="https://www.instagram.com/jaipuriamunanddebate/" aria-label="Instagram">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-    </a>
+          <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026">
+            <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+          </a>
+          <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
+          <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
+          <div class="footer-socials" style="margin-top:20px;">
+            <a href="https://www.instagram.com/jaipuriamunanddebate/" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
     <a href="http://www.youtube.com/@jaipuriaschool" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <rect x="2" y="4" width="20" height="16" rx="3"/>
-      <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
+        <rect x="2" y="4" width="20" height="16" rx="3"/>
+        <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
       </svg>
     </a>
- <a href="https://www.linkedin.com/company/seth-m-r-jaipuria-school-gomtinagar-lucknow/" aria-label="LinkedIn">
+    <a href="https://www.linkedin.com/company/seth-m-r-jaipuria-school-gomtinagar-lucknow/" aria-label="LinkedIn">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
     </a>
   </div>
 </div>
-        <div class="footer-col">
-          <h5>Symposium</h5>
-          <ul>
-            <li><a href="about-symposium.html">About Symposium</a></li>
-            <li><a href="agendas.html">Councils</a></li>
-            <li><a href="guides.html">Documents &amp; Guides</a></li>
-            <li><a href="sponsors.html">Sponsors</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Information</h5>
-          <ul>
-            <li><a href="about-school.html">About the School</a></li>
-            <li><a href="team.html">Meet Our Team</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Participate</h5>
-          <ul>
-            <li><a href="register.html">Register Now</a></li>
-            <li><a href="login.html">School Login</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Seth M. R. Jaipuria School, Lucknow. All rights reserved.</p>
-        <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;">REASON &middot; REFORM &middot; RISE</p>
-      </div>
-    </div>
-  </footer>
+<div class="footer-col">
+  <h5>Symposium</h5>
+  <ul>
+    <li><a href="about-symposium.html">About Symposium</a></li>
+    <li><a href="councils.html">Councils</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+  </ul>
+</div>
+<div class="footer-col">
+  <h5>Information</h5>
+  <ul>
+    <li><a href="about-school.html">About the School</a></li>
+    <li><a href="team.html">Meet Our Team</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</div>
+<div class="footer-col">
+  <h5>Participate</h5>
+  <ul>
+    <li><a href="register.html">Register Now</a></li>
+    <li><a href="login.html">School Login</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+</div>
+</div>
+<div class="footer-bottom">
+  <p>&copy; 2026 Seth M. R. Jaipuria School, Lucknow. All rights reserved.</p>
+  <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;">REASON &middot; REFORM &middot; RISE</p>
+</div>
+</div>
+</footer>
+</di>
 
-  <script type="module" src="src/js/cursor.js"></script>
-  <script type="module" src="src/js/main.js"></script>
+<script type="module" src="src/js/cursor.js"></script>
+<script type="module" src="src/js/main.js"></script>
 
 </body>
 </html>

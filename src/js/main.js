@@ -27,6 +27,41 @@ const lenis = new Lenis({
   touchMultiplier: 2,
 })
 
+// Loader Script — Premium Smooth Version
+
+const startTime = Date.now();
+const minLoadTime = 1000;
+
+document.documentElement.classList.add("loading");
+
+window.addEventListener("load", () => {
+  const elapsed = Date.now() - startTime;
+  const delay = Math.max(0, minLoadTime - elapsed);
+
+  setTimeout(() => {
+    const loader = document.getElementById("loader");
+    const page = document.getElementById("page");
+
+    if (!loader || !page) return;
+
+    // Animate page in
+    page.style.opacity = "1";
+    page.style.transform = "scale(1)";
+    page.style.filter = "blur(0)";
+
+    // Fade loader out
+    loader.style.opacity = "0";
+
+    // Remove loader + enable scroll
+    setTimeout(() => {
+      loader.remove();
+      document.documentElement.classList.remove("loading");
+      document.body.classList.remove("loading");
+    }, 700);
+
+  }, delay);
+});
+
 // Always start at top
 lenis.scrollTo(0, { immediate: true })
 

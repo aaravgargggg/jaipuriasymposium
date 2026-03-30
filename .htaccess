@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# 1. Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://www.jaipuriasymposium.org%{REQUEST_URI} [L,R=301]
+
+# 2. Force WWW
+RewriteCond %{HTTP_HOST} ^jaipuriasymposium\.org [NC]
+RewriteRule ^(.*)$ https://www.jaipuriasymposium.org/$1 [L,R=301]
+
+# 3. Redirect .html → clean URL
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 4. Internally map clean URL → .html file
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [L]

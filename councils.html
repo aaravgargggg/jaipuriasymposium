@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Councils & debate format — Jaipuria Symposium 2026. Four councils, five progressive rounds across two days." />
-  <title>Councils — Jaipuria Symposium 2026</title>
+  <meta name="description" content="Explore the councils of Jaipuria Symposium 2026, covering global economics, human rights, technology, and geopolitics. Choose your committee and engage in impactful, high-level debate.">
+  <title>Councils | Jaipuria Symposium 2026</title>
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
     window.scrollTo(0, 0)
@@ -19,23 +19,11 @@
   <link rel="stylesheet" href="src/css/components.css" />
   <link rel="stylesheet" href="src/css/councils.css" />
 
-  <!-- Android / Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
-
-  <!-- Apple -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-
-
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Theme -->
-  <meta name="theme-color" content="#0b0b0b">
-
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -64,49 +52,82 @@
   ]
 }
 </script>
+
+  <!-- Android / Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-512x512.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://www.jaipuriasymposium.org/favicon.ico">
+
+  <!-- Apple -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.jaipuriasymposium.org/assets/images/apple-touch-icon.png">
+
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="https://www.jaipuriasymposium.org/site.webmanifest">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#0b0b0b">
+
+  <style>#navbar .hide-on-home { display: none; } #mobile-menu .hide-on-home { display: none; }</style>
+
+<style>
+  html.loading, body.loading {
+    overflow: hidden;
+    height: 100%;
+  }
+</style>
+
 </head>
 <body>
+<div id="loader">
+  <div class="logo-wrap">
+    <img src="src/assets/images/logo.png" class="loader-logo">
+  </div>
+</div>
 
+<div id="page">
   <div id="cur-dot"  aria-hidden="true"></div>
   <div id="cur-ring" aria-hidden="true"></div>
   <div class="page-transition-overlay" aria-hidden="true"></div>
-
+  
   <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
-    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
-  </a>
-
-  <ul class="nav-links" role="list">
-    <li class="hide-on-home"><a href="index.html">Home</a></li>
-    <li><a href="about-school.html">About Our School</a></li>
-    <li><a href="about-symposium.html">About Symposium</a></li>
-    <li><a href="councils.html" class="nav-active">Councils</a></li>
-    <li><a href="resources.html">Documents</a></li>
-    <li><a href="sponsors.html">Sponsors</a></li>
-    <li><a href="team.html">Meet Our Team</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-  </ul>
-
-  <div class="nav-cta-area">
-    <a href="register.html" class="btn-nav-register" id="nav-register-btn">
-      Register Now
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
+      <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
     </a>
-    <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
+    
+    <ul class="nav-links" role="list">
+      <li class="hide-on-home"><a href="/">Home</a></li>
+      <li><a href="about-school.html">About Our School</a></li>
+      <li><a href="about-symposium.html">About Symposium</a></li>
+      <li><a href="councils.html" class="nav-active">Councils</a></li>
+      <li><a href="resources.html">Documents</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="team.html">Meet Our Team</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    
+    <div class="nav-cta-area">
+      <a href="register.html" class="btn-nav-register" id="nav-register-btn">
+        Register Now
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  
   <!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
   <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
     <ul class="mobile-nav-links" role="list">
-      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li class="hide-on-home"><a href="/">Home</a></li>
       <li><a href="about-school.html">About Our School</a></li>
       <li><a href="about-symposium.html">About Symposium</a></li>
       <li><a href="councils.html">Councils</a></li>
-      <li><a href="guides.html">Documents</a></li>
+      <li><a href="resources.html">Resources</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
       <li><a href="contact.html">Contact Us</a></li>
@@ -116,77 +137,77 @@
       <a href="register.html">Register Now</a>
     </div>
   </div>
-
+  
   <!-- ══ HERO ════════════════════════════════════════════════ -->
-  <header class="committees-hero" role="banner">
-    <div class="committees-hero-bg"   aria-hidden="true"></div>
-    <div class="committees-hero-grid" aria-hidden="true"></div>
-
+  <header class="councils-hero" role="banner">
+    <div class="councils-hero-bg"   aria-hidden="true"></div>
+    <div class="councils-hero-grid" aria-hidden="true"></div>
+    
     <div class="container">
-      <div class="committees-hero-content">
-
+      <div class="councils-hero-content">
+        
         <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:32px;display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.10em;color:var(--silver-mist);">
-          <a href="index.html" style="color:var(--silver-mist);transition:color 0.2s;" onmouseover="this.style.color='var(--chamber-gold)'" onmouseout="this.style.color='var(--silver-mist)'">Home</a>
+          <a href="/" style="color:var(--silver-mist);transition:color 0.2s;" onmouseover="this.style.color='var(--chamber-gold)'" onmouseout="this.style.color='var(--silver-mist)'">Home</a>
           <span aria-hidden="true" style="opacity:0.4;">›</span>
           <span style="color:var(--chamber-gold);">Councils</span>
         </nav>
-
+        
         <p class="label reveal">Jaipuria Symposium 2026</p>
         <div class="gold-line reveal" aria-hidden="true"></div>
-
+        
         <h1 class="reveal d1">
           Four Chambers.<br>
           <em>One Stage.</em>
         </h1>
-
-        <p class="committees-hero-sub reveal d2">
+        
+        <p class="councils-hero-sub reveal d2">
           Four councils. Five rounds of progressive debate. Two days to prove
           your case. Every round tests a different skill — from Oxford-style
           persuasion to parliamentary governance. Choose your council.
           Know your format.
         </p>
-
+        
       </div>
     </div>
   </header>
-
+  
   <main>
-
-    <!-- ══ COMMITTEE CARDS ══════════════════════════════════ -->
-    <section class="committees-section" aria-labelledby="committees-heading">
+    
+    <!-- ══ council CARDS ══════════════════════════════════ -->
+    <section class="councils-section" aria-labelledby="councils-heading">
       <div class="container">
-
-        <div class="committees-intro">
+        
+        <div class="councils-intro">
           <div class="reveal">
             <p class="label">The Councils</p>
             <div class="gold-line"></div>
-            <h2 id="committees-heading">
+            <h2 id="councils-heading">
               Choose Your<br><em>Arena.</em>
             </h2>
           </div>
           <p class="reveal d1">
             Each council covers a distinct domain of global affairs. All four run through
             the same five-round structure — what changes is the topic, the bloc dynamics,
-            and the stakes. Study your council's background guide before you walk in.
+            and the stakes. Study your council's research guide before you walk in.
           </p>
         </div>
-
-        <div class="committee-cards-grid">
-
+        
+        <div class="council-cards-grid">
+          
           <!-- ERT -->
-          <div class="committee-card-full reveal">
+          <div class="council-card-full reveal">
             <div class="cc-bg-abbr">ERT</div>
             <div class="cc-top">
               <span class="cc-abbr">ERT</span>
             </div>
             <div class="cc-name">Economic Round Table</div>
             <div class="cc-type">International Economics &amp; Trade Policy</div>
-
+            
             <div class="cc-topic">
               <div class="cc-topic-label">Topic</div>
               <div class="cc-topic-value">To Be Announced</div>
             </div>
-
+            
             <div class="cc-tags">
               <span class="cc-tag">Trade Policy</span>
               <span class="cc-tag">Debt Crisis</span>
@@ -194,21 +215,21 @@
               <span class="cc-tag">Global Markets</span>
             </div>
           </div>
-
+          
           <!-- SHC -->
-          <div class="committee-card-full reveal d1">
+          <div class="council-card-full reveal d1">
             <div class="cc-bg-abbr">SHC</div>
             <div class="cc-top">
               <span class="cc-abbr">SHC</span>
             </div>
             <div class="cc-name">Social &amp; Humanitarian Council</div>
             <div class="cc-type">Human Rights &amp; Humanitarian Affairs</div>
-
+            
             <div class="cc-topic">
               <div class="cc-topic-label">Topic</div>
               <div class="cc-topic-value">To Be Announced</div>
             </div>
-
+            
             <div class="cc-tags">
               <span class="cc-tag">Refugee Crisis</span>
               <span class="cc-tag">Gender Equality</span>
@@ -216,21 +237,21 @@
               <span class="cc-tag">Humanitarian Law</span>
             </div>
           </div>
-
+          
           <!-- TIF -->
-          <div class="committee-card-full reveal d1">
+          <div class="council-card-full reveal d1">
             <div class="cc-bg-abbr">TIF</div>
             <div class="cc-top">
               <span class="cc-abbr">TIF</span>
             </div>
             <div class="cc-name">Tech &amp; Innovation Forum</div>
             <div class="cc-type">Technology, AI &amp; Digital Governance</div>
-
+            
             <div class="cc-topic">
               <div class="cc-topic-label">Topic</div>
               <div class="cc-topic-value">To Be Announced</div>
             </div>
-
+            
             <div class="cc-tags">
               <span class="cc-tag">AI Regulation</span>
               <span class="cc-tag">Cybersecurity</span>
@@ -238,21 +259,21 @@
               <span class="cc-tag">Tech Governance</span>
             </div>
           </div>
-
+          
           <!-- PCC -->
-          <div class="committee-card-full reveal d2">
+          <div class="council-card-full reveal d2">
             <div class="cc-bg-abbr">PCC</div>
             <div class="cc-top">
               <span class="cc-abbr">PCC</span>
             </div>
             <div class="cc-name">Political &amp; Cultural Council</div>
             <div class="cc-type">Geopolitics &amp; Cultural Diplomacy</div>
-
+            
             <div class="cc-topic">
               <div class="cc-topic-label">Topic</div>
               <div class="cc-topic-value">To Be Announced</div>
             </div>
-
+            
             <div class="cc-tags">
               <span class="cc-tag">Geopolitics</span>
               <span class="cc-tag">Cultural Heritage</span>
@@ -260,15 +281,15 @@
               <span class="cc-tag">Diplomacy</span>
             </div>
           </div>
-
+          
         </div>
       </div>
     </section>
-
+    
     <!-- ══ DEBATE FORMAT ════════════════════════════════════ -->
     <section class="format-section" aria-labelledby="format-heading">
       <div class="container">
-
+        
         <div class="format-intro reveal">
           <p class="label">Competition Structure</p>
           <div class="gold-line"></div>
@@ -282,10 +303,10 @@
             Final on Day 2.
           </p>
         </div>
-
+        
         <!-- ─── DAY 1 ─────────────────────────── -->
         <div class="format-day-block">
-
+          
           <div class="format-day-header reveal">
             <div class="format-day-num" aria-hidden="true">01</div>
             <div class="format-day-info">
@@ -293,95 +314,95 @@
               <div class="format-day-date">7 August 2026 — Rounds 1 &amp; 2</div>
             </div>
           </div>
-
+          
           <div class="rounds-stack">
-
+            
             <!-- ROUND 1 -->
             <div class="round-card open" id="round-1">
               <div class="round-header" role="button" tabindex="0"
-                   aria-expanded="true" aria-controls="round-1-body"
-                   onclick="toggleRound('round-1')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-1')">
-                <span class="round-num">Round 01</span>
-                <div class="round-title-block">
-                  <div class="round-title">Oxford Style Debate</div>
-                  <div class="round-subtitle">All teams · Qualifying round</div>
-                </div>
-                <div class="round-expand-icon" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
+              aria-expanded="true" aria-controls="round-1-body"
+              onclick="toggleRound('round-1')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-1')">
+              <span class="round-num">Round 01</span>
+              <div class="round-title-block">
+                <div class="round-title">Oxford Style Debate</div>
+                <div class="round-subtitle">All teams · Qualifying round</div>
               </div>
-              <div class="round-body" id="round-1-body">
-
-                
-                <div class="round-stats">
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Format</span>
-                    <span class="round-stat-pill-value">2 speakers + 1 interjector</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Speech Duration</span>
-                    <span class="round-stat-pill-value">4 min / speaker</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Rebuttal</span>
-                    <span class="round-stat-pill-value">1 min open rebuttal after each speech</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Qualify</span>
-                    <span class="round-stat-pill-value">Top 5 teams per council</span>
-                  </div>
-                </div>
-
-                <div class="round-rules-label">Rules &amp; Procedure</div>
-                <div class="round-rules">
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Two speakers per team — one arguing <em>for</em> the motion, one <em>against</em>.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>One interjector per team, recognised from the open floor during rebuttal time after each speech.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Each speaker is allocated 4 minutes. A bell will signal the end of speaking time.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Following each speech, there is a 1-minute open rebuttal period where interjections are recognised.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Evaluation focus: argument clarity, responsiveness to opposition, speaker presence, and audience engagement.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Judgment: the top 5 teams per council, ranked by cumulative scores across both speakers, advance to Round 2.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Interjectors shall be allotted a specific team through a <strong>random draw of lots</strong> and will be permitted to direct questions exclusively to that team for <strong>both stances</strong> during the rebuttal period.</span></div>
-                </div>
-
+              <div class="round-expand-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
-
-            <!-- ROUND 2 -->
-            <div class="round-card" id="round-2">
-              <div class="round-header" role="button" tabindex="0"
-                   aria-expanded="false" aria-controls="round-2-body"
-                   onclick="toggleRound('round-2')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-2')">
-                <span class="round-num">Round 02</span>
-                <div class="round-title-block">
-                  <div class="round-title">Turncoat Debate</div>
-                  <div class="round-subtitle">Top 5 per council · Pool-based</div>
+            <div class="round-body" id="round-1-body">
+              
+              
+              <div class="round-stats">
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Format</span>
+                  <span class="round-stat-pill-value">2 speakers + 1 interjector</span>
                 </div>
-                <div class="round-expand-icon" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Speech Duration</span>
+                  <span class="round-stat-pill-value">4 min / speaker</span>
+                </div>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Rebuttal</span>
+                  <span class="round-stat-pill-value">1 min open rebuttal after each speech</span>
+                </div>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Qualify</span>
+                  <span class="round-stat-pill-value">Top 5 teams per council</span>
                 </div>
               </div>
-              <div class="round-body" id="round-2-body">
-
-                
-                <div class="round-stats">
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Format</span>
-                    <span class="round-stat-pill-value">2 speakers per team</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Speech Duration</span>
-                    <span class="round-stat-pill-value">6 min total (3+3)</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Pool Structure</span>
-                    <span class="round-stat-pill-value">4 pools across all councils</span>
-                  </div>
-                  <div class="round-stat-pill">
+              
+              <div class="round-rules-label">Rules &amp; Procedure</div>
+              <div class="round-rules">
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Two speakers per team — one arguing <em>for</em> the motion, one <em>against</em>.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>One interjector per team, recognised from the open floor during rebuttal time after each speech.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Each speaker is allocated 4 minutes. A bell will signal the end of speaking time.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Following each speech, there is a 1-minute open rebuttal period where interjections are recognised.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Evaluation focus: argument clarity, responsiveness to opposition, speaker presence, and audience engagement.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Judgment: the top 5 teams per council, ranked by cumulative scores across both speakers, advance to Round 2.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Interjectors shall be allotted a specific team through a <strong>random draw of lots</strong> and will be permitted to direct questions exclusively to that team for <strong>both stances</strong> during the rebuttal period.</span></div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- ROUND 2 -->
+          <div class="round-card" id="round-2">
+            <div class="round-header" role="button" tabindex="0"
+            aria-expanded="false" aria-controls="round-2-body"
+            onclick="toggleRound('round-2')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-2')">
+            <span class="round-num">Round 02</span>
+            <div class="round-title-block">
+              <div class="round-title">Turncoat Debate</div>
+              <div class="round-subtitle">Top 5 per council · Pool-based</div>
+            </div>
+            <div class="round-expand-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="round-body" id="round-2-body">
+            
+            
+            <div class="round-stats">
+              <div class="round-stat-pill">
+                <span class="round-stat-pill-label">Format</span>
+                <span class="round-stat-pill-value">2 speakers per team</span>
+              </div>
+              <div class="round-stat-pill">
+                <span class="round-stat-pill-label">Speech Duration</span>
+                <span class="round-stat-pill-value">6 min total (3+3)</span>
+              </div>
+              <div class="round-stat-pill">
+                <span class="round-stat-pill-label">Pool Structure</span>
+                <span class="round-stat-pill-value">4 pools across all councils</span>
+              </div>
+              <div class="round-stat-pill">
                     <span class="round-stat-pill-label">Qualify</span>
                     <span class="round-stat-pill-value">Top 2 teams per pool</span>
                   </div>
                 </div>
-
+                
                 <div class="round-rules-label">Rules &amp; Procedure</div>
                 <div class="round-rules">
                   <div class="round-rule"><div class="round-rule-dot"></div><span>Each team nominates 2 speakers for this round. The team decides internally which members participate.</span></div>
@@ -391,16 +412,16 @@
                   <div class="round-rule"><div class="round-rule-dot"></div><span>Evaluation focus: argument clarity, adaptability, understanding of the topic, speaker presence, and engagement.</span></div>
                   <div class="round-rule"><div class="round-rule-dot"></div><span>Judgment: the top 2 teams per pool, by cumulative score across both speakers, qualify for Round 3.</span></div>
                 </div>
-
+                
               </div>
             </div>
-
+            
           </div><!-- /rounds-stack Day 1 -->
         </div><!-- /format-day-block Day 1 -->
-
+        
         <!-- ─── DAY 2 ─────────────────────────── -->
         <div class="format-day-block">
-
+          
           <div class="format-day-header reveal">
             <div class="format-day-num" aria-hidden="true">02</div>
             <div class="format-day-info">
@@ -408,115 +429,115 @@
               <div class="format-day-date">8 August 2026 — Rounds 3, 4 &amp; 5</div>
             </div>
           </div>
-
+          
           <div class="rounds-stack">
-
+            
             <!-- ROUND 3 — QF -->
             <div class="round-card" id="round-3">
               <div class="round-header" role="button" tabindex="0"
-                   aria-expanded="false" aria-controls="round-3-body"
-                   onclick="toggleRound('round-3')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-3')">
-                <span class="round-num">Round 03 · QF</span>
-                <div class="round-title-block">
-                  <div class="round-title">Quarter Finals</div>
-                  <div class="round-subtitle">8 teams · Two parallel forums · 4v4</div>
-                </div>
-                <div class="round-expand-icon" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
+              aria-expanded="false" aria-controls="round-3-body"
+              onclick="toggleRound('round-3')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-3')">
+              <span class="round-num">Round 03 · QF</span>
+              <div class="round-title-block">
+                <div class="round-title">Quarter Finals</div>
+                <div class="round-subtitle">8 teams · Two parallel forums · 4v4</div>
               </div>
-              <div class="round-body" id="round-3-body">
-
-                
-                <div class="round-rules-label">The Two Forums</div>
-                <div class="round-forums">
-                  <div class="round-forum-card">
-                    <div class="round-forum-num">Forum I</div>
-                    <div class="round-forum-name">U.S. Executive Leadership Debate</div>
-                  </div>
-                  <div class="round-forum-card">
-                    <div class="round-forum-num">Forum II</div>
-                    <div class="round-forum-name">British Governance Conclave</div>
-                  </div>
-                </div>
-
-                <div class="round-stats">
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Format</span>
-                    <span class="round-stat-pill-value">4v4 · Government vs Opposition</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Speakers per team</span>
-                    <span class="round-stat-pill-value">2 per forum</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Speaking time</span>
-                    <span class="round-stat-pill-value">4 min 30 sec / speaker</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Bench allocation</span>
-                    <span class="round-stat-pill-value">Random draw of chits</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Qualify</span>
-                    <span class="round-stat-pill-value">Winner of each forum (2 teams)</span>
-                  </div>
-                </div>
-
-                <div class="round-rules-label">Rules &amp; Procedure</div>
-                <div class="round-rules">
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Eight teams are split across two parallel forums — 4 teams per forum, debating simultaneously.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Each forum features a 4v4 debate with teams divided into Government and Opposition benches. Allocation is by random draw of chits under the Organising Committee's supervision.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Each team is represented by 2 speakers in each forum. Speaking time is 4 minutes 30 seconds per speaker.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>Standard rules of engagement, rebuttal, and decorum applicable to the competition remain in force.</span></div>
-                  <div class="round-rule"><div class="round-rule-dot"></div><span>The winning team from each forum advances to the Semi-Finals. Two teams qualify in total.</span></div>
-                </div>
-
+              <div class="round-expand-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
-
+            <div class="round-body" id="round-3-body">
+              
+                
+              <div class="round-rules-label">The Two Forums</div>
+              <div class="round-forums">
+                <div class="round-forum-card">
+                  <div class="round-forum-num">Forum I</div>
+                  <div class="round-forum-name">U.S. Executive Leadership Debate</div>
+                </div>
+                <div class="round-forum-card">
+                  <div class="round-forum-num">Forum II</div>
+                  <div class="round-forum-name">British Governance Conclave</div>
+                </div>
+              </div>
+              
+              <div class="round-stats">
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Format</span>
+                  <span class="round-stat-pill-value">4v4 · Government vs Opposition</span>
+                </div>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Speakers per team</span>
+                  <span class="round-stat-pill-value">2 per forum</span>
+                </div>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Speaking time</span>
+                  <span class="round-stat-pill-value">4 min 30 sec / speaker</span>
+                </div>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Bench allocation</span>
+                  <span class="round-stat-pill-value">Random draw of chits</span>
+                </div>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Qualify</span>
+                  <span class="round-stat-pill-value">Winner of each forum (2 teams)</span>
+                </div>
+              </div>
+              
+              <div class="round-rules-label">Rules &amp; Procedure</div>
+              <div class="round-rules">
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Eight teams are split across two parallel forums — 4 teams per forum, debating simultaneously.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Each forum features a 4v4 debate with teams divided into Government and Opposition benches. Allocation is by random draw of chits under the Organising Committee's supervision.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Each team is represented by 2 speakers in each forum. Speaking time is 4 minutes 30 seconds per speaker.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>Standard rules of engagement, rebuttal, and decorum applicable to the competition remain in force.</span></div>
+                <div class="round-rule"><div class="round-rule-dot"></div><span>The winning team from each forum advances to the Semi-Finals. Two teams qualify in total.</span></div>
+              </div>
+              
+              </div>
+            </div>
+            
             <!-- ROUND 4 — SF -->
             <div class="round-card" id="round-4">
               <div class="round-header" role="button" tabindex="0"
-                   aria-expanded="false" aria-controls="round-4-body"
-                   onclick="toggleRound('round-4')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-4')">
-                <span class="round-num">Round 04 · SF</span>
-                <div class="round-title-block">
-                  <div class="round-title">Semi Finals</div>
-                  <div class="round-subtitle">4 teams · Parliamentary Style · 3v3</div>
+              aria-expanded="false" aria-controls="round-4-body"
+              onclick="toggleRound('round-4')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-4')">
+              <span class="round-num">Round 04 · SF</span>
+              <div class="round-title-block">
+                <div class="round-title">Semi Finals</div>
+                <div class="round-subtitle">4 teams · Parliamentary Style · 3v3</div>
+              </div>
+              <div class="round-expand-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="round-body" id="round-4-body">
+              
+              
+              <div class="round-stats">
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Format</span>
+                  <span class="round-stat-pill-value">Parliamentary · 3v3</span>
                 </div>
-                <div class="round-expand-icon" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Venues</span>
+                  <span class="round-stat-pill-value">2 simultaneous debates</span>
+                </div>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Allocation</span>
+                  <span class="round-stat-pill-value">Coin toss</span>
+                </div>
+                <div class="round-stat-pill">
+                  <span class="round-stat-pill-label">Rebuttal</span>
+                  <span class="round-stat-pill-value">2 min after each speaker</span>
                 </div>
               </div>
-              <div class="round-body" id="round-4-body">
-
-                
-                <div class="round-stats">
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Format</span>
-                    <span class="round-stat-pill-value">Parliamentary · 3v3</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Venues</span>
-                    <span class="round-stat-pill-value">2 simultaneous debates</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Allocation</span>
-                    <span class="round-stat-pill-value">Coin toss</span>
-                  </div>
-                  <div class="round-stat-pill">
-                    <span class="round-stat-pill-label">Rebuttal</span>
-                    <span class="round-stat-pill-value">2 min after each speaker</span>
-                  </div>
-                </div>
-
-                <div class="round-rules-label">Speaking Order &amp; Time</div>
-                <div class="speaker-order">
-                  <div class="speaker-order-header">
-                    <div>Speaker</div>
-                    <div>Time</div>
-                    <div>Notes</div>
+              
+              <div class="round-rules-label">Speaking Order &amp; Time</div>
+              <div class="speaker-order">
+                <div class="speaker-order-header">
+                  <div>Speaker</div>
+                  <div>Time</div>
+                  <div>Notes</div>
                   </div>
                   <div class="speaker-row">
                     <div class="speaker-name">Principal Speaker</div>
@@ -544,7 +565,7 @@
                     <div class="speaker-note">Open floor rebuttal</div>
                   </div>
                 </div>
-
+                
                 <div class="round-rules-label">Rules &amp; Procedure</div>
                 <div class="round-rules">
                   <div class="round-rule"><div class="round-rule-dot"></div><span>Four teams are split across two venues, with two parallel head-to-head debates conducted simultaneously under identical rules, motions, and time limits.</span></div>
@@ -553,26 +574,26 @@
                   <div class="round-rule"><div class="round-rule-dot"></div><span>After every speaker concludes their remarks, there is a 2-minute open rebuttal period.</span></div>
                   <div class="round-rule"><div class="round-rule-dot"></div><span>The winner of each venue's debate is declared the pool winner for that venue and advances to the Final.</span></div>
                 </div>
-
+                
               </div>
             </div>
 
             <!-- ROUND 5 — FINAL -->
             <div class="round-card" id="round-5">
               <div class="round-header" role="button" tabindex="0"
-                   aria-expanded="false" aria-controls="round-5-body"
-                   onclick="toggleRound('round-5')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-5')">
-                <span class="round-num">Round 05 · Final</span>
-                <div class="round-title-block">
-                  <div class="round-title">Grand Final</div>
-                  <div class="round-subtitle">2 teams · Parliamentary Style · 3v3</div>
-                </div>
+              aria-expanded="false" aria-controls="round-5-body"
+              onclick="toggleRound('round-5')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRound('round-5')">
+              <span class="round-num">Round 05 · Final</span>
+              <div class="round-title-block">
+                <div class="round-title">Grand Final</div>
+                <div class="round-subtitle">2 teams · Parliamentary Style · 3v3</div>
+              </div>
                 <div class="round-expand-icon" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                 </div>
               </div>
               <div class="round-body" id="round-5-body">
-
+                
                 
                 <div class="round-stats">
                   <div class="round-stat-pill">
@@ -592,7 +613,7 @@
                     <span class="round-stat-pill-value">2 min after each speaker</span>
                   </div>
                 </div>
-
+                
                 <div class="round-rules-label">Speaking Order &amp; Time</div>
                 <div class="speaker-order">
                   <div class="speaker-order-header">
@@ -626,7 +647,7 @@
                     <div class="speaker-note">Open floor rebuttal</div>
                   </div>
                 </div>
-
+                
                 <div class="round-rules-label">Rules &amp; Procedure</div>
                 <div class="round-rules">
                   <div class="round-rule"><div class="round-rule-dot"></div><span>The two finalist teams compete in a single head-to-head debate at the final venue of the competition.</span></div>
@@ -638,13 +659,13 @@
 
               </div>
             </div>
-
+            
           </div><!-- /rounds-stack Day 2 -->
         </div><!-- /format-day-block Day 2 -->
-
+        
       </div>
     </section>
-
+    
     <!-- ══ IMPORTANT NOTES ══════════════════════════════════ -->
     <section class="notes-section" aria-labelledby="notes-heading">
       <div class="container">
@@ -662,59 +683,59 @@
         </div>
       </div>
     </section>
-
+    
     <!-- ══ CTA ══════════════════════════════════════════════ -->
-    <section class="committees-cta" aria-label="Register call to action">
-      <div class="committees-cta-orb" aria-hidden="true"></div>
+    <section class="councils-cta" aria-label="Register call to action">
+      <div class="councils-cta-orb" aria-hidden="true"></div>
       <div class="container" style="position:relative;z-index:1;">
         <p class="label reveal">Ready to Compete?</p>
-        <h2 class="committees-cta reveal" style="margin-top:14px;">
+        <h2 class="councils-cta reveal" style="margin-top:14px;">
           Five Rounds Await.<br><em>Register Now.</em>
         </h2>
         <p class="reveal d1">
           Secure your school's spot at Jaipuria Symposium 2026.
           Registration closes 31 July 2026.
         </p>
-        <div class="committees-cta-btns reveal d2">
+        <div class="councils-cta-btns reveal d2">
           <a href="register.html" class="btn btn-primary magnetic">Register Your School</a>
-          <a href="guides.html"   class="btn btn-outline">Download Background Guides</a>
+          <a href="resources.html"   class="btn btn-outline">Download Resources</a>
         </div>
       </div>
     </section>
-
+    
   </main>
-
+  
   <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
   <footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
-    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
-  </a>
-  <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
-  <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
-  <div class="footer-socials" style="margin-top:20px;">
-    <a href="https://www.instagram.com/jaipuriamunanddebate/" aria-label="Instagram">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a href="http://www.youtube.com/@jaipuriaschool" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <rect x="2" y="4" width="20" height="16" rx="3"/>
-      <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
-      </svg>
-    </a>
- <a href="https://www.linkedin.com/company/seth-m-r-jaipuria-school-gomtinagar-lucknow/" aria-label="LinkedIn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-    </a>
-  </div>
-</div>
+          <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026">
+            <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+          </a>
+          <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
+          <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
+          <div class="footer-socials" style="margin-top:20px;">
+            <a href="https://www.instagram.com/jaipuriamunanddebate/" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="http://www.youtube.com/@jaipuriaschool" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="4" width="20" height="16" rx="3"/>
+                <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/seth-m-r-jaipuria-school-gomtinagar-lucknow/" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
         <div class="footer-col">
           <h5>Symposium</h5>
           <ul>
             <li><a href="about-symposium.html">About Symposium</a></li>
             <li><a href="councils.html">Councils</a></li>
-            <li><a href="guides.html">Documents &amp; Guides</a></li>
+            <li><a href="resources.html">Resources</a></li>
             <li><a href="sponsors.html">Sponsors</a></li>
           </ul>
         </div>
@@ -741,11 +762,12 @@
       </div>
     </div>
   </footer>
-
+</div>
+  
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="src/js/cursor.js"></script>
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/councils.js"></script>
-
+  
   <script>
     // Round accordion toggle
     function toggleRound(id) {
@@ -755,7 +777,7 @@
       const header = card.querySelector('.round-header')
       if (header) header.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
     }
-  </script>
+</script>
 
 </body>
 </html>

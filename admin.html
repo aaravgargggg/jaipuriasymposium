@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Panel — Jaipuria Symposium 2026</title>
+  <title>Admin Panel | Jaipuria Symposium 2026</title>
+  <meta name="description" content="Administrative panel for managing Jaipuria Symposium 2026 operations, registrations, and internal processes. Restricted access only.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,45 +21,84 @@
     window.scrollTo(0, 0)
     document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
   </script>
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Jaipuria Symposium 2026",
-    "url": "https://jaipuriasymposium.org/",
-    "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
-  }
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jaipuriasymposium.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "name": "Admin Panel | Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/admin"
+    }
+  ]
+}
 </script>
 
   <!-- Android / Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-512x512.png">
   
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="https://www.jaipuriasymposium.org/favicon.ico">
 
   <!-- Apple -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.jaipuriasymposium.org/assets/images/apple-touch-icon.png">
 
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="https://www.jaipuriasymposium.org/site.webmanifest">
 
   <!-- Theme -->
   <meta name="theme-color" content="#0b0b0b">
-  
+
+  <style>#navbar .hide-on-home { display: none; } #mobile-menu .hide-on-home { display: none; }</style>
+
+<style>
+  html.loading, body.loading {
+    overflow: hidden;
+    height: 100%;
+  }
+</style>
+
 </head>
 <body>
 
+<div id="loader">
+  <div class="logo-wrap">
+    <img src="src/assets/images/logo.png" class="loader-logo">
+  </div>
+</div>
+<div class="page">
   <div id="cur-dot" aria-hidden="true"></div>
   <div id="cur-ring" aria-hidden="true"></div>
-
+  
   <!-- ── Top Nav ── -->
   <nav id="admin-nav">
     <div class="admin-nav-left">
-      <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
-    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
-    </a>
+      <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
+        <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+      </a>
       <span class="admin-nav-pill">Admin Panel</span>
     </div>
     <div class="admin-nav-right">
@@ -81,16 +121,16 @@
       </button>
     </div>
   </nav>
-
+  
   <!-- ── Loading ── -->
   <div id="admin-loading" class="admin-loading">
     <div class="admin-loading-spinner"></div>
     <p>Loading admin panel…</p>
   </div>
-
+  
   <!-- ── Main (hidden until loaded) ── -->
   <main id="admin-main" style="display:none;">
-
+    
     <!-- Stats Bar -->
     <div class="admin-stats-bar">
       <div class="admin-container">
@@ -127,9 +167,9 @@
         </div>
       </div>
     </div>
-
+    
     <div class="admin-container admin-body">
-
+      
       <!-- Search + Filter + Export Toolbar -->
       <div class="admin-toolbar">
         <div class="admin-search-wrap">
@@ -138,21 +178,21 @@
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
           <input
-            class="admin-search"
-            type="text"
-            id="search-input"
-            placeholder="Search by school name or code…"
+          class="admin-search"
+          type="text"
+          id="search-input"
+          placeholder="Search by school name or code…"
             autocomplete="off"
-          />
-        </div>
-        <div class="admin-filter-tabs">
-          <button class="filter-tab active" data-filter="all">All</button>
-          <button class="filter-tab" data-filter="local">Lucknow</button>
-          <button class="filter-tab" data-filter="outstation">Outstation</button>
-          <button class="filter-tab" data-filter="pending">Pending</button>
-          <button class="filter-tab" data-filter="confirmed">Confirmed</button>
-        </div>
-        <button class="btn-export-excel" id="export-excel-btn">
+            />
+          </div>
+          <div class="admin-filter-tabs">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="local">Lucknow</button>
+            <button class="filter-tab" data-filter="outstation">Outstation</button>
+            <button class="filter-tab" data-filter="pending">Pending</button>
+            <button class="filter-tab" data-filter="confirmed">Confirmed</button>
+          </div>
+          <button class="btn-export-excel" id="export-excel-btn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
             <polyline points="14 2 14 8 20 8"/>
@@ -162,7 +202,7 @@
           Export Excel
         </button>
       </div>
-
+      
       <!-- Export Modal -->
       <div class="export-modal-overlay" id="export-modal" role="dialog" aria-modal="true" aria-label="Export options">
         <div class="export-modal-card">
@@ -172,7 +212,7 @@
           </div>
           <p class="export-modal-sub">Choose what to export as an Excel file.</p>
           <div class="export-options">
-
+            
             <button class="export-option-btn" data-export="all">
               <div class="export-option-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -186,7 +226,7 @@
                 <div class="export-option-sub">Every registered school</div>
               </div>
             </button>
-
+            
             <button class="export-option-btn" data-export="local">
               <div class="export-option-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -199,7 +239,7 @@
                 <div class="export-option-sub">Local schools only</div>
               </div>
             </button>
-
+            
             <button class="export-option-btn" data-export="outstation">
               <div class="export-option-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -213,9 +253,9 @@
                 <div class="export-option-sub">Schools outside Lucknow</div>
               </div>
             </button>
-
+            
             <div class="export-divider">By Council</div>
-
+            
             <button class="export-option-btn" data-export="ERT">
               <div class="export-option-icon export-option-icon--committee">ERT</div>
               <div>
@@ -223,7 +263,7 @@
                 <div class="export-option-sub">Teams registered for ERT council</div>
               </div>
             </button>
-
+            
             <button class="export-option-btn" data-export="SHC">
               <div class="export-option-icon export-option-icon--committee">SHC</div>
               <div>
@@ -231,7 +271,7 @@
                 <div class="export-option-sub">Teams registered for SHC council</div>
               </div>
             </button>
-
+            
             <button class="export-option-btn" data-export="TIF">
               <div class="export-option-icon export-option-icon--committee">TIF</div>
               <div>
@@ -247,14 +287,14 @@
                 <div class="export-option-sub">Teams registered for PCC council</div>
               </div>
             </button>
-
+            
           </div>
         </div>
       </div>
-
+      
       <!-- Schools Grid: LOCAL | OUTSTATION -->
       <div class="schools-columns" id="schools-columns">
-
+        
         <!-- Local Column -->
         <div class="schools-column">
           <div class="column-header">
@@ -268,7 +308,7 @@
             <!-- injected by JS -->
           </div>
         </div>
-
+        
         <!-- Outstation Column -->
         <div class="schools-column">
           <div class="column-header">
@@ -282,12 +322,12 @@
             <!-- injected by JS -->
           </div>
         </div>
-
+        
       </div>
     </div>
-
+    
   </main>
-
+  
   <!-- Notifications Panel — outside main -->
   <div class="notif-panel" id="notif-panel" style="display:none;">
     <div class="notif-panel-header">
@@ -298,11 +338,11 @@
       <div class="notif-empty">No notifications yet.</div>
     </div>
   </div>
-
+  
   <!-- ── School Detail Modal ── -->
   <div id="school-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="School details">
     <div class="modal-card">
-
+      
       <div class="modal-header">
         <div>
           <div class="modal-label" id="modal-location-tag">LOCAL</div>
@@ -316,14 +356,14 @@
           </svg>
         </button>
       </div>
-
+      
       <!-- Toast inside modal -->
       <div class="modal-toast" id="modal-toast" style="display:none;"></div>
-
+      
       <!-- Code Send Section -->
       <div class="modal-code-section">
         <div class="modal-code-label">School Code</div>
-
+        
         <!-- Already sent state -->
         <div id="modal-code-sent" style="display:none;">
           <div class="modal-code-sent-row">
@@ -337,17 +377,17 @@
           </div>
           <p class="modal-code-hint" id="modal-code-sent-at">—</p>
         </div>
-
+        
         <!-- Input to send/update code -->
         <div class="modal-code-input-row" id="modal-code-input-row">
           <div class="admin-input-wrap">
             <input
-              class="admin-code-input mono"
-              type="text"
-              id="code-input"
-              placeholder="e.g. JS0042"
-              maxlength="10"
-              autocomplete="off"
+            class="admin-code-input mono"
+            type="text"
+            id="code-input"
+            placeholder="e.g. JS0042"
+            maxlength="10"
+            autocomplete="off"
             />
             <button class="code-autofill-btn" id="code-autofill-btn" title="Auto-generate next code">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -366,10 +406,10 @@
             <span id="modal-send-spinner" class="spinner" style="display:none;"></span>
           </button>
         </div>
-
+        
         <div class="form-error" id="err-code-input" style="margin-top:6px;"></div>
       </div>
-
+      
       <!-- Info Grid -->
       <div class="modal-info-grid">
         <div class="modal-info-block">
@@ -392,7 +432,7 @@
           <div class="modal-info-val mono" id="modal-reg-date">—</div>
         </div>
       </div>
-
+      
       <!-- Teams in modal -->
       <div class="modal-teams-section">
         <div class="modal-teams-header">
@@ -403,13 +443,14 @@
           <!-- injected by JS -->
         </div>
       </div>
-
+      
     </div>
   </div>
-
+  
+</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script type="module" src="src/js/cursor.js"></script>
   <script type="module" src="src/js/admin.js"></script>
-
+  
 </body>
 </html>

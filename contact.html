@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Jaipuria Symposium 2026 — reach out for registration, committee, logistics, sponsorship, or press enquiries." />
-  <title>Contact — Jaipuria Symposium 2026</title>
+  <meta name="description" content="Get in touch with the Jaipuria Symposium 2026 team for registrations, queries, or partnerships. Reach out to us for any information regarding the event.">
+  <title>Contact Us | Jaipuria Symposium 2026</title>
   <script>history.scrollRestoration = 'manual'; window.scrollTo(0, 0); document.fonts.ready.then(()=>document.body.classList.add('fonts-ready'));</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,56 +14,97 @@
   <link rel="stylesheet" href="src/css/animations.css" />
   <link rel="stylesheet" href="src/css/components.css" />
   <link rel="stylesheet" href="src/css/contact.css" />
+
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Jaipuria Symposium 2026",
-    "url": "https://jaipuriasymposium.org/",
-    "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jaipuriasymposium.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "name": "Contact Us | Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/contact"
+    }
+  ]
+}
 </script>
 
   <!-- Android / Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-512x512.png">
   
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="https://www.jaipuriasymposium.org/favicon.ico">
 
   <!-- Apple -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.jaipuriasymposium.org/assets/images/apple-touch-icon.png">
 
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="https://www.jaipuriasymposium.org/site.webmanifest">
 
   <!-- Theme -->
   <meta name="theme-color" content="#0b0b0b">
+
+  <style>#navbar .hide-on-home { display: none; } #mobile-menu .hide-on-home { display: none; }</style>
+
+<style>
+  html.loading, body.loading {
+    overflow: hidden;
+    height: 100%;
+  }
+</style>
+
 </head>
 <body>
+<div id="loader">
+  <div class="logo-wrap">
+    <img src="src/assets/images/logo.png" class="loader-logo">
+  </div>
+</div>
 
+<div id="page">
   <div id="cur-dot"  aria-hidden="true"></div>
   <div id="cur-ring" aria-hidden="true"></div>
   <div class="page-transition-overlay" aria-hidden="true"></div>
-
-    <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+  
+  <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
-    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
-  </a>
-
+    <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
+      <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+    </a>
+    
     <ul class="nav-links" role="list">
-      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li class="hide-on-home"><a href="/">Home</a></li>
       <li><a href="about-school.html">About Our School</a></li>
       <li><a href="about-symposium.html">About Symposium</a></li>
-      <li><a href="agendas.html">Committees</a></li>
-      <li><a href="guides.html">Documents</a></li>
+      <li><a href="councils.html">Councils</a></li>
+      <li><a href="resources.html">Resources</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
       <li><a href="contact.html" class="nav-active">Contact Us</a></li>
     </ul>
-
+    
     <div class="nav-cta-area">
       <a href="register.html" class="btn-nav-register" id="nav-register-btn">
         Register Now
@@ -78,11 +119,11 @@
   <!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
   <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
     <ul class="mobile-nav-links" role="list">
-      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li class="hide-on-home"><a href="/">Home</a></li>
       <li><a href="about-school.html">About Our School</a></li>
       <li><a href="about-symposium.html">About Symposium</a></li>
-      <li><a href="agendas.html">Committees</a></li>
-      <li><a href="guides.html">Documents</a></li>
+      <li><a href="councils.html">Coucnils</a></li>
+      <li><a href="resources.html">Resources</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
       <li><a href="contact.html">Contact Us</a></li>
@@ -92,30 +133,30 @@
       <a href="register.html">Register Now</a>
     </div>
   </div>
-  </div>
+</div>
 
 <main id="main-content">
-
-    <section class="page-hero" aria-label="Contact page header">
-      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="page-hero-inner">
-        <p class="hero-eyebrow" aria-hidden="true">Jaipuria Symposium 2026</p>
-        <h1 class="hero-heading">Let's <em>Talk.</em></h1>
-        <p class="hero-sub">Questions about registration, committees, logistics, or partnerships — our team is ready. Every message lands with the right person and we respond within 12 hours.</p>
-      </div>
-    </section>
-
-    <section class="contact-section" aria-label="Contact details and enquiry form">
-      <div class="container">
-        <div class="contact-grid">
-
-          <div class="contact-info-panel reveal" aria-label="Contact information">
-            <div class="section-label" aria-hidden="true">Get In Touch</div>
-            <h2 class="contact-info-heading">We'd love to<br><em>hear from you.</em></h2>
+  
+  <section class="page-hero" aria-label="Contact page header">
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="page-hero-inner">
+      <p class="hero-eyebrow" aria-hidden="true">Jaipuria Symposium 2026</p>
+      <h1 class="hero-heading">Let's <em>Talk.</em></h1>
+      <p class="hero-sub">Questions about registration, councils, logistics, or partnerships — our team is ready. Every message lands with the right person and we respond within 12 hours.</p>
+    </div>
+  </section>
+  
+  <section class="contact-section" aria-label="Contact details and enquiry form">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <div class="contact-info-panel reveal" aria-label="Contact information">
+          <div class="section-label" aria-hidden="true">Get In Touch</div>
+          <h2 class="contact-info-heading">We'd love to<br><em>hear from you.</em></h2>
             <p class="contact-info-desc">Whether you're a prospective delegate, school coordinator, potential sponsor, or a member of the press — every message finds its way to the right person.</p>
-
+            
             <div class="contact-channels" role="list">
               <a href="mailto:contact@jaipuriasymposium.org" class="contact-channel" role="listitem" aria-label="Email general enquiries">
                 <div class="channel-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
@@ -132,41 +173,41 @@
                 <div class="channel-body"><div class="channel-label">Address</div><div class="channel-value">Seth M. R. Jaipuria School, Lucknow</div></div>
               </div>
             </div>
-
+            
             <div>
               <p class="socials-header">Follow Us</p>
               <div class="socials-row" role="list">
                 <a href="https://www.instagram.com/jaipuriamunanddebate/" class="social-pill" role="listitem" aria-label="Follow on Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" style="fill:currentColor;stroke:none"/></svg>Instagram</a>
                 <a href="https://www.linkedin.com/company/seth-m-r-jaipuria-school-gomtinagar-lucknow/" class="social-pill" role="listitem" aria-label="Connect on LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
                 <a href="http://www.youtube.com/@jaipuriaschool" class="social-pill" role="listitem" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none;">
-    <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>YouTube</a>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none;">
+                    <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>YouTube</a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div class="contact-form-panel reveal reveal-delay-2">
-            <div class="form-card">
-              <p class="form-card-eyebrow">Send a Message</p>
-              <h2 class="form-card-title">Start a <em>conversation.</em></h2>
-              <form id="contactForm" novalidate aria-label="Contact enquiry form">
-                <div class="form-row-split">
-                  <div class="form-group" id="groupName">
-                    <label class="form-label" for="fieldName">Your Name</label>
-                    <div class="form-input-wrap">
-                      <svg class="form-input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                      <input type="text" id="fieldName" name="name" class="form-input" placeholder="Full name" autocomplete="name" required aria-required="true" aria-describedby="errName" />
-                    </div>
-                    <span class="form-error-msg" id="errName" role="alert" aria-live="polite"></span>
-                  </div>
-                  <div class="form-group" id="groupEmail">
-                    <label class="form-label" for="fieldEmail">Email Address</label>
-                    <div class="form-input-wrap">
-                      <svg class="form-input-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-                      <input type="email" id="fieldEmail" name="email" class="form-input" placeholder="you@school.edu" autocomplete="email" required aria-required="true" aria-describedby="errEmail" />
-                    </div>
-                    <span class="form-error-msg" id="errEmail" role="alert" aria-live="polite"></span>
-                  </div>
+              
+              <div class="contact-form-panel reveal reveal-delay-2">
+                <div class="form-card">
+                  <p class="form-card-eyebrow">Send a Message</p>
+                  <h2 class="form-card-title">Start a <em>conversation.</em></h2>
+                  <form id="contactForm" novalidate aria-label="Contact enquiry form">
+                    <div class="form-row-split">
+                      <div class="form-group" id="groupName">
+                        <label class="form-label" for="fieldName">Your Name</label>
+                        <div class="form-input-wrap">
+                          <svg class="form-input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                          <input type="text" id="fieldName" name="name" class="form-input" placeholder="Full name" autocomplete="name" required aria-required="true" aria-describedby="errName" />
+                        </div>
+                        <span class="form-error-msg" id="errName" role="alert" aria-live="polite"></span>
+                      </div>
+                      <div class="form-group" id="groupEmail">
+                        <label class="form-label" for="fieldEmail">Email Address</label>
+                        <div class="form-input-wrap">
+                          <svg class="form-input-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                          <input type="email" id="fieldEmail" name="email" class="form-input" placeholder="you@school.edu" autocomplete="email" required aria-required="true" aria-describedby="errEmail" />
+                        </div>
+                        <span class="form-error-msg" id="errEmail" role="alert" aria-live="polite"></span>
+                      </div>
                 </div>
                 <div class="form-group" id="groupSubject">
                   <label class="form-label" for="fieldSubject">Subject</label>
@@ -174,7 +215,7 @@
                     <select id="fieldSubject" name="subject" class="form-select" required aria-required="true" aria-describedby="errSubject">
                       <option value="" disabled selected>Select a topic…</option>
                       <option value="Registration Query">Registration Query</option>
-                      <option value="Committee / Agenda Query">Committee / Agenda Query</option>
+                      <option value="Council Query">Council Query</option>
                       <option value="Delegate Information">Delegate Information</option>
                       <option value="Logistics & Accommodation">Logistics &amp; Accommodation</option>
                       <option value="Sponsorship">Sponsorship &amp; Partnerships</option>
@@ -209,11 +250,11 @@
               </form>
             </div>
           </div>
-
+          
         </div>
       </div>
     </section>
-
+    
     <section class="info-strip-section" aria-label="Event quick info">
       <div class="container">
         <div class="info-strip">
@@ -237,7 +278,7 @@
         </div>
       </div>
     </section>
-
+    
     <section class="map-section" aria-label="School location on map">
       <div class="container">
         <div class="map-header reveal">
@@ -253,46 +294,46 @@
         </div>
       </div>
     </section>
-
+    
   </main>
-
-      <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
+  
+  <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
   <footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
-
+        
         <div class="footer-brand">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
-    <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
-  </a>
-  <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
-  <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
-  <div class="footer-socials" style="margin-top:20px;">
-    <a href="https://www.instagram.com/jaipuriamunanddebate/" aria-label="Instagram">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a href="http://www.youtube.com/@jaipuriaschool" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <rect x="2" y="4" width="20" height="16" rx="3"/>
-      <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
-      </svg>
-    </a>
- <a href="https://www.linkedin.com/company/seth-m-r-jaipuria-school-gomtinagar-lucknow/" aria-label="LinkedIn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-    </a>
-  </div>
-</div>
-
-<div class="footer-col">
+          <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026">
+            <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
+          </a>
+          <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
+          <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">&ldquo;Reason. Reform. Rise.&rdquo;</p>
+          <div class="footer-socials" style="margin-top:20px;">
+            <a href="https://www.instagram.com/jaipuriamunanddebate/" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="http://www.youtube.com/@jaipuriaschool" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="4" width="20" height="16" rx="3"/>
+                <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/seth-m-r-jaipuria-school-gomtinagar-lucknow/" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
           <h5>Symposium</h5>
           <ul>
             <li><a href="about-symposium.html">About Symposium</a></li>
-            <li><a href="agendas.html">Councils</a></li>
-            <li><a href="guides.html">Documents &amp; Guides</a></li>
+            <li><a href="councils.html">Councils</a></li>
+            <li><a href="resources.html">Resources</a></li>
             <li><a href="sponsors.html">Sponsors</a></li>
           </ul>
         </div>
-
+        
         <div class="footer-col">
           <h5>Information</h5>
           <ul>
@@ -301,7 +342,7 @@
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-
+        
         <div class="footer-col">
           <h5>Participate</h5>
           <ul>
@@ -314,15 +355,17 @@
             <a href="mailto:contact@jaipuriasymposium.com" style="font-family:var(--font-mono);font-size:12px;color:var(--chamber-gold);">contact@jaipuriasymposium.com</a>
           </div>
         </div>
-
+        
       </div><!-- /footer-grid -->
-
+      
       <div class="footer-bottom">
         <p>&copy; 2026 Seth M. R. Jaipuria School, Lucknow. All rights reserved.</p>
         <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;">REASON &middot; REFORM &middot; RISE</p>
       </div>
     </div>
   </footer>
+  
+</div>
 
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/cursor.js"></script>

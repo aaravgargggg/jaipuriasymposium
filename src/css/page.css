@@ -196,9 +196,9 @@
 .format-row-desc  { font-size: 13px; color: var(--silver-mist); line-height: 1.6; }
 
 /* ════════════════════════════════════════
-   AGENDA PAGE
+   council PAGE
 ════════════════════════════════════════ */
-.agenda-filters {
+.council-filters {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -226,14 +226,14 @@
   color: var(--chamber-gold);
 }
 
-.committees-full-grid {
+.councils-full-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 48px;
 }
 
-.committee-full-card {
+.council-full-card {
   background: var(--navy-card);
   border: 1px solid var(--divider-line);
   border-radius: var(--radius-lg);
@@ -245,7 +245,7 @@
               transform var(--duration-base) var(--ease-smooth),
               box-shadow var(--duration-base) var(--ease-smooth);
 }
-.committee-full-card:hover {
+.council-full-card:hover {
   border-color: var(--chamber-gold);
   transform: translateY(-6px);
   box-shadow: 0 20px 60px rgba(201,168,76,.12);
@@ -356,16 +356,16 @@
 .team-card.featured h4 { font-size: 24px; }
 
 /* ════════════════════════════════════════
-   GUIDES PAGE
+   resourceS PAGE
 ════════════════════════════════════════ */
-.guides-grid {
+.resources-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 48px;
 }
 
-.guide-card {
+.resource-card {
   background: var(--navy-card);
   border: 1px solid var(--divider-line);
   border-radius: var(--radius-lg);
@@ -377,9 +377,9 @@
   position: relative;
   overflow: hidden;
 }
-.guide-card:hover { border-color: var(--chamber-gold); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(201,168,76,.12); }
+.resource-card:hover { border-color: var(--chamber-gold); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(201,168,76,.12); }
 
-.guide-card-icon {
+.resource-card-icon {
   width: 48px; height: 48px;
   border: 1px solid var(--divider-line);
   border-radius: var(--radius-md);
@@ -388,14 +388,14 @@
   margin-bottom: 22px;
   transition: border-color var(--duration-base), box-shadow var(--duration-base);
 }
-.guide-card:hover .guide-card-icon { border-color: var(--chamber-gold); box-shadow: 0 0 20px rgba(201,168,76,.2); }
+.resource-card:hover .resource-card-icon { border-color: var(--chamber-gold); box-shadow: 0 0 20px rgba(201,168,76,.2); }
 
-.guide-card-abbr  { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--chamber-gold); margin-bottom: 8px; }
-.guide-card-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--ivory-white); margin-bottom: 6px; }
-.guide-card-type  { font-size: 12px; color: var(--silver-mist); margin-bottom: 16px; }
-.guide-card-topic { font-size: 13px; color: var(--silver-mist); line-height: 1.65; margin-bottom: 24px; }
+.resource-card-abbr  { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--chamber-gold); margin-bottom: 8px; }
+.resource-card-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--ivory-white); margin-bottom: 6px; }
+.resource-card-type  { font-size: 12px; color: var(--silver-mist); margin-bottom: 16px; }
+.resource-card-topic { font-size: 13px; color: var(--silver-mist); line-height: 1.65; margin-bottom: 24px; }
 
-.guide-status {
+.resource-status {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -405,11 +405,11 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.guide-status-dot { width: 6px; height: 6px; border-radius: 50%; }
-.guide-available   .guide-status-dot { background: #4ade80; }
-.guide-available   .guide-status-text { color: #4ade80; }
-.guide-coming-soon .guide-status-dot { background: var(--chamber-gold); }
-.guide-coming-soon .guide-status-text { color: var(--chamber-gold); }
+.resource-status-dot { width: 6px; height: 6px; border-radius: 50%; }
+.resource-available   .resource-status-dot { background: #4ade80; }
+.resource-available   .resource-status-text { color: #4ade80; }
+.resource-coming-soon .resource-status-dot { background: var(--chamber-gold); }
+.resource-coming-soon .resource-status-text { color: var(--chamber-gold); }
 
 /* ════════════════════════════════════════
    SPONSORS PAGE
@@ -698,7 +698,7 @@
    RESPONSIVE
 ════════════════════════════════════════ */
 @media (max-width: 1200px) {
-  .committees-full-grid { grid-template-columns: repeat(2, 1fr); }
+  .councils-full-grid { grid-template-columns: repeat(2, 1fr); }
   .team-grid            { grid-template-columns: repeat(3, 1fr); }
   .sponsor-package-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -713,7 +713,7 @@
   .register-grid        { grid-template-columns: 1fr; }
   .register-sidebar     { position: static; }
   .school-intro-grid    { grid-template-columns: 1fr; gap: 48px; }
-  .guides-grid          { grid-template-columns: repeat(2, 1fr); }
+  .resources-grid          { grid-template-columns: repeat(2, 1fr); }
   .sponsors-logo-grid.tier-1 { grid-template-columns: 1fr; }
   .sponsors-logo-grid.tier-2 { grid-template-columns: repeat(2, 1fr); }
 }
@@ -722,10 +722,10 @@
   .page-hero { min-height: 50vh; padding-top: 120px; }
   .pillars-grid         { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
   .about-stats-grid     { grid-template-columns: 1fr 1fr; }
-  .committees-full-grid { grid-template-columns: 1fr; }
+  .councils-full-grid { grid-template-columns: 1fr; }
   .team-grid            { grid-template-columns: repeat(2, 1fr); }
   .team-grid.featured   { grid-template-columns: 1fr; max-width: 340px; }
-  .guides-grid          { grid-template-columns: 1fr; }
+  .resources-grid          { grid-template-columns: 1fr; }
   .sponsor-package-grid { grid-template-columns: 1fr; }
   .school-values-grid   { grid-template-columns: 1fr; }
   .form-row             { grid-template-columns: 1fr; }

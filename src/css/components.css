@@ -7,6 +7,94 @@
 /* ════════════════════════════════════════
    NAVBAR — Canonical
 ════════════════════════════════════════ */
+
+html.loading,
+body.loading {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+body.loading {
+  position: fixed;
+  width: 100%;
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--deep-void);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+}
+
+/* Wrapper for effect */
+.logo-wrap {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Logo */
+.loader-logo {
+  width: 320px;
+  animation: fadeScale 1s ease forwards;
+}
+
+/* Moving gradient light */
+.logo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,0.7),
+    transparent 80%
+  );
+  mix-blend-mode: overlay;
+  transform: translateX(-150%);
+  animation: shimmer 2s infinite linear;
+}
+
+/* Entry animation */
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Gradient sweep */
+@keyframes shimmer {
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+/* Page reveal */
+#page {
+  opacity: 0;
+  transform: scale(0.96);
+  filter: blur(10px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+    transform 0.8s cubic-bezier(0.16,1,0.3,1),
+    filter 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+body.loading {
+  overflow: hidden;
+}
+
 #navbar {
   position: fixed;
   top: 0;

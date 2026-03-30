@@ -80,6 +80,7 @@ html, body{
   -webkit-text-fill-color: transparent;
   animation: shimmerAnim 4s linear infinite;
   font-style: italic;
+  line-height: 1.2;
 }
 
 .hero-tagline {
@@ -318,7 +319,7 @@ html, body{
   margin-top: 14px;
 }
 
-/* ── committees ── */
+/* ── councils ── */
 .Councils-section {
   background: var(--midnight-navy);
 }
@@ -339,7 +340,7 @@ html, body{
   padding: 0 var(--container-padding);
 }
 
-.committee-card {
+.council-card {
   background: var(--navy-card);
   border: 1px solid var(--divider-line);
   border-radius: var(--radius-lg);
@@ -354,13 +355,13 @@ html, body{
   cursor: default;
 }
 
-.committee-card:hover {
+.council-card:hover {
   border-color: var(--chamber-gold);
   transform: translateY(-6px);
   box-shadow: 0 20px 60px rgba(201,168,76,0.12);
 }
 
-.committee-abbr {
+.council-abbr {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.22em;
@@ -368,7 +369,7 @@ html, body{
   margin-bottom: 10px;
 }
 
-.committee-name {
+.council-name {
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
@@ -377,14 +378,14 @@ html, body{
   margin-bottom: 6px;
 }
 
-.committee-type {
+.council-type {
   font-family: var(--font-ui);
   font-size: 12px;
   color: var(--silver-mist);
   margin-bottom: 18px;
 }
 
-.committee-topics {
+.council-topics {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
@@ -401,7 +402,7 @@ html, body{
   color: var(--silver-mist);
 }
 
-.committee-difficulty {
+.council-difficulty {
   display: inline-block;
   padding: 4px 14px;
   border-radius: var(--radius-pill);
@@ -417,7 +418,7 @@ html, body{
 .diff-intermediate { background: rgba(234,179,8,.12);  color: #facc15; border: 1px solid rgba(234,179,8,.25); }
 .diff-advanced     { background: rgba(239,68,68,.12);  color: #f87171; border: 1px solid rgba(239,68,68,.25); }
 
-.committee-cta {
+.council-cta {
   font-family: var(--font-ui);
   font-size: 12px;
   letter-spacing: 0.1em;
@@ -428,7 +429,7 @@ html, body{
   gap: 6px;
   transition: gap var(--duration-fast) var(--ease-smooth);
 }
-.committee-cta:hover { gap: 12px; }
+.council-cta:hover { gap: 12px; }
 
 /* ── Schedule ── */
 .schedule-section { background: var(--deep-void); }
@@ -812,13 +813,13 @@ html, body{
   line-height: 1.5;
 }
 
-/* ── committee card extras ── */
-.committee-card-featured {
+/* ── council card extras ── */
+.council-card-featured {
   background: linear-gradient(145deg, rgba(201,168,76,0.07), var(--navy-card));
   border-color: rgba(201,168,76,0.35);
 }
 
-.committee-badge {
+.council-badge {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -833,7 +834,7 @@ html, body{
   border-radius: var(--radius-pill);
 }
 
-.committee-body {
+.council-body {
   font-family: var(--font-ui);
   font-size: 13px;
   color: var(--silver-mist);
@@ -1207,8 +1208,8 @@ html, body{
   color: var(--silver-mist);
 }
 
-/* ── committee description ── */
-.committee-desc {
+/* ── council description ── */
+.council-desc {
   font-family: var(--font-ui);
   font-size: 13px;
   line-height: 1.65;
@@ -1216,14 +1217,14 @@ html, body{
   margin-bottom: 18px;
 }
 
-/* ── committee featured card ── */
-.committee-featured {
+/* ── council featured card ── */
+.council-featured {
   background: linear-gradient(145deg, rgba(201,168,76,0.06), var(--navy-card));
   border-color: rgba(201,168,76,0.3);
   position: relative;
 }
 
-.committee-featured::before {
+.council-featured::before {
   content: '★ Featured';
   position: absolute;
   top: 16px;
@@ -1351,9 +1352,9 @@ html, body{
   /* Schedule */
   .schedule-section h2  { margin-bottom: 40px; }
 
-  /* committees track */
+  /* councils track */
   .Councils-track     { flex-direction: column; align-items: center; }
-  .committee-card       { width: 100%; max-width: 400px; }
+  .council-card       { width: 100%; max-width: 400px; }
 
   /* About intro */
   .about-intro-grid     { grid-template-columns: 1fr; gap: 32px; }

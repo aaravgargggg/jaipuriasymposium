@@ -54,17 +54,17 @@
   }
 }
 
-/* ── Committees Grid ── */
-.about-committees-grid {
+/* ── councils Grid ── */
+.about-councils-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 @media (max-width: 768px) {
-  .about-committees-grid { grid-template-columns: 1fr; }
+  .about-councils-grid { grid-template-columns: 1fr; }
 }
 
-.about-committee-card {
+.about-council-card {
   background: var(--navy-card);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
@@ -73,7 +73,7 @@
   overflow: hidden;
   transition: border-color 0.3s, background 0.3s;
 }
-.about-committee-card::before {
+.about-council-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -83,8 +83,8 @@
   transform-origin: left;
   transition: transform 0.4s ease;
 }
-.about-committee-card:hover::before { transform: scaleX(1); }
-.about-committee-card:hover {
+.about-council-card:hover::before { transform: scaleX(1); }
+.about-council-card:hover {
   background: #0f1828;
   border-color: rgba(201,168,76,0.14);
 }
