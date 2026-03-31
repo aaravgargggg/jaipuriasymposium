@@ -21,32 +21,58 @@
     document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
   </script>
 
+   <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Jaipuria Symposium 2026",
-    "url": "https://jaipuriasymposium.org/",
-    "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jaipuriasymposium.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "name": "Login Page | Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/login"
+    }
+  ]
+}
 </script>
 
   <!-- Android / Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-512x512.png">
   
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="https://www.jaipuriasymposium.org/favicon.ico">
 
   <!-- Apple -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.jaipuriasymposium.org/assets/images/apple-touch-icon.png">
 
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="https://www.jaipuriasymposium.org/site.webmanifest">
 
   <!-- Theme -->
   <meta name="theme-color" content="#0b0b0b">
+
+  <style>#navbar .hide-on-home { display: none; } #mobile-menu .hide-on-home { display: none; }</style>
 </head>
 <body>
 
@@ -56,16 +82,16 @@
 
     <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
+  <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
     <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
   </a>
 
   <ul class="nav-links" role="list">
-    <li class="hide-on-home"><a href="index.html">Home</a></li>
+    <li class="hide-on-home"><a href="/">Home</a></li>
     <li><a href="about-school.html">About Our School</a></li>
     <li><a href="about-symposium.html">About Symposium</a></li>
-    <li><a href="agendas.html">Councils</a></li>
-    <li><a href="guides.html">Documents</a></li>
+    <li><a href="councils.html">Councils</a></li>
+    <li><a href="resources.html">Resources</a></li>
     <li><a href="sponsors.html">Sponsors</a></li>
     <li><a href="team.html">Meet Our Team</a></li>
     <li><a href="contact.html">Contact Us</a></li>
@@ -85,11 +111,11 @@
   <!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
   <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
     <ul class="mobile-nav-links" role="list">
-      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li class="hide-on-home"><a href="/">Home</a></li>
       <li><a href="about-school.html">About Our School</a></li>
       <li><a href="about-symposium.html">About Symposium</a></li>
-      <li><a href="agendas.html">Committees</a></li>
-      <li><a href="guides.html">Documents</a></li>
+      <li><a href="councils.html">Councils</a></li>
+      <li><a href="resources.html">Resources</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
       
@@ -190,7 +216,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
+  <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026">
     <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
   </a>
   <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
@@ -214,8 +240,8 @@
           <h5>Symposium</h5>
           <ul>
             <li><a href="about-symposium.html">About Symposium</a></li>
-            <li><a href="agendas.html">Councils</a></li>
-            <li><a href="guides.html">Documents &amp; Guides</a></li>
+            <li><a href="councils.html">Councils</a></li>
+            <li><a href="resources.html">Resources</a></li>
             <li><a href="sponsors.html">Sponsors</a></li>
           </ul>
         </div>

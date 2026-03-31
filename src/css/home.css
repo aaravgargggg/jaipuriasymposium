@@ -80,6 +80,7 @@ html, body{
   -webkit-text-fill-color: transparent;
   animation: shimmerAnim 4s linear infinite;
   font-style: italic;
+  line-height: 154px;
 }
 
 .hero-tagline {
@@ -320,7 +321,7 @@ html, body{
 
 /* ── committees ── */
 .Councils-section {
-  background: var(--midnight-navy);
+  background: var(--deep-void);
 }
 
 .Councils-section h2 { margin: 16px 0 12px; }
@@ -960,6 +961,7 @@ html, body{
   .stats-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+
 @media (max-width: 1024px) {
   #globe-container { opacity: 0.18; width: 65vw; height: 65vw; right: -25%; }
   .about-intro-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -967,6 +969,7 @@ html, body{
   .schedule-center-divider { display: none; }
   .formats-grid { grid-template-columns: 1fr 1fr; }
   .format-featured { grid-column: span 2; }
+  .hero-line-2 { line-height: 100px;}
 }
 
 @media (max-width: 768px) {
@@ -981,6 +984,7 @@ html, body{
   .countdown-sep { display: none; }
   .countdown-item { min-width: 80px; }
   .about-intro-grid { gap: 36px; }
+  .hero-line-2 {line-height: 80px;}
 }
 
 @media (max-width: 480px) {

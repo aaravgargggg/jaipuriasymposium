@@ -20,32 +20,58 @@
   <link rel="stylesheet" href="src/css/page.css" />
   <link rel="stylesheet" href="src/css/team.css" />
 
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Jaipuria Symposium 2026",
-    "url": "https://jaipuriasymposium.org/",
-    "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "logo": "https://jaipuriasymposium.org/assets/images/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jaipuriasymposium.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "name": "Meet Our Team | Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/team"
+    }
+  ]
+}
 </script>
 
   <!-- Android / Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-512x512.png">
   
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="https://www.jaipuriasymposium.org/favicon.ico">
 
   <!-- Apple -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.jaipuriasymposium.org/assets/images/apple-touch-icon.png">
 
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="https://www.jaipuriasymposium.org/site.webmanifest">
 
   <!-- Theme -->
   <meta name="theme-color" content="#0b0b0b">
+
+  <style>#navbar .hide-on-home { display: none; } #mobile-menu .hide-on-home { display: none; }</style>
 </head>
 <body>
 
@@ -63,8 +89,8 @@
     <li class="hide-on-home"><a href="index.html">Home</a></li>
     <li><a href="about-school.html">About Our School</a></li>
     <li><a href="about-symposium.html">About Symposium</a></li>
-    <li><a href="agendas.html">Councils</a></li>
-    <li><a href="guides.html">Documents</a></li>
+    <li><a href="councils.html">Councils</a></li>
+    <li><a href="resources.html">Resources</a></li>
     <li><a href="sponsors.html">Sponsors</a></li>
     <li><a href="team.html" class="nav-active">Meet Our Team</a></li>
     <li><a href="contact.html">Contact Us</a></li>
@@ -87,8 +113,8 @@
       <li class="hide-on-home"><a href="index.html">Home</a></li>
       <li><a href="about-school.html">About Our School</a></li>
       <li><a href="about-symposium.html">About Symposium</a></li>
-      <li><a href="agendas.html">Councils</a></li>
-      <li><a href="guides.html">Documents</a></li>
+      <li><a href="councils.html">Councils</a></li>
+      <li><a href="resources.html">Resources</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
       <li><a href="contact.html">Contact Us</a></li>
@@ -291,8 +317,8 @@
           <h5>Symposium</h5>
           <ul>
             <li><a href="about-symposium.html">About Symposium</a></li>
-            <li><a href="agendas.html">Councils</a></li>
-            <li><a href="guides.html">Documents &amp; Guides</a></li>
+            <li><a href="councils.html">Councils</a></li>
+            <li><a href="resources.html">Resources</a></li>
             <li><a href="sponsors.html">Sponsors</a></li>
           </ul>
         </div>

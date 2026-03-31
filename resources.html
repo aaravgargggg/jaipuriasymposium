@@ -19,6 +19,11 @@
   <link rel="stylesheet" href="src/css/components.css" />
   <link rel="stylesheet" href="src/css/resources.css" />
 
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'))
+  </script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,42 +45,32 @@
       }
     },
     {
-      "@type": "Article",
-      "headline": "Resources | Jaipuria Symposium 2026",
-      "author": {
-        "@type": "Organization",
-        "name": "Jaipuria Symposium"
-      },
-      "publisher": {
-      "@type": "Organization",
-      "name": "Jaipuria Symposium",
-      "logo": {
-        @type": "ImageObject",
-        "url": "https://jaipuriasymposium.org/assets/images/logo.png"
-    }
-  },
+      "@type": "WebPage",
+      "name": "Resources | Jaipuria Symposium 2026",
+      "url": "https://jaipuriasymposium.org/resources"
     }
   ]
-  "url": "https://jaipuriasymposium.org/resources"
 }
 </script>
 
   <!-- Android / Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://www.jaipuriasymposium.org/assets/images/android-chrome-512x512.png">
   
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="https://www.jaipuriasymposium.org/favicon.ico">
 
   <!-- Apple -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.jaipuriasymposium.org/assets/images/apple-touch-icon.png">
 
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="https://www.jaipuriasymposium.org/site.webmanifest">
 
   <!-- Theme -->
   <meta name="theme-color" content="#0b0b0b">
+
+  <style>#navbar .hide-on-home { display: none; } #mobile-menu .hide-on-home { display: none; }</style>
 </head>
 <body>
 
@@ -85,15 +80,15 @@
 
     <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
 <nav id="navbar" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
+  <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026 — Home">
     <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
   </a>
 
   <ul class="nav-links" role="list">
-    <li class="hide-on-home"><a href="index.html">Home</a></li>
+    <li class="hide-on-home"><a href="/">Home</a></li>
     <li><a href="about-school.html">About Our School</a></li>
     <li><a href="about-symposium.html">About Symposium</a></li>
-    <li><a href="agendas.html">Councils</a></li>
+    <li><a href="councils.html">Councils</a></li>
     <li><a href="resources.html" class="nav-active">Resources</a></li>
     <li><a href="sponsors.html">Sponsors</a></li>
     <li><a href="team.html">Meet Our Team</a></li>
@@ -114,11 +109,11 @@
   <!-- ══ MOBILE MENU ══════════════════════════════════════════ -->
   <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
     <ul class="mobile-nav-links" role="list">
-      <li class="hide-on-home"><a href="index.html">Home</a></li>
+      <li class="hide-on-home"><a href="/">Home</a></li>
       <li><a href="about-school.html">About Our School</a></li>
       <li><a href="about-symposium.html">About Symposium</a></li>
-      <li><a href="agendas.html">Councils</a></li>
-      <li><a href="guides.html" class="nav-active">Documents</a></li>
+      <li><a href="councils.html">Councils</a></li>
+      <li><a href="resources.html" class="nav-active">Resources</a></li>
       <li><a href="sponsors.html">Sponsors</a></li>
       <li><a href="team.html">Meet Our Team</a></li>
       <li><a href="contact.html">Contact Us</a></li>
@@ -136,7 +131,7 @@
   <div class="guides-hero-content">
     <div class="guides-hero-eyebrow">Resources &amp; Documentation</div>
     <h1>Prepare.<br><em>Lead. Rise.</em></h1>
-    <p class="guides-hero-sub">Everything you need to walk into committee ready — background guides, delegate handbook, rulebook, and all official documentation.</p>
+    <p class="guides-hero-sub">Everything you need to walk into a council ready — research guides, delegate handbook, rulebook, and all official documentation.</p>
   </div>
 </header>
 
@@ -148,7 +143,7 @@
       <span class="section-label">Background Guides</span>
       <div class="gold-divider"></div>
       <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--ivory-white);line-height:1.1;">Your research <em style="color:var(--chamber-gold);">starts here.</em></h2>
-      <p style="margin-top:14px;max-width:500px;font-size:0.95rem;">Each committee guide contains the topic brief, key issues, bloc positions, and directives for drafting resolutions.</p>
+      <p style="margin-top:14px;max-width:500px;font-size:0.95rem;">Each research guide contains the topic brief, key issues, bloc positions, and directives for drafting resolutions.</p>
     </div>
 
     <div class="bg-guides-grid">
@@ -241,7 +236,7 @@
           <span class="doc-card-format">PDF</span>
         </div>
         <div class="doc-card-title">Rulebook</div>
-        <p class="doc-card-desc">Formal rules governing all committee proceedings, voting procedures, points and motions, and crisis protocol.</p>
+        <p class="doc-card-desc">Formal rules governing all council proceedings, voting procedures, points and motions, and crisis protocol.</p>
         <span class="doc-card-coming">Coming Soon</span>
       </div>
 
@@ -262,7 +257,7 @@
           <div class="doc-card-type-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
           <span class="doc-card-format">DOCX</span>
         </div>
-        <div class="doc-card-title">Committee Documentation Format</div>
+        <div class="doc-card-title">Council Documentation Format</div>
         <p class="doc-card-desc">Official template for drafting working papers, draft resolutions, and amendments.</p>
         <span class="doc-card-coming">Coming Soon</span>
       </div>
@@ -285,7 +280,7 @@
           <span class="doc-card-format">PDF</span>
         </div>
         <div class="doc-card-title">Campus Map</div>
-        <p class="doc-card-desc">School map showing committee rooms, auditorium, dining hall, and all key venues for JS 2026.</p>
+        <p class="doc-card-desc">School map showing council rooms, auditorium, dining hall, and all key venues for JS 2026.</p>
         <span class="doc-card-coming">Coming Soon</span>
       </div>
 
@@ -328,7 +323,7 @@
       <p>Register now to get notified the moment each background guide and document goes live.</p>
       <div class="guides-cta-btns reveal d2">
         <a href="register.html" class="btn btn-primary magnetic">Register Your School</a>
-        <a href="agendas.html"  class="btn btn-outline">Committees</a>
+        <a href="councils.html"  class="btn btn-outline">Councils</a>
       </div>
     </div>
   </div>
@@ -339,7 +334,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-  <a href="index.html" class="nav-logo" aria-label="Jaipuria Symposium 2026">
+  <a href="/" class="nav-logo" aria-label="Jaipuria Symposium 2026">
     <img src="src/assets/images/logo.png" alt="Jaipuria Symposium 2026" class="nav-logo-img" />
   </a>
   <p>An inter-school debate symposium hosted by Seth M. R. Jaipuria School, Lucknow. Second edition — August 7–8, 2026.</p>
@@ -363,8 +358,8 @@
           <h5>Symposium</h5>
           <ul>
             <li><a href="about-symposium.html">About Symposium</a></li>
-            <li><a href="agendas.html">Councils</a></li>
-            <li><a href="guides.html">Documents &amp; Guides</a></li>
+            <li><a href="councils.html">Councils</a></li>
+            <li><a href="resources.html">Resources</a></li>
             <li><a href="sponsors.html">Sponsors</a></li>
           </ul>
         </div>
