@@ -426,7 +426,7 @@ async function handleSubmit(e) {
     try {
       const { data: { session } } = await supabase.auth.getSession()
 
-      const res = await fetch(`${SUPABASE_URL}/functions/v1/register-msg`, {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/bright-endpoint`, {
         method: 'POST',
         headers: {
           'Content-Type':  'application/json',
