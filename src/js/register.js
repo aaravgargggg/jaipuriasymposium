@@ -21,7 +21,7 @@ const COMMITTEES = [
   { value: 'TIF', label: 'Tech & Innovation Forum' },
   { value: 'PCC', label: 'Political & Cultural Council' },
 ]
-const CLASSES = ['8', '9', '10', '11', '12']
+const CLASSES = ['9', '10', '11', '12']
 
 let teamIdCounter = 0
 
@@ -66,9 +66,11 @@ function onCityInput(e) {
 // TEAM BLOCKS
 // ════════════════════════════════════════
 function addTeamBlock() {
+  const currentCount = document.querySelectorAll('.team-block').length
+  if (currentCount >= 2) return   // max 2 teams
   teamIdCounter++
   const id      = teamIdCounter
-  const isFirst = document.querySelectorAll('.team-block').length === 0
+  const isFirst = currentCount === 0
 
   const container = document.getElementById('teams-container')
   const block     = document.createElement('div')
@@ -89,6 +91,7 @@ function addTeamBlock() {
   if (removeBtn) removeBtn.addEventListener('click', () => removeTeamBlock(id))
 
   refreshTeamNumbers()
+  updateAddTeamBtn()
 }
 
 function removeTeamBlock(id) {
@@ -97,7 +100,7 @@ function removeTeamBlock(id) {
   block.style.transition = 'opacity 0.22s ease, transform 0.22s ease'
   block.style.opacity    = '0'
   block.style.transform  = 'translateY(-8px)'
-  setTimeout(() => { block.remove(); refreshTeamNumbers() }, 230)
+  setTimeout(() => { block.remove(); refreshTeamNumbers(); updateAddTeamBtn() }, 230)
 }
 
 function refreshTeamNumbers() {
@@ -106,6 +109,13 @@ function refreshTeamNumbers() {
     const t = b.querySelector('.team-block-title')
     if (t) t.textContent = `Team ${n++}`
   })
+}
+
+function updateAddTeamBtn() {
+  const btn   = document.getElementById('add-team-btn')
+  const count = document.querySelectorAll('.team-block').length
+  if (!btn) return
+  btn.style.display = count >= 2 ? 'none' : 'flex'
 }
 
 function buildTeamHTML(id, isFirst) {
@@ -155,14 +165,41 @@ function buildTeamHTML(id, isFirst) {
     </div>
     <div class="team-block-fields">
       <div class="form-group">
-        <label class="form-label" for="committee-${id}">Committee <span class="req">*</span></label>
-        <div class="select-wrap">
-          <select class="form-select" id="committee-${id}">
-            <option value="" disabled selected>Select a committee</option>
-            ${committeeOpts}
-          </select>
+        <div class="form-step-sub" style="margin-bottom:12px;font-size:12px;color:var(--silver-mist);">
+          Select 3 council preferences in order. We'll allot one based on availability.
         </div>
-        <span class="form-error" id="err-committee-${id}"></span>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div>
+            <label class="form-label" for="pref1-${id}">1st Preference <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="form-select" id="pref1-${id}">
+                <option value="" disabled selected>Select council</option>
+                ${committeeOpts}
+              </select>
+            </div>
+            <span class="form-error" id="err-pref1-${id}"></span>
+          </div>
+          <div>
+            <label class="form-label" for="pref2-${id}">2nd Preference <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="form-select" id="pref2-${id}">
+                <option value="" disabled selected>Select council</option>
+                ${committeeOpts}
+              </select>
+            </div>
+            <span class="form-error" id="err-pref2-${id}"></span>
+          </div>
+          <div>
+            <label class="form-label" for="pref3-${id}">3rd Preference <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="form-select" id="pref3-${id}">
+                <option value="" disabled selected>Select council</option>
+                ${committeeOpts}
+              </select>
+            </div>
+            <span class="form-error" id="err-pref3-${id}"></span>
+          </div>
+        </div>
       </div>
       <div class="participants-list">
         ${participantRows}
@@ -266,9 +303,21 @@ function validateForm() {
 
   teamBlocks.forEach(block => {
     const id  = block.id.replace('team-block-', '')
-    const cEl = document.getElementById(`committee-${id}`)
-    if (!cEl || !cEl.value) markError(`err-committee-${id}`, 'Please select a committee.')
-    else cEl.classList.add('valid')
+
+    // Validate 3 preferences — must be selected and all different
+    const p1El = document.getElementById(`pref1-${id}`)
+    const p2El = document.getElementById(`pref2-${id}`)
+    const p3El = document.getElementById(`pref3-${id}`)
+    const p1v  = p1El?.value, p2v = p2El?.value, p3v = p3El?.value
+
+    if (!p1v) markError(`err-pref1-${id}`, 'Please select your 1st preference.')
+    else p1El.classList.add('valid')
+    if (!p2v) markError(`err-pref2-${id}`, 'Please select your 2nd preference.')
+    else if (p2v === p1v) markError(`err-pref2-${id}`, 'Must be different from 1st preference.')
+    else p2El.classList.add('valid')
+    if (!p3v) markError(`err-pref3-${id}`, 'Please select your 3rd preference.')
+    else if (p3v === p1v || p3v === p2v) markError(`err-pref3-${id}`, 'Must be different from other preferences.')
+    else p3El.classList.add('valid')
 
     ;[1, 2, 3].forEach(p => {
       const nEl = document.getElementById(`p${p}-name-${id}`)
@@ -356,7 +405,10 @@ async function handleSubmit(e) {
       const id = block.id.replace('team-block-', '')
       teamsToInsert.push({
         school_id:           schoolId,
-        committee:           document.getElementById(`committee-${id}`).value,
+        preference_1:        document.getElementById(`pref1-${id}`).value,
+        preference_2:        document.getElementById(`pref2-${id}`).value,
+        preference_3:        document.getElementById(`pref3-${id}`).value,
+        committee:           null,   // allotted by admin later
         team_number:         index + 1,
         participant_1_name:  document.getElementById(`p1-name-${id}`).value.trim(),
         participant_1_class: document.getElementById(`p1-class-${id}`).value,
@@ -374,11 +426,11 @@ async function handleSubmit(e) {
     try {
       const { data: { session } } = await supabase.auth.getSession()
 
-      const res = await fetch(`${SUPABASE_URL}/functions/v1/bright-endpoint`, {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/register-msg`, {
         method: 'POST',
         headers: {
           'Content-Type':  'application/json',
-          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Authorization': `Bearer ${session?.access_token ?? SUPABASE_ANON_KEY}`,
         },
         body: JSON.stringify({
           email,
@@ -386,7 +438,7 @@ async function handleSubmit(e) {
           schoolName: document.getElementById('school-name').value.trim(),
           ticName:    document.getElementById('tic-name').value.trim(),
           teamCount:  teamBlocks.length,
-          loginUrl:   `jaipuriasymposium.org/login.html`,
+          loginUrl:   `${window.location.origin}/login.html`,
         }),
       })
 

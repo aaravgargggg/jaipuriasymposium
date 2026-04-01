@@ -156,7 +156,7 @@ svg    { display: block; }
 .page-hero {
   position: relative;
   min-height: 52vh;
-  padding-top: 72px;
+  padding-top: 50px;
   display: flex;
   align-items: center;
   overflow: hidden;

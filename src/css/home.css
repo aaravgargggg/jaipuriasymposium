@@ -8,6 +8,117 @@ html, body{
   background: var(--deep-void)
 }
 
+/* ════════════════════════════════════════
+   BROCHURE SECTION
+════════════════════════════════════════ */
+
+.brochure-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.brochure-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* LEFT CONTENT */
+.brochure-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 12px 0 16px;
+}
+
+.brochure-desc {
+  max-width: 480px;
+  color: var(--silver-mist);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+/* BUTTON UPGRADE */
+.brochure-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle shine on hover */
+.brochure-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,0.4),
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.6s;
+}
+
+.brochure-btn:hover::after {
+  transform: translateX(120%);
+}
+
+/* RIGHT VISUAL MOCK */
+.brochure-visual {
+  position: relative;
+  height: 320px;
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.01)
+  );
+  border: 1px solid rgba(201,168,76,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* fake brochure card */
+.brochure-mock {
+  width: 480px;
+  height: 270px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0b0f1e, #12172b);
+  border: 1px solid rgba(201,168,76,0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.brochure-mock h4 {
+  color: var(--chamber-gold);
+  font-size: 16px;
+}
+
+.brochure-mock span {
+  font-size: 12px;
+  color: var(--silver-mist);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .brochure-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .brochure-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+} 
+
 #page {
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -321,7 +432,9 @@ html, body{
 
 /* ── committees ── */
 .Councils-section {
-  background: var(--deep-void);
+  background: var(--midnight-navy);
+  border-bottom: 1px solid var(--divider-line);
+  border-top: 1px solid var(--divider-line);
 }
 
 .Councils-section h2 { margin: 16px 0 12px; }
@@ -504,7 +617,7 @@ html, body{
 }
 
 /* ── Formats ── */
-.formats-section { background: var(--midnight-navy); }
+.formats-section { background: var(--deep-void); }
 .formats-section h2 { text-align: center; margin: 16px 0 64px; }
 
 .formats-grid {

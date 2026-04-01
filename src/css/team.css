@@ -39,19 +39,6 @@
   letter-spacing: -0.03em; z-index: 0;
 }
 
-.breadcrumb {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
-}
-.breadcrumb a,
-.breadcrumb span {
-  font-family: var(--font-ui);
-  font-size: var(--text-caption);
-  letter-spacing: 0.14em; text-transform: uppercase;
-}
-.breadcrumb a        { color: var(--silver-mist); transition: color var(--duration-fast); }
-.breadcrumb a:hover  { color: var(--chamber-gold); }
-.breadcrumb .sep     { color: rgba(201,168,76,0.25); }
-.breadcrumb .current { color: var(--chamber-gold); }
 
 /* ════════════════════════════════════
    SECTION PREAMBLE
